@@ -3,123 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Multimedia Gen is the Best Video Production Company in Bangladesh. We provide elite Video Editing Services, Web Development, and Digital Marketing solutions.">
-<meta name="keywords" content="Best Video Production Company in Bangladesh, Best Video Editing Services, Multimedia Gen Agency, Video Production Dhaka, Web Development Sylhet">
-<title>Best Video Production Company in Bangladesh • Multimedia Gen</title>
+<meta name="description" content="Multimedia Gen is the Best Video Production Company & Video Editing Agency in Bangladesh. Sales-driven digital solutions for global brands.">
+<title>Multimedia Gen | Best Video Production Company In Bangladesh</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+/* --- PRO LEVEL DESIGN SYSTEM --- */
 :root {
-  --accent: #00ff88;
-  --accent-glow: rgba(0, 255, 136, 0.5);
+  --primary: #00ff88;
+  --primary-glow: rgba(0, 255, 136, 0.5);
   --secondary: #00f2ff;
   --bg: #010409;
-  --card-glass: rgba(13, 17, 23, 0.7);
+  --card: rgba(13, 17, 23, 0.85);
   --border: rgba(255, 255, 255, 0.08);
-  --text-main: #ffffff;
+  --text: #ffffff;
   --text-dim: #94a3b8;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-
-body { background-color: var(--bg); color: var(--text-main); overflow-x: hidden; line-height: 1.7; }
+body { background-color: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.7; }
 
 /* AMBIENT BACKGROUND */
 .glow-mesh { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: 
-    radial-gradient(circle at 5% 10%, rgba(0, 255, 136, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 95% 90%, rgba(0, 242, 255, 0.05) 0%, transparent 40%); }
+    radial-gradient(circle at 10% 10%, rgba(0, 255, 136, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(0, 242, 255, 0.05) 0%, transparent 40%); }
 
-/* HEADER - THE MASSIVE LOGO FOCUS */
-.header { position: sticky; top: 0; width: 100%; z-index: 1000; background: rgba(1, 4, 9, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; transition: 0.4s; }
+/* HEADER - THE MASSIVE LOGO */
+.header { position: sticky; top: 0; width: 100%; z-index: 1000; background: rgba(1, 4, 9, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; }
+.logo-wrap img { height: 180px; width: auto; transition: 0.4s; filter: drop-shadow(0 0 15px rgba(0,255,136,0.25)); }
+.logo-wrap:hover img { transform: scale(1.03); }
 
-/* LOGO SIZE DOUBLED (2X) */
-.logo-container img { 
-    height: 180px; /* Doubled size for desktop */
-    width: auto; 
-    transition: 0.4s ease; 
-    filter: drop-shadow(0 0 15px rgba(0,255,136,0.25)); /* Brand glow */
-}
-.logo-container:hover img { transform: scale(1.03); filter: drop-shadow(0 0 25px var(--accent-glow)); }
+.nav-links { display: flex; gap: 22px; align-items: center; }
+.nav-links a { color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
-.nav-menu { display: flex; gap: 30px; align-items: center; }
-.nav-menu a { color: var(--text-main); text-decoration: none; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; position: relative; }
-.nav-menu a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: var(--accent); transition: 0.3s; }
-.nav-menu a:hover::after { width: 100%; }
-.nav-menu a:hover { color: var(--accent); }
-
-.contact-btn { background: var(--accent); color: #000 !important; padding: 14px 32px; border-radius: 50px; font-weight: 800 !important; box-shadow: 0 4px 15px var(--accent-glow); transition: 0.3s; }
-.contact-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px var(--accent-glow); background: #fff; }
+.contact-btn { background: var(--primary); color: #000 !important; padding: 12px 28px; border-radius: 50px; font-weight: 800 !important; box-shadow: 0 4px 15px var(--primary-glow); }
 
 /* HERO SECTION */
-.hero { padding: 60px 5% 100px; text-align: center; max-width: 1400px; margin: auto; }
-.badge-premium { display: inline-flex; align-items: center; gap: 10px; padding: 10px 25px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 50px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 30px; letter-spacing: 2px; }
+.hero { padding: 40px 5% 100px; text-align: center; max-width: 1400px; margin: auto; }
+.premium-badge { display: inline-flex; align-items: center; gap: 10px; padding: 10px 25px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 50px; font-size: 0.8rem; font-weight: 800; color: var(--primary); margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
 
-h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -4px; margin-bottom: 25px; }
-h1 span { background: linear-gradient(to right, #fff, var(--accent), var(--secondary)); -webkit-background-clip: text; color: transparent; }
+h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.5rem, 7vw, 5.2rem); font-weight: 900; line-height: 1.05; letter-spacing: -3px; margin-bottom: 25px; }
+h1 span { background: linear-gradient(to right, #fff, var(--primary), var(--secondary)); -webkit-background-clip: text; color: transparent; }
 
-.hero-sub { font-size: clamp(1.2rem, 3vw, 2.2rem); font-weight: 700; color: #f1f5f9; margin-bottom: 30px; letter-spacing: -1px; }
-.hero p { max-width: 900px; margin: 0 auto 50px; color: var(--text-dim); font-size: 1.25rem; line-height: 1.8; }
+.hero-sub { font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 700; color: #f1f5f9; margin-bottom: 35px; }
+.hero p { max-width: 950px; margin: 0 auto 50px; color: var(--text-dim); font-size: 1.25rem; }
 
-/* VIDEO VISIBILITY */
-.video-feature { width: 100%; max-width: 1050px; margin: 0 auto 60px; border-radius: 40px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16/9; box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
-.video-feature iframe { width: 100%; height: 100%; border: none; }
+/* MAIN VIDEO VISIBLE */
+.video-main { width: 100%; max-width: 1050px; margin: 0 auto 60px; border-radius: 40px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16/9; box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
+.video-main iframe { width: 100%; height: 100%; border: none; }
 
-.action-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 80px; }
-.action-grid a { padding: 20px 45px; border-radius: 100px; text-decoration: none; font-weight: 800; transition: 0.4s; display: flex; align-items: center; gap: 12px; font-size: 1.05rem; }
-.btn-main { background: var(--accent); color: #000; box-shadow: 0 10px 30px var(--accent-glow); }
+.hero-btns { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 80px; }
+.hero-btns a { padding: 18px 42px; border-radius: 100px; text-decoration: none; font-weight: 800; transition: 0.4s; display: flex; align-items: center; gap: 12px; font-size: 1.05rem; }
+.btn-main { background: var(--primary); color: #000; box-shadow: 0 10px 30px var(--primary-glow); }
 .btn-ghost { background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: #fff; backdrop-filter: blur(10px); }
-.action-grid a:hover { transform: translateY(-5px) scale(1.02); }
 
 /* STATS */
 .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto 100px; }
-.stat-card { background: var(--card-glass); padding: 50px 30px; border-radius: 40px; border: 1px solid var(--border); text-align: center; }
-.stat-card h3 { font-size: 4rem; font-weight: 900; color: #fff; line-height: 1; }
-.stat-card p { color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 3px; margin-top: 15px; }
+.stat-box { background: var(--card); padding: 50px 30px; border-radius: 40px; border: 1px solid var(--border); text-align: center; }
+.stat-box h3 { font-size: 4rem; font-weight: 900; line-height: 1; margin-bottom: 10px; }
+.stat-box p { color: var(--primary); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 3px; }
 
-/* CEO SECTION */
-.ceo-wrap { padding: 100px 5%; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; max-width: 1300px; margin: auto; border-top: 1px solid var(--border); }
-.ceo-content h2 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 30px; letter-spacing: -2px; }
-.ceo-img { position: relative; }
-.ceo-img img { width: 100%; border-radius: 50px; border: 1px solid var(--border); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
-.ceo-name-tag { margin-top: 30px; text-align: center; }
-.ceo-name-tag h4 { font-size: 2.2rem; font-weight: 900; }
-.ceo-name-tag p { color: var(--accent); font-weight: 800; letter-spacing: 4px; font-size: 0.9rem; }
+/* SERVICES GRID */
+.services-section { padding: 120px 5%; background: rgba(255,255,255,0.01); border-top: 1px solid var(--border); }
+.s-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 35px; max-width: 1400px; margin: auto; }
+.s-card { background: var(--card); border: 1px solid var(--border); border-radius: 40px; padding: 40px; transition: 0.5s; position: relative; overflow: hidden; }
+.s-card:hover { border-color: var(--primary); transform: translateY(-15px); }
 
-/* SERVICES */
-.services-section { padding: 120px 5%; background: rgba(255,255,255,0.01); }
-.s-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 35px; max-width: 1400px; margin: 60px auto 0; }
-.s-card { background: var(--card-glass); border: 1px solid var(--border); border-radius: 40px; padding: 50px; transition: 0.5s; }
-.s-card:hover { border-color: var(--accent); transform: translateY(-15px); }
-.s-card h3 { font-size: 2rem; color: var(--accent); margin-bottom: 25px; }
-.s-card ul { list-style: none; margin-bottom: 35px; }
-.s-card li { color: var(--text-dim); margin-bottom: 18px; display: flex; align-items: center; gap: 15px; font-size: 1rem; }
-.s-card li i { color: var(--accent); }
-.s-card a { color: #fff; text-decoration: none; font-weight: 800; border-bottom: 2px solid var(--accent); padding-bottom: 5px; transition: 0.3s; }
+.s-video { width: 100%; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05); }
+.s-video iframe { width: 100%; height: 100%; border: none; }
 
-/* REVIEWS */
+.s-card h3 { font-size: 2rem; color: var(--primary); margin-bottom: 20px; font-weight: 800; }
+.s-card ul { list-style: none; margin-bottom: 30px; }
+.s-card li { color: var(--text-dim); margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-size: 1rem; }
+.s-card li i { color: var(--primary); font-size: 1.1rem; }
+.s-link { color: #fff; text-decoration: none; font-weight: 800; border-bottom: 2px solid var(--primary); padding-bottom: 5px; transition: 0.3s; font-size: 0.95rem; }
+
+/* FOUNDER SECTION */
+.founder-wrap { padding: 120px 5%; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; max-width: 1300px; margin: auto; border-top: 1px solid var(--border); }
+.founder-content h2 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 30px; }
+.founder-img img { width: 100%; border-radius: 50px; border: 1px solid var(--border); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+
+/* REVIEWS - THE GOOGLE OPTION */
 .reviews { padding: 120px 5%; text-align: center; }
 .rev-container { background: radial-gradient(circle at center, rgba(0,255,136,0.05), transparent); padding: 100px 40px; border-radius: 60px; border: 1px solid var(--border); max-width: 1100px; margin: auto; }
-.google-link { background: #fff; color: #000; padding: 22px 50px; border-radius: 100px; text-decoration: none; font-weight: 900; display: inline-flex; align-items: center; gap: 15px; margin-top: 40px; font-size: 1.1rem; box-shadow: 0 10px 40px rgba(255,255,255,0.1); }
+.reviews h3 { color: var(--primary); letter-spacing: 5px; font-weight: 800; margin-bottom: 25px; text-transform: uppercase; }
+.reviews h2 { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; }
+.google-link { background: #fff; color: #000; padding: 22px 50px; border-radius: 100px; text-decoration: none; font-weight: 900; display: inline-flex; align-items: center; gap: 15px; margin-top: 40px; font-size: 1.1rem; transition: 0.3s; }
+.google-link:hover { transform: scale(1.05); box-shadow: 0 10px 40px rgba(255,255,255,0.2); }
 
 /* FOOTER */
 .footer { position: relative; padding: 120px 5% 50px; background: #000; overflow: hidden; border-top: 1px solid var(--border); }
 .footer-overlay { position: absolute; inset: 0; background: url('mgf.jpg') center/cover no-repeat; opacity: 0.08; filter: contrast(1.2); z-index: 0; }
-.f-grid { position: relative; z-index: 1; max-width: 1400px; margin: auto; display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 1fr; gap: 60px; }
+.f-grid { position: relative; z-index: 1; max-width: 1400px; margin: auto; display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr; gap: 60px; text-align: left; }
 .f-col h4 { color: #fff; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 35px; font-size: 0.95rem; font-weight: 800; }
 .f-col p, .f-col a { color: var(--text-dim); text-decoration: none; margin-bottom: 15px; display: block; font-size: 1rem; transition: 0.3s; }
-.f-col a:hover { color: var(--accent); padding-left: 10px; }
+.f-col a:hover { color: var(--primary); padding-left: 10px; }
 
 /* WHATSAPP FLOAT */
-.wa-float { position: fixed; bottom: 40px; right: 40px; background: #25D366; color: #fff; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; z-index: 2000; box-shadow: 0 15px 40px rgba(37,211,102,0.4); }
+.wa-float { position: fixed; bottom: 40px; right: 40px; background: #25D366; color: #fff; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; z-index: 2000; box-shadow: 0 15px 40px rgba(37,211,102,0.4); text-decoration: none; transition: 0.4s; }
+.wa-float:hover { transform: scale(1.1) rotate(10deg); }
 
 @media(max-width: 1100px) { 
-    .header { padding: 15px 5%; }
-    .logo-container img { height: 100px; } /* Scaled for mobile */
-    .nav-menu { display: none; } 
-    .ceo-wrap { grid-template-columns: 1fr; text-align: center; }
+  .logo-wrap img { height: 100px; }
+  .nav-links { display: none; } 
+  .founder-wrap { grid-template-columns: 1fr; text-align: center; }
+  .f-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
@@ -128,11 +120,11 @@ h1 span { background: linear-gradient(to right, #fff, var(--accent), var(--secon
 <div class="glow-mesh"></div>
 
 <header class="header">
-  <a href="index.html" class="logo-container">
-    <img src="faviconlogo.png" alt="Multimedia Gen Global Official Logo">
+  <a href="index.html" class="logo-wrap">
+    <img src="faviconlogo.png" alt="Multimedia Gen Global Logo">
   </a>
-  <nav class="nav-menu">
-    <a href="index.html">Home</a>
+  <nav class="nav-links">
+    <a href="index.html" class="active">Home</a>
     <a href="#services">Services</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="#about">About</a>
@@ -142,92 +134,114 @@ h1 span { background: linear-gradient(to right, #fff, var(--accent), var(--secon
 </header>
 
 <section class="hero">
-  <div class="badge-premium"><i class="fas fa-crown"></i> The Best Video Production Company In Bangladesh</div>
+  <div class="premium-badge"><i class="fas fa-crown"></i> Best Video Production Company in Bangladesh</div>
   <h1>We Create Videos That <br><span>Don’t Just Look Good — They Sell!</span></h1>
-  <p class="hero-sub">Providing The Best Video Editing Services For Brands Worldwide</p>
-  <p>Multimedia Gen is a high-end sales-driven production agency. We decode audience psychology to build cinematic video edits, fast-loading web platforms, and viral digital marketing funnels that multiply your revenue.</p>
+  <p class="hero-sub">Providing The Best Video Editing Services For Brands & Creators</p>
+  <p>Helping businesses, content creators, and global brands scale with sales-driven production, cinematic editing, and stunning digital architectures. Over 6000+ successful projects delivered worldwide.</p>
   
-  <div class="action-grid">
-    <a href="talent.html" class="btn-main"><i class="fas fa-user-plus"></i> Hire Brand Promoters</a>
+  <div class="hero-btns">
+    <a href="talent.html" class="btn-main"><i class="fas fa-users"></i> Hire Brand Promoters</a>
     <a href="portfolio.html" class="btn-ghost">View Master Portfolio</a>
-    <a href="https://wa.me/8801915706375" class="btn-ghost">Pricing & Plans</a>
+    <a href="https://wa.me/8801915706375" class="btn-ghost">Pricing & Packages</a>
+    <a href="talent.html" class="btn-ghost">Voice Artist List</a>
   </div>
 
-  <div class="video-feature">
+  <div class="video-main">
     <iframe src="https://www.youtube.com/embed/cCmMFfn3Cag?rel=0&modestbranding=1" allowfullscreen></iframe>
   </div>
 
   <div class="stat-row">
-    <div class="stat-card"><h3>6000+</h3><p>Projects Done</p></div>
-    <div class="stat-card"><h3>100+</h3><p>Global Talent</p></div>
-    <div class="stat-card"><h3>10+</h3><p>Years Experience</p></div>
+    <div class="stat-box"><h3>6000+</h3><p>Projects Delivered</p></div>
+    <div class="stat-box"><h3>100+</h3><p>Elite Freelancers</p></div>
+    <div class="stat-box"><h3>10+</h3><p>Years Experience</p></div>
   </div>
 </section>
 
-<section class="ceo-wrap" id="about">
-  <div class="ceo-content">
-    <h2>Your <span style="color:var(--accent)">Growth Partner</span> In Digital Mastery</h2>
-    <p>As the <strong>best video editing agency in Bangladesh</strong>, our mission is to convert every single frame of your content into a sales engine. We don't just edit; we strategize.</p>
-    <p>Whether you are looking for top-tier OVC production in Dhaka or advanced web development in Sylhet, we combine creative storytelling with data-driven results.</p>
+<section class="founder-wrap" id="about">
+  <div class="founder-content">
+    <h2>Your <span style="color:var(--primary)">Growth Partner</span> In The Digital Space</h2>
+    <p>Recognized as the best agency, our mission is helping businesses succeed through the power of strategic, conversion-focused content.</p>
+    <p>Whether you need an affordable web development company in Sylhet, professional graphic design in Dhaka, or global digital marketing solutions, we combine creativity and strategy to ensure your brand stands out.</p>
   </div>
-  <div class="ceo-img">
-    <img src="ceo.jpeg" alt="Md Usman Gani - CEO & Founder of Multimedia Gen">
-    <div class="ceo-name-tag">
-      <h4>Md Usman Gani</h4>
-      <p>CEO & FOUNDER</p>
+  <div class="founder-img">
+    <img src="ceo.jpeg" alt="Md Usman Gani - CEO of Multimedia Gen">
+    <div style="margin-top: 30px; text-align: center;">
+      <h3 style="font-size: 2.2rem; font-weight: 900;">Md Usman Gani</h3>
+      <p style="color: var(--primary); font-weight: 800; letter-spacing: 4px; font-size: 0.9rem;">CEO & FOUNDER</p>
     </div>
   </div>
 </section>
 
 <section class="services-section" id="services">
-  <div style="text-align:center;">
-    <h2 style="font-size: 3.5rem; font-weight: 900;">Premium Solutions</h2>
-    <p style="color: var(--text-dim);">Engineered to dominate and scale your brand identity.</p>
+  <div style="text-align: center; margin-bottom: 80px;">
+    <h2 style="font-size: 3.5rem; font-weight: 900; letter-spacing: -2px;">Our Expertise</h2>
+    <p style="color: var(--text-dim); font-size: 1.2rem;">Watch our professional work samples below.</p>
   </div>
   
   <div class="s-grid">
-    <div class="s-card" style="border-color: var(--accent);">
-      <h3>Best Video Editing</h3>
-      <p>Elite, retention-focused editing for commercials, YouTube, and viral ads.</p>
-      <ul>
-        <li><i class="fas fa-check-circle"></i> High-End Color Grading</li>
-        <li><i class="fas fa-check-circle"></i> Cinematic Sound Design</li>
-        <li><i class="fas fa-check-circle"></i> Advanced Motion Graphics</li>
-      </ul>
-      <a href="portfolio.html">Explore Master Edits</a>
+    <div class="s-card" style="border-color: var(--primary);">
+      <div class="s-video">
+        <iframe src="https://www.youtube.com/embed/PITpmHQ9Rzs?rel=0" allowfullscreen></iframe>
+      </div>
+      <h3>Video Production</h3>
+      <p>High-end cinematic OVC/TVC production and promotional videos for brand authority.</p>
+      <a href="portfolio.html" class="s-link">View Portfolio</a>
     </div>
 
     <div class="s-card">
+      <div class="s-video">
+        <iframe src="https://www.youtube.com/embed/3Cm09r56Agk?rel=0" allowfullscreen></iframe>
+      </div>
+      <h3>Video Editing</h3>
+      <p>Transform raw footage into polished sales assets with high-retention editing.</p>
+      <a href="portfolio.html" class="s-link">View Edits</a>
+    </div>
+
+    <div class="s-card">
+      <div class="s-video">
+        <iframe src="https://www.youtube.com/embed/Uvx91VQ0inM?rel=0" allowfullscreen></iframe>
+      </div>
       <h3>Brand Promotion</h3>
-      <p>Instant credibility with professional model casting and OVC production.</p>
-      <ul>
-        <li><i class="fas fa-check-circle"></i> Professional Model Casting</li>
-        <li><i class="fas fa-check-circle"></i> High-End Scriptwriting</li>
-        <li><i class="fas fa-check-circle"></i> Complete Video Production</li>
-      </ul>
-      <a href="talent.html">Visit Talent Hub</a>
+      <p>Showcase products with our top-rated professional models to build instant market trust.</p>
+      <a href="talent.html" class="s-link">View Models</a>
     </div>
 
     <div class="s-card">
-      <h3>Web Architecture</h3>
-      <p>Ultra-fast, SEO-optimized web systems built for high conversion rates.</p>
-      <ul>
-        <li><i class="fas fa-check-circle"></i> Full-Stack Next.js Apps</li>
-        <li><i class="fas fa-check-circle"></i> E-commerce Integration</li>
-        <li><i class="fas fa-check-circle"></i> Responsive UI/UX Design</li>
-      </ul>
-      <a href="portfolio.html">View Live Sites</a>
+      <div class="s-video">
+        <iframe src="https://www.youtube.com/embed/vbkaUQ_YpaU?rel=0" allowfullscreen></iframe>
+      </div>
+      <h3>Web Development</h3>
+      <p>Fast, SEO-optimized websites built to guide visitors into paying customers.</p>
+      <a href="portfolio.html" class="s-link">View Websites</a>
+    </div>
+
+    <div class="s-card">
+      <div class="s-video">
+        <iframe src="https://www.youtube.com/embed/xLy9ahDV8NQ?rel=0" allowfullscreen></iframe>
+      </div>
+      <h3>Digital Marketing</h3>
+      <p>Data-driven marketing funnel strategies that multiply your revenue across platforms.</p>
+      <a href="portfolio.html" class="s-link">View Marketing</a>
+    </div>
+
+    <div class="s-card">
+      <div class="s-video">
+        <iframe src="https://www.youtube.com/embed/t9L_tpxULPY?rel=0" allowfullscreen></iframe>
+      </div>
+      <h3>Graphic Design</h3>
+      <p>Stunning visuals reinforcing brand identity and market recognition worldwide.</p>
+      <a href="portfolio.html" class="s-link">View Designs</a>
     </div>
   </div>
 </section>
 
 <section class="reviews">
   <div class="rev-container">
-    <h3 style="color: var(--accent); letter-spacing: 5px; font-weight: 800; margin-bottom: 25px;">CLIENT SUCCESS STORIES</h3>
-    <h2 style="font-size: 3rem;">Global Standards. Proven Results.</h2>
-    <p style="color: var(--text-dim); margin-top: 25px; font-size: 1.3rem;">Join thousands of brands that trust Multimedia Gen for high-impact digital growth.</p>
+    <h3>Client Success Stories</h3>
+    <h2>What Our Clients Say</h2>
+    <p style="color: var(--text-dim); margin-top: 25px; font-size: 1.25rem;">Don't just take our word for it. Join thousands of brands that trust Multimedia Gen.</p>
     <a href="https://share.google/4v0Otm8Ebztzp9sZ2" target="_blank" class="google-link">
-      <i class="fab fa-google"></i> Read Verified Google Reviews
+      <i class="fab fa-google"></i> Read 5-Star Google Reviews
     </a>
   </div>
 </section>
@@ -237,37 +251,36 @@ h1 span { background: linear-gradient(to right, #fff, var(--accent), var(--secon
   <div class="f-grid">
     <div class="f-col">
       <img src="faviconlogo.png" alt="Multimedia Gen" style="height: 100px; margin-bottom: 30px;">
-      <p><strong>Multimedia Gen</strong> is a leading ITES & Professional Training Institute in Bangladesh, delivering world-class digital assets.</p>
+      <p><strong>Multimedia Gen</strong> is a leading <strong>ITES & Professional Training Institute</strong> in Bangladesh. Your premium partner for digital growth.</p>
     </div>
     
     <div class="f-col">
-      <h4>Company</h4>
-      <a href="portfolio.html">Master Portfolio</a>
-      <a href="talent.html">Talent Pool</a>
-      <a href="https://wa.me/8801915706375">Contact Sales</a>
-      <a href="talent.html">Voice Artist List</a>
+      <h4>Our Services</h4>
+      <a href="#services">Video Production</a>
+      <a href="#services">Video Editing</a>
+      <a href="#services">Web Development</a>
+      <a href="#services">Digital Marketing</a>
+      <a href="#services">Graphic Design</a>
     </div>
 
     <div class="f-col">
-      <h4>Global Contact</h4>
-      <p><i class="fas fa-phone-alt" style="color:var(--accent)"></i> +8801915706375</p>
-      <p><i class="fas fa-envelope" style="color:var(--accent)"></i> info@multimediagen.com</p>
-      <p style="margin-top: 20px;"><i class="fas fa-map-marker-alt"></i> Sylhet: Moulvibazar</p>
-      <p><i class="fas fa-map-marker-alt"></i> Dhaka: Mirpur</p>
+      <h4>Quick Contact</h4>
+      <p><i class="fas fa-phone-alt" style="color:var(--primary)"></i> +8801915706375</p>
+      <p><i class="fas fa-envelope" style="color:var(--primary)"></i> info@multimediagen.com</p>
+      <p style="margin-top: 20px;"><i class="fas fa-map-marker-alt"></i> Sylhet Office: Moulvibazar</p>
+      <p><i class="fas fa-map-marker-alt"></i> Dhaka Office: Mirpur</p>
     </div>
 
     <div class="f-col">
-      <h4>Ecosystem</h4>
-      <div style="display:flex; gap:15px; font-size:1.6rem;">
-        <a href="https://facebook.com/multimediagen"><i class="fab fa-facebook"></i></a>
-        <a href="https://instagram.com/multimedia.gen"><i class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com/company/multimedia-gen"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.youtube.com/@MultimediaGenStudio"><i class="fab fa-youtube"></i></a>
-      </div>
+      <h4>CEO Connect</h4>
+      <a href="https://mdusmangani.com">CEO Portfolio</a>
+      <a href="https://linkedin.com/in/md-usman-gani-4309a6251">LinkedIn Profile</a>
+      <a href="https://instagram.com/usmanifreelancer">Instagram</a>
+      <a href="https://facebook.com/profile.php?id=61561117392803">Facebook Profile</a>
     </div>
   </div>
-  <p style="text-align: center; margin-top: 100px; opacity: 0.3; font-size: 0.85rem; position: relative; z-index: 1;">
-    &copy; 2023–2026 Multimedia Gen. All Rights Reserved. Engineered for Performance.
+  <p style="text-align: center; margin-top: 100px; opacity: 0.3; font-size: 0.85rem; position: relative;">
+    &copy; 2023–2026 Multimedia Gen. All Rights Reserved. Engineered by MG Dev Team.
   </p>
 </footer>
 
