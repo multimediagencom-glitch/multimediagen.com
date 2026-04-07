@@ -81,7 +81,8 @@ body { background: var(--bg-grad); color: var(--w); overflow-x: hidden; line-hei
 .about-text { flex: 1; min-width: 300px; }
 .about-text h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 20px; color: var(--g); }
 .founder-box { flex: 0.8; min-width: 300px; background: var(--card-bg); padding: 30px; border-radius: 24px; border: 1px solid var(--bdr); text-align: center; }
-.founder-box img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--g); margin-bottom: 15px; object-fit: cover; }
+/* --- FIXED CEO IMAGE HERE (Now using .jpeg) --- */
+.founder-box img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--g); margin-bottom: 15px; object-fit: cover; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
 
 /* PROCESS & CHOOSE US */
 .process { max-width: 1200px; margin: 80px auto; padding: 0 5%; }
@@ -137,8 +138,6 @@ details[open] summary::after { transform: rotate(180deg); }
 </header>
 
 <section class="hero">
-  <h1 class="hidden" style="display:none;">Best Video Editing Agency in Bangladesh | Web Development & Digital Marketing Solution</h1>
-  
   <div class="hero-badge">Award-Winning Digital Agency</div>
   <h1>We Create Videos That <br><span>Don’t Just Look Good — They Sell!</span></h1>
   <p>Welcome to <strong>Multimedia Gen</strong>, a sales-driven video production company helping businesses, brands, and content creators grow. We Provide Video editing, graphic design, website development, and complete Digital marketing solutions.</p>
@@ -168,7 +167,7 @@ details[open] summary::after { transform: rotate(180deg); }
       <p>Our philosophy is simple: Video is more than visuals—it’s a tool to drive results. Every frame, every edit, and every concept we create is carefully crafted to ensure maximum engagement and business impact. We combine creativity, strategy, and technology.</p>
     </div>
     <div class="founder-box">
-      <img src="https://ui-avatars.com/api/?name=Md+Usman+Gani&background=00ff88&color=000&size=200&font-size=0.33" alt="Md Usman Gani">
+      <img src="ceo.jpeg" alt="Md Usman Gani">
       <h3>Md Usman Gani</h3>
       <p style="color:var(--g); font-size:0.9rem; font-weight:700; margin-bottom:10px;">CEO & Founder</p>
       <p style="font-size:0.85rem; color:var(--gray);">Started editing videos over a decade ago in Bangladesh. In 2023, Multimedia Gen was officially founded as a full-service production company.</p>
