@@ -216,12 +216,12 @@ h2 { font-size: 1.4rem; font-weight: 800; color: var(--w); line-height: 1.3; mar
 </a>
 
 <script>
-// --- FULL DATA ARRAYS (100% PRESERVED) ---
+// --- FULL DATA ARRAYS ---
 const rawPromoters = [
   {name:"Zinnath Zafar Hiya",gender:"female",rating:4.8,video:"O6FPsrTBuQM",demo:"1C59iZM4t8PnI1MbgLLUBcy7jubvDvAhO"},
   {name:"Ashik Ahamed",gender:"male",rating:5.0,video:"wdaYyyWUN5M",demo:"https://youtube.com/shorts/wdaYyyWUN5M"},
   {name:"RJ Opu",gender:"male",rating:5.0,video:"t9L_tpxULPY",demo:"19Xj9vZmPOHEwGCAR8N30JS8LDusj42g4"},
-  {name:"Sheikh Nusrat Priya",gender:"female",rating:5.0,video:"vOBS0chS0v8",demo:"1ZpNxsKCkFDhAlYfEaYflDMP8SDSk0sJB"},
+  {name:"Sheikh Nusrat Priya",gender:"female",rating:5.0,video:"vOBS0chS0v8",demo:"1rS6Bt-pMVEtNdlW_jMVsgyvDXNv-peGo"},
   {name:"Niyaz Afridi",gender:"male",rating:5.0,video:"vbkaUQ_YpaU",demo:"1ujc1cTfGvBhKACfpr2d_GhNJY_DVFFpp"},
   {name:"Moumita Debnath",gender:"female",rating:5.0,video:"SbCn6etBs4A",demo:"14IjLK4KvWMzBZNsZaO28P-b89hO4hpph"},
   {name:"Fahad Abdullah Al Azad",gender:"male",rating:5.0,video:"36Lzxn2pXr0",demo:"1ltzF79-vXvI8LXGo03vrSGNCiGKacLkr"},
@@ -287,7 +287,7 @@ const modelImages = [
   {name: "Ashik Ahamed", id: "MG-IMG-03", gender: "male", img: "1p4z5eHlVfpHADcFB8vKLchUM5VqpJN6A"},
   {name: "Sheikh Nusrat Priya", id: "MG-IMG-04", gender: "female", img: "1QglD0WtJ7YyISQ4uMWssyBw_XC1Oj3oV"},
   {name: "Niyaz Afridi", id: "MG-IMG-05", gender: "male", img: "11_6VmpxSrGSaPwMHFR1QmxR44tDPL0YI"},
-  {name: "Sadia Islam", id: "MG-IMG-06", gender: "female", img: "1-2gHG7M6iTCn6p6Ty3jk2dLlDjw4dGaV"},
+  {name: "Sadia Islam", id: "MG-IMG-06", gender: "female", img: "1kLPkSP3-iCNJIdRDuuyHDepWYHC8dwQE"},
   {name: "Maha", id: "MG-IMG-07", gender: "female", img: "1SJkRt7NMHMQUp1hdwXOo3z0a6LqLNFFG"},
   {name: "Sabrina Tanjin Tanfe", id: "MG-IMG-08", gender: "female", img: "1VVCYqmJS_Fr71PuNTwwiOJLHHAKpzl48"},
   {name: "Sanjida HuQe Tayeba", id: "MG-IMG-09", gender: "female", img: "1nOcnhRqOQaaxkHN-zbywNniDFImNXvd3"},
@@ -358,6 +358,7 @@ const getDemoLink = (d, t='d') => {
   return t === 'd' ? `https://drive.google.com/drive/folders/${d}` : t === 'y' ? `https://youtu.be/${d}` : d;
 }
 
+// RELIABLE THUMBNAIL API
 const getDriveImg = (id) => `https://drive.google.com/thumbnail?id=${id}&sz=w1000`;
 
 // --- MAIN RENDER FUNCTION ---
