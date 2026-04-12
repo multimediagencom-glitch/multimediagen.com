@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MG CRM | Enterprise Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 💎 PREMIUM COLOR PALETTE & VARIABLES 💎 */
+        :root { 
+            --primary: #00ff88; 
+            --primary-glow: rgba(0, 255, 136, 0.4);
+            --bg-main: #020617; 
+            --bg-card: rgba(15, 23, 42, 0.65); 
+            --bg-input: rgba(30, 41, 59, 0.5);
+            --border-light: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc; 
+            --text-muted: #94a3b8; 
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body { 
+            background: radial-gradient(circle at top right, #0f172a 0%, #020617 100%); 
+            color: var(--text-main); font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; min-height: 100vh; background-attachment: fixed;
+        }
+        
+        body:not(.is-admin) .admin-only { display: none !important; pointer-events: none !important; }
+
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+
+        /* 💎 GLASSMORPHISM 2.0 CARDS 💎 */
+        .app-card { background: var(--bg-card); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--border-light); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); transition: all 0.3s ease; }
+        .app-card:hover { border-color: rgba(0, 255, 136, 0.2); transform: translateY(-2px); }
+
+        .app-input { width: 100%; background: var(--bg-input); border: 1px solid var(--border-light); padding: 14px 16px; border-radius: 12px; color: white; outline: none; transition: 0.3s; margin-bottom: 12px; font-size: 0.95rem; }
+        .app-input:focus { border-color: var(--primary); box-shadow: 0 0 15px var(--primary-glow); background: rgba(15, 23, 42, 0.9); }
+        select.app-input option { background: #0f172a; color: white; }
+        
+        .app-btn { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #000; font-weight: 800; padding: 14px 20px; border-radius: 12px; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: none; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; position: relative; overflow: hidden; }
+        .app-btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent); transform: skewX(-20deg); transition: 0.5s; }
+        .app-btn:hover::after { left: 150%; }
+        .app-btn:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 10px 25px var(--primary-glow); }
+        .app-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        
+        /* 💎 PREMIUM ANIMATIONS 💎 */
+        .tab-content { display: none; } 
+        .tab-content.active { display: block; animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Staggered Row Animation */
+        tbody tr { animation: fadeSlideUp 0.4s ease forwards; opacity: 0; }
+        tbody tr:nth-child(1) { animation-delay: 0.05s; } tbody tr:nth-child(2) { animation-delay: 0.1s; }
+        tbody tr:nth-child(3) { animation-delay: 0.15s; } tbody tr:nth-child(4) { animation-delay: 0.2s; }
+        tbody tr:nth-child(n+5) { animation-delay: 0.25s; }
+
+        /* 📱 RESPONSIVE NAVIGATION 📱 */
+        .app-nav { position: fixed; z-index: 40; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px); border-color: var(--border-light); }
+        .nav-item { cursor: pointer; transition: 0.3s; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; justify-content: center; position: relative; }
+        
+        @media (min-width: 769px) {
+            .app-nav { width: 260px; height: 100vh; left: 0; top: 0; flex-direction: column; border-right-width: 1px; display: flex !important; }
+            .nav-item { padding: 16px 24px; justify-content: flex-start; gap: 16px; font-size: 0.95rem; margin: 4px 12px; border-radius: 12px; }
+            .nav-item i { font-size: 1.2rem; width: 24px; text-align: center; transition: 0.3s; }
+            .nav-item:hover { background: rgba(255,255,255,0.05); color: white; }
+            .nav-item.active { background: rgba(0, 255, 136, 0.1); color: var(--primary); box-shadow: inset 0 0 0 1px rgba(0, 255, 136, 0.2); }
+            .nav-item.active i { filter: drop-shadow(0 0 8px var(--primary)); }
+            .main-content { margin-left: 260px; padding: 40px; }
+            .mobile-topbar { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .app-nav { width: 100%; height: 75px; bottom: 0; left: 0; flex-direction: row; border-top-width: 1px; display: flex !important; overflow-x: auto; padding: 0 10px; scroll-snap-type: x mandatory; }
+            .app-nav::-webkit-scrollbar { display: none; } 
+            .nav-brand-area { display: none !important; } 
+            .nav-item { flex-direction: column; padding: 8px 12px; gap: 6px; font-size: 0.65rem; min-width: 85px; scroll-snap-align: start; text-transform: uppercase; letter-spacing: 0.5px;}
+            .nav-item i { font-size: 1.5rem; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+            .nav-item.active { color: var(--primary); }
+            .nav-item.active i { transform: translateY(-4px) scale(1.1); filter: drop-shadow(0 4px 6px var(--primary-glow)); }
+            .main-content { padding: 80px 15px 90px 15px; } 
+            .mobile-topbar { position: fixed; top: 0; left: 0; width: 100%; height: 65px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-light); z-index: 30; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        }
+
+        #login-screen { position: fixed; inset: 0; background: radial-gradient(circle at center, #0f172a, #020617); z-index: 50; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        
+        /* 💎 TABLES 💎 */
+        .table-container { width: 100%; overflow-x: auto; border-radius: 16px; background: rgba(15, 23, 42, 0.4); border: 1px solid var(--border-light); backdrop-filter: blur(10px); }
+        table { width: 100%; text-align: left; border-collapse: collapse; min-width: 850px; }
+        th { background: rgba(0,0,0,0.3); color: var(--text-muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; padding: 18px; border-bottom: 1px solid var(--border-light); white-space: nowrap; font-weight: 800; }
+        td { padding: 16px 18px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.03); white-space: nowrap; font-weight: 500; }
+        tr:hover td { background: rgba(255,255,255,0.03); }
+        
+        /* BADGES */
+        .badge { padding: 6px 14px; border-radius: 30px; font-size: 0.7rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; display: inline-flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1px currentColor; }
+        .badge-pending { color: #fbbf24; background: rgba(245, 158, 11, 0.1); } 
+        .badge-success { color: var(--primary); background: rgba(16, 185, 129, 0.1); } 
+        .badge-danger { color: #ef4444; background: rgba(239, 68, 68, 0.1); } 
+        .badge-blue { color: #60a5fa; background: rgba(59, 130, 246, 0.1); }
+
+        .action-btn { padding: 8px 14px; border-radius: 10px; cursor: pointer; border: none; font-size: 0.9rem; margin-right: 6px; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.2); } 
+        .btn-edit { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); } .btn-edit:hover { background: #3b82f6; color: white; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(59,130,246,0.4); } 
+        .btn-delete { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); } .btn-delete:hover { background: #ef4444; color: white; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(239,68,68,0.4); }
+
+        .modal-overlay { background: rgba(0,0,0,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: opacity 0.3s; }
+        .modal-content { max-height: 90vh; overflow-y: auto; transform: scale(0.95); opacity: 0; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .modal-show .modal-content { transform: scale(1); opacity: 1; }
+        
+        .section-title { font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 800; letter-spacing: 1.5px; margin: 20px 0 12px 0; display: flex; align-items: center; gap: 10px; }
+        .section-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--border-light), transparent); }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="app-card p-10 w-full max-w-sm text-center" id="login-step-1">
+            <img src="https://raw.githubusercontent.com/multimediagencom-glitch/multimediagen.com/main/MG%20PNG.png" alt="MG Logo" class="h-20 mx-auto mb-8 drop-shadow-2xl">
+            <h1 class="text-3xl font-black mb-8 text-white tracking-tight">MG <span style="color:var(--primary)">WORKSPACE</span></h1>
+            
+            <button onclick="showLoginGate('admin')" class="app-btn w-full mb-4 bg-[linear-gradient(135deg,#3b82f6,#1d4ed8)] text-white shadow-[0_8px_25px_rgba(59,130,246,0.4)]"><i class="fas fa-fingerprint"></i> Admin Login</button>
+            <button onclick="showLoginGate('team')" class="app-btn w-full bg-[linear-gradient(135deg,#f1f5f9,#94a3b8)] text-black shadow-[0_8px_25px_rgba(255,255,255,0.1)]"><i class="fas fa-users"></i> Team Login</button>
+        </div>
+
+        <div class="app-card p-10 w-full max-w-sm text-center hidden" id="login-admin">
+            <h2 class="text-2xl font-black mb-6 text-blue-400"><i class="fas fa-shield-alt mr-2"></i> Admin Portal</h2>
+            <input type="password" id="auth-pass-admin" class="app-input text-center text-xl tracking-[0.3em] font-black" placeholder="••••••">
+            <button onclick="handleLogin('Admin')" class="app-btn w-full bg-[linear-gradient(135deg,#3b82f6,#1d4ed8)] text-white mt-4" id="btn-login-admin">Unlock Hub</button>
+            <button onclick="resetLogin()" class="text-gray-500 font-bold text-xs mt-6 uppercase tracking-wider hover:text-white transition">← Go Back</button>
+        </div>
+
+        <div class="app-card p-10 w-full max-w-sm text-center hidden" id="login-team">
+            <h2 class="text-2xl font-black mb-6 text-[var(--primary)]"><i class="fas fa-user-astronaut mr-2"></i> Team Portal</h2>
+            <select id="team-dept" class="app-input text-center font-bold">
+                <option value="" disabled selected>Select Department</option>
+                <option value="Video Editor">Video Editor</option>
+                <option value="Graphic Designer">Graphic Designer</option>
+                <option value="Web Developer">Web Developer</option>
+                <option value="Scriptwriter">Scriptwriter</option>
+                <option value="Brand Promoter">Brand Promoter</option>
+                <option value="Marketer">Marketer</option>
+            </select>
+            <input type="text" id="team-name" class="app-input text-center" placeholder="Full Name" required>
+            <input type="tel" id="team-phone" class="app-input text-center" placeholder="WhatsApp No. (For Payouts)" required>
+            <button onclick="handleLogin('Team')" class="app-btn w-full mt-4 shadow-[0_8px_25px_var(--primary-glow)]" id="btn-login-team">Enter Workspace</button>
+            <button onclick="resetLogin()" class="text-gray-500 font-bold text-xs mt-6 uppercase tracking-wider hover:text-white transition">← Go Back</button>
+        </div>
+    </div>
+
+    <div id="app-wrapper" style="display: none;">
+        
+        <div class="mobile-topbar">
+            <img src="https://raw.githubusercontent.com/multimediagencom-glitch/multimediagen.com/main/MG%20PNG.png" alt="MG" class="h-6">
+            <div class="flex items-center gap-3">
+                <div id="mobile-badge" class="text-[9px] font-black uppercase tracking-widest text-[var(--primary)] bg-[var(--primary)]/10 px-3 py-1.5 rounded-full border border-[var(--primary)]/30"></div>
+                <button onclick="logout()" class="text-red-400 hover:text-red-300 text-xl"><i class="fas fa-power-off"></i></button>
+            </div>
+        </div>
+
+        <nav class="app-nav" id="mg-sidebar">
+            <div class="nav-brand-area p-8 text-2xl font-black text-white border-b border-[var(--border-light)] flex flex-col items-center justify-center gap-4 mb-4">
+                <img src="https://raw.githubusercontent.com/multimediagencom-glitch/multimediagen.com/main/MG%20PNG.png" alt="MG" class="h-10 drop-shadow-lg">
+                <div id="pc-badge" class="text-[10px] font-black uppercase tracking-widest text-[var(--primary)] bg-[var(--primary)]/10 px-4 py-2 rounded-full border border-[var(--primary)]/30 w-full text-center truncate shadow-[0_0_15px_var(--primary-glow)]"></div>
+            </div>
+            
+            <div class="nav-item admin-only active" onclick="switchTab('dashboard', this)"><i class="fas fa-chart-pie"></i> <span>Insights</span></div>
+            <div class="nav-item" onclick="switchTab('orders', this)"><i class="fas fa-layer-group"></i> <span>Orders</span></div>
+            <div class="nav-item" onclick="switchTab('tasks', this)"><i class="fas fa-check-square"></i> <span>Tasks</span></div>
+            <div class="nav-item admin-only" onclick="switchTab('clients', this)"><i class="fas fa-address-book"></i> <span>Clients</span></div>
+            <div class="nav-item admin-only" onclick="switchTab('finances', this)"><i class="fas fa-wallet"></i> <span>Finances</span></div>
+            <div class="nav-item" onclick="switchTab('withdrawals', this)"><i class="fas fa-hand-holding-usd"></i> <span>Payouts</span></div>
+            <div class="nav-item admin-only" onclick="switchTab('marketing', this)"><i class="fas fa-bullhorn"></i> <span>Marketing</span></div>
+            
+            <div class="nav-brand-area mt-auto p-6 border-t border-[var(--border-light)]">
+                <button onclick="logout()" class="text-red-400 hover:text-red-300 text-sm font-bold w-full justify-start flex items-center gap-3 p-3 rounded-xl hover:bg-red-500/10 transition"><i class="fas fa-power-off"></i> Disconnect Session</button>
+            </div>
+        </nav>
+
+        <div class="main-content">
+
+            <div id="tab-dashboard" class="tab-content active admin-only">
+                <div class="flex flex-col sm:flex-row justify-between mb-8 gap-4 items-start sm:items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-black tracking-tight">Agency Insights</h2>
+                        <p class="text-gray-400 text-sm mt-1">Live financial & operational overview.</p>
+                    </div>
+                    <select id="dash-filter" class="app-input w-full sm:w-48 m-0 font-bold text-center bg-blue-500/10 border-blue-500/30 text-blue-400" onchange="window.renderDashboard()"><option value="ALL">All Time Data</option><option value="MONTH_CURRENT">Current Month</option></select>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                    <div class="app-card p-6 border-b-4 border-blue-500 relative overflow-hidden group">
+                        <i class="fas fa-chart-line absolute -right-4 -bottom-4 text-7xl text-blue-500/10 group-hover:scale-110 transition duration-500"></i>
+                        <p class="text-[12px] text-gray-400 font-black tracking-widest uppercase">Total Income</p>
+                        <h3 class="text-4xl font-black text-blue-400 mt-3 tracking-tight" id="dash-rev">৳ 0</h3>
+                    </div>
+                    <div class="app-card p-6 border-b-4 border-red-500 relative overflow-hidden group">
+                        <i class="fas fa-fire absolute -right-4 -bottom-4 text-7xl text-red-500/10 group-hover:scale-110 transition duration-500"></i>
+                        <p class="text-[12px] text-gray-400 font-black tracking-widest uppercase">Total Expense</p>
+                        <h3 class="text-4xl font-black text-red-400 mt-3 tracking-tight" id="dash-exp">৳ 0</h3>
+                    </div>
+                    <div class="app-card p-6 border-b-4 border-[#00ff88] relative overflow-hidden bg-[#00ff88]/5 group">
+                        <i class="fas fa-gem absolute -right-4 -bottom-4 text-7xl text-[#00ff88]/10 group-hover:scale-110 transition duration-500"></i>
+                        <p class="text-[12px] text-[#00ff88] font-black tracking-widest uppercase">Net Profit</p>
+                        <h3 class="text-4xl font-black text-[#00ff88] mt-3 tracking-tight drop-shadow-[0_0_15px_var(--primary-glow)]" id="dash-profit">৳ 0</h3>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="app-card p-6 text-center"><h3 class="text-3xl font-black text-white" id="dash-ord-total">0</h3><p class="text-[10px] text-gray-400 mt-2 font-bold uppercase tracking-wider">Total Orders</p></div>
+                    <div class="app-card p-6 text-center"><h3 class="text-3xl font-black text-yellow-400" id="dash-ord-prog">0</h3><p class="text-[10px] text-gray-400 mt-2 font-bold uppercase tracking-wider">In Progress</p></div>
+                    <div class="app-card p-6 text-center"><h3 class="text-3xl font-black text-[#00ff88]" id="dash-ord-comp">0</h3><p class="text-[10px] text-gray-400 mt-2 font-bold uppercase tracking-wider">Completed</p></div>
+                    <div class="app-card p-6 text-center bg-purple-900/10 border-purple-500/30"><h3 class="text-3xl font-black text-purple-400" id="dash-partner">৳ 0</h3><p class="text-[10px] text-gray-400 mt-2 font-bold uppercase tracking-wider">Partner (10%)</p></div>
+                </div>
+            </div>
+
+            <div id="tab-orders" class="tab-content">
+                <div class="flex flex-col sm:flex-row justify-between mb-8 gap-4 items-start sm:items-center">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-black">Order Pipeline</h2>
+                        <p class="text-sm text-gray-400 mt-1">Track all ongoing and past projects.</p>
+                    </div>
+                    <button onclick="window.openModal('master-modal')" class="app-btn admin-only w-full sm:w-auto shadow-lg shadow-[var(--primary)]/20"><i class="fas fa-bolt"></i> Master Add</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Project ID</th><th class="admin-only">Budget</th><th>Assigned To</th><th>Deadline</th><th>Status</th><th class="admin-only text-right">Action</th></tr></thead>
+                        <tbody id="order-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="tab-clients" class="tab-content admin-only">
+                <div class="flex flex-col sm:flex-row justify-between mb-8 gap-4 items-start sm:items-center">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-black">Client Database</h2>
+                        <p class="text-sm text-gray-400 mt-1">Secure vault for all client information.</p>
+                    </div>
+                    <button onclick="window.openModal('client-modal')" class="app-btn bg-[linear-gradient(135deg,#3b82f6,#2563eb)] text-white w-full sm:w-auto shadow-lg shadow-blue-500/20"><i class="fas fa-user-plus"></i> New Client</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Cl. ID</th><th>Name</th><th>Contact</th><th>Country</th><th>Web Link</th><th class="text-right">Action</th></tr></thead>
+                        <tbody id="client-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="tab-tasks" class="tab-content">
+                <div class="flex flex-col sm:flex-row justify-between mb-8 gap-4 items-start sm:items-center">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-black">Production Tasks</h2>
+                        <p class="text-sm text-gray-400 mt-1 team-kpi hidden">Submit your work link and update pay status.</p>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Proj ID</th><th>Dept</th><th>Employee</th><th>Pay (৳)</th><th>Deadline</th><th>Work Status</th><th>Pay Status</th><th>Delivery Link</th><th class="text-right">Action</th></tr></thead>
+                        <tbody id="task-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="tab-withdrawals" class="tab-content">
+                <div class="flex flex-col sm:flex-row justify-between mb-8 gap-4 items-start sm:items-center">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-black">Finance Payouts</h2>
+                        <p class="text-sm text-gray-400 mt-1">Manage all withdrawal requests.</p>
+                    </div>
+                    <button onclick="window.openModal('withdraw-modal')" class="app-btn team-kpi hidden bg-[linear-gradient(135deg,#25D366,#1ebd5a)] text-white w-full sm:w-auto shadow-lg shadow-green-500/20"><i class="fab fa-whatsapp text-xl"></i> Request Payout</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Date</th><th>Employee</th><th>Proj ID</th><th>Amount</th><th>Transfer Info</th><th>Proof</th><th>Status</th><th class="admin-only text-right">Action</th></tr></thead>
+                        <tbody id="withdraw-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="tab-finances" class="tab-content admin-only">
+                <div class="flex flex-col sm:flex-row justify-between mb-8 gap-4 items-start sm:items-center">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-black">Profit Ledger</h2>
+                        <p class="text-sm text-gray-400 mt-1">Detailed breakdown synced from Master Add.</p>
+                    </div>
+                    <select id="profit-filter" class="app-input w-full sm:w-40 m-0 font-bold text-center bg-blue-500/10 border-blue-500/30 text-blue-400" onchange="window.renderDashboard()"><option value="ALL">All Time Data</option><option value="MONTH_CURRENT">This Month</option></select>
+                </div>
+                <div class="table-container">
+                    <table class="text-[11px]">
+                        <thead><tr><th>Date</th><th>Proj ID</th><th>Mgr</th><th>Budget</th><th>Cl.Mgr</th><th>Writer</th><th>Promoter</th><th>Marketer</th><th>Editor</th><th>Design</th><th>Dev</th><th>Shoot</th><th>Cost</th><th>Profit</th><th class="text-right">Action</th></tr></thead>
+                        <tbody id="expense-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="tab-marketing" class="tab-content admin-only">
+                <h2 class="text-2xl md:text-3xl font-black mb-8">Marketing Tools</h2>
+                
+                <div class="app-card p-6 mb-8 border border-green-500/30 bg-green-500/5 relative overflow-hidden">
+                    <i class="fas fa-file-csv absolute -right-4 -bottom-4 text-7xl text-green-500/10"></i>
+                    <h3 class="font-black text-[#00ff88] text-sm mb-4 uppercase tracking-wider"><i class="fas fa-cloud-download-alt mr-2"></i> Sheet Sync (CSV Import)</h3>
+                    <div class="flex flex-col sm:flex-row gap-3 relative z-10">
+                        <input type="url" id="sheet-url" class="app-input m-0 flex-1 border-green-500/30 bg-black/40" placeholder="Paste Published Google Sheet CSV Link">
+                        <button onclick="window.syncGoogleSheet()" class="app-btn bg-[linear-gradient(135deg,#10b981,#059669)] text-white shadow-lg shadow-green-500/20 px-8" id="btn-sync-sheet">Sync Leads</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="app-card p-6">
+                        <h3 class="font-black mb-5 uppercase tracking-wider text-sm text-blue-400"><i class="fas fa-user-plus mr-2"></i> Add Lead Manually</h3>
+                        <form id="form-lead" onsubmit="window.saveLead(event)">
+                            <input type="hidden" id="lead-id">
+                            <input type="text" id="lead-name" class="app-input" placeholder="Full Name" required>
+                            <input type="tel" id="lead-number" class="app-input" placeholder="WhatsApp Number" required>
+                            <button type="submit" class="app-btn w-full bg-[linear-gradient(135deg,#3b82f6,#2563eb)] text-white shadow-lg shadow-blue-500/20" id="btn-save-lead">Save to Database</button>
+                        </form>
+                        <div class="mt-6 max-h-[250px] overflow-y-auto table-container"><table><tbody id="lead-table-body"></tbody></table></div>
+                    </div>
+                    <div class="app-card p-6">
+                        <div class="flex justify-between items-center mb-5">
+                            <h3 class="font-black uppercase tracking-wider text-sm text-[#25D366]"><i class="fab fa-whatsapp mr-2"></i> Auto Broadcast</h3>
+                            <select id="campaign-toggle" class="app-input w-28 p-2 text-xs m-0 text-center font-bold bg-slate-800"><option value="ON">Status: ON</option><option value="OFF">Status: OFF</option></select>
+                        </div>
+                        <textarea id="msg-template" class="app-input h-32 text-sm" placeholder="Write message... Use [Name] to mention lead."></textarea>
+                        <div class="flex gap-3">
+                            <button onclick="window.saveTemplate()" class="app-btn bg-slate-700 text-white flex-1"><i class="fas fa-save"></i> Save</button>
+                            <button onclick="window.sendBulkMessages()" class="app-btn bg-[linear-gradient(135deg,#25D366,#1ebd5a)] text-white flex-[2] shadow-lg shadow-green-500/20"><i class="fas fa-paper-plane"></i> Blast 100 Msgs</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="master-modal" class="fixed inset-0 modal-overlay hidden z-50 flex items-center justify-center p-4">
+        <div class="app-card modal-content p-8 w-full max-w-xl relative border border-[#00ff88]/30">
+            <button onclick="window.closeModal('master-modal')" class="absolute top-4 right-4 text-gray-400 bg-slate-800 p-2 rounded-full hover:text-white hover:bg-red-500 transition"><i class="fas fa-times w-4 h-4 text-center"></i></button>
+            <h3 class="text-2xl font-black mb-1 text-[#00ff88] uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i> Project Master Sync</h3>
+            <p class="text-[11px] text-gray-400 mb-6 font-bold uppercase tracking-widest">Updates Pipeline, Tasks & Profit Sheet</p>
+            
+            <form id="form-master" onsubmit="window.saveMasterData(event)">
+                <div class="section-title"><i class="fas fa-info-circle"></i> Core Project Info</div>
+                <div class="grid grid-cols-2 gap-3"><input type="text" id="mas-id" class="app-input" placeholder="Project ID (MG-101)" required><input type="number" id="mas-budget" class="app-input" placeholder="Total Budget (৳)" required></div>
+                <div class="grid grid-cols-2 gap-3"><input type="text" id="mas-manager" list="mgr-list" class="app-input" placeholder="Project Manager" required><datalist id="mgr-list"></datalist><input type="text" id="mas-assign" list="emp-list" class="app-input" placeholder="Assigned Emp. Name" required><datalist id="emp-list"></datalist></div>
+                <div class="grid grid-cols-3 gap-3"><select id="mas-dept" class="app-input px-2" required><option value="" disabled selected>Department</option><option>Video Editor</option><option>Graphic Designer</option><option>Web Developer</option><option>Scriptwriter</option><option>Brand Promoter</option><option>Marketer</option></select><input type="date" id="mas-date" class="app-input px-2" required><select id="mas-status" class="app-input px-2"><option>In Progress</option><option>Completed</option><option>Rejected</option></select></div>
+                
+                <div class="section-title mt-4"><i class="fas fa-coins"></i> Cost Breakdown</div>
+                <div class="grid grid-cols-3 sm:grid-cols-4 gap-3">
+                    <div><label class="text-[10px] text-gray-400 font-bold ml-1 uppercase">Cl. Manager</label><input type="number" id="mas-client-mgr" class="app-input mb-0" value="0"></div>
+                    <div><label class="text-[10px] text-[#00ff88] font-bold ml-1 uppercase">Writer</label><input type="number" id="mas-writer" class="app-input mb-0 border-[#00ff88]/30" value="0"></div>
+                    <div><label class="text-[10px] text-[#00ff88] font-bold ml-1 uppercase">Promoter</label><input type="number" id="mas-promoter" class="app-input mb-0 border-[#00ff88]/30" value="0"></div>
+                    <div><label class="text-[10px] text-[#00ff88] font-bold ml-1 uppercase">Marketer</label><input type="number" id="mas-marketer" class="app-input mb-0 border-[#00ff88]/30" value="0"></div>
+                    <div><label class="text-[10px] text-[#00ff88] font-bold ml-1 uppercase">Video Editor</label><input type="number" id="mas-editor" class="app-input mb-0 border-[#00ff88]/30" value="0"></div>
+                    <div><label class="text-[10px] text-[#00ff88] font-bold ml-1 uppercase">Designer</label><input type="number" id="mas-designer" class="app-input mb-0 border-[#00ff88]/30" value="0"></div>
+                    <div><label class="text-[10px] text-[#00ff88] font-bold ml-1 uppercase">Developer</label><input type="number" id="mas-developer" class="app-input mb-0 border-[#00ff88]/30" value="0"></div>
+                    <div><label class="text-[10px] text-gray-400 font-bold ml-1 uppercase">Shooting/Web</label><input type="number" id="mas-shooting" class="app-input mb-0" value="0"></div>
+                </div>
+                <button type="submit" id="btn-save-master" class="app-btn w-full mt-8 shadow-[0_10px_30px_var(--primary-glow)] py-4 text-lg">Execute Cloud Sync <i class="fas fa-cloud-upload-alt ml-2"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div id="client-modal" class="fixed inset-0 modal-overlay hidden z-50 flex items-center justify-center p-4">
+        <div class="app-card modal-content p-8 w-full max-w-md relative">
+            <button onclick="window.closeModal('client-modal')" class="absolute top-4 right-4 text-gray-400 bg-slate-800 p-2 rounded-full hover:text-white hover:bg-red-500 transition"><i class="fas fa-times w-4 h-4 text-center"></i></button>
+            <h3 class="text-2xl font-black mb-6 uppercase tracking-wider text-blue-400"><i class="fas fa-user-circle mr-2"></i> Client Profile</h3>
+            <form onsubmit="window.saveClientData(event)">
+                <input type="hidden" id="cli-doc-id">
+                <input type="text" id="cli-id" class="app-input" placeholder="Client ID (e.g. 25C001)" required><input type="text" id="cli-name" class="app-input" placeholder="Full Name" required><input type="tel" id="cli-number" class="app-input" placeholder="Phone/WhatsApp" required><input type="text" id="cli-country" class="app-input" placeholder="Country" required><input type="url" id="cli-link" class="app-input" placeholder="Social/Web Link">
+                <button type="submit" class="app-btn w-full bg-[linear-gradient(135deg,#3b82f6,#2563eb)] text-white shadow-lg shadow-blue-500/20 mt-4" id="btn-save-client">Save Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="task-update-modal" class="fixed inset-0 modal-overlay hidden z-50 flex items-center justify-center p-4">
+        <div class="app-card modal-content p-8 w-full max-w-sm relative border border-blue-500/30">
+            <button onclick="window.closeModal('task-update-modal')" class="absolute top-4 right-4 text-gray-400 bg-slate-800 p-2 rounded-full hover:text-white hover:bg-red-500 transition"><i class="fas fa-times w-4 h-4 text-center"></i></button>
+            <h3 class="text-2xl font-black mb-6 uppercase tracking-wider text-[#00ff88]"><i class="fas fa-upload mr-2"></i> Submit Work</h3>
+            <form onsubmit="window.submitTaskUpdate(event)">
+                <input type="hidden" id="upd-task-id">
+                <label class="text-[11px] text-gray-400 font-bold uppercase ml-1 block mb-1">Project Status</label>
+                <select id="upd-task-status" class="app-input"><option value="In Progress">In Progress</option><option value="Completed">Completed</option></select>
+                <label class="text-[11px] text-gray-400 font-bold uppercase ml-1 block mb-1">Your Payment Status</label>
+                <select id="upd-task-pay-status" class="app-input"><option value="Due">Due (Not Received)</option><option value="Paid">Paid (Received)</option></select>
+                <label class="text-[11px] text-gray-400 font-bold uppercase ml-1 block mb-1">Delivery Link (Drive/Web)</label>
+                <input type="url" id="upd-task-link" class="app-input" placeholder="https://..." required>
+                <button type="submit" class="app-btn w-full shadow-lg shadow-[var(--primary)]/20 mt-4" id="btn-update-task">Push Update</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="withdraw-modal" class="fixed inset-0 modal-overlay hidden z-50 flex items-center justify-center p-4">
+        <div class="app-card modal-content p-8 w-full max-w-md relative border border-[#25D366]/30">
+            <button onclick="window.closeModal('withdraw-modal')" class="absolute top-4 right-4 text-gray-400 bg-slate-800 p-2 rounded-full hover:text-white hover:bg-red-500 transition"><i class="fas fa-times w-4 h-4 text-center"></i></button>
+            <h3 class="text-2xl font-black mb-6 uppercase tracking-wider text-[#25D366]"><i class="fab fa-whatsapp mr-2"></i> Get Paid</h3>
+            <form onsubmit="window.submitWithdraw(event)">
+                <input type="text" id="wd-projId" class="app-input" placeholder="Completed Project ID" required>
+                <input type="number" id="wd-amount" class="app-input" placeholder="Amount to Request (৳)" required>
+                <div class="grid grid-cols-2 gap-3"><select id="wd-pay-method" class="app-input" required><option value="" disabled selected>Method</option><option value="bKash">bKash</option><option value="Nagad">Nagad</option><option value="Rocket">Rocket</option><option value="Upay">Upay</option></select><select id="wd-pay-type" class="app-input" required><option value="" disabled selected>Type</option><option value="Personal">Personal</option><option value="Agent">Agent</option></select></div>
+                <input type="tel" id="wd-pay-number" class="app-input" placeholder="Account Number" required>
+                <input type="url" id="wd-link" class="app-input" placeholder="Work Delivery Link" required>
+                <button type="submit" class="app-btn w-full bg-[linear-gradient(135deg,#25D366,#1ebd5a)] text-white shadow-lg shadow-green-500/20 mt-4" id="btn-withdraw">Send Request to Admin</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, setDoc, getDoc, query, where } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        // INIT FIREBASE
+        const app = initializeApp({ apiKey: "AIzaSyD-hvC13lok0-5x0ei2eCGWyU0tgd3JH3I", authDomain: "mg-crm-2026.firebaseapp.com", databaseURL: "https://mg-crm-2026-default-rtdb.firebaseio.com", projectId: "mg-crm-2026", storageBucket: "mg-crm-2026.firebasestorage.app", messagingSenderId: "92487066248", appId: "1:92487066248:web:4fa12a701670a5abd3353d" });
+        const db = getFirestore(app);
+
+        // GLOBAL VARIABLES
+        window.uR = null; window.uD = null; window.uN = null; window.uP = null;
+        window.dO = []; window.dC = []; window.dE = []; window.dT = []; window.dL = []; window.dEmp = [];
+        
+        // UTILS
+        const $ = id => document.getElementById(id); const V = id => $(id).value.trim(); const N = id => Number($(id).value)||0;
+        const setLoad = (id, b, txt) => { const e=$(id); if(e){ e.disabled=b; e.innerHTML=b?'<i class="fas fa-circle-notch spinner"></i> Processing...':txt; }};
+
+        // UI FUNCTIONS
+        window.toggleSidebar = () => { $('mg-sidebar').classList.toggle('open'); $('sidebar-overlay').classList.toggle('hidden'); };
+        window.showLoginGate = t => { $('login-step-1').classList.add('hidden'); $(t==='admin'?'login-admin':'login-team').classList.remove('hidden'); };
+        window.resetLogin = () => { $('login-admin').classList.add('hidden'); $('login-team').classList.add('hidden'); $('login-step-1').classList.remove('hidden'); };
+        
+        window.handleLogin = async r => {
+            const btnId = r==='Admin'?'btn-login-admin':'btn-login-team';
+            const origTxt = $(btnId).innerText; setLoad(btnId, true, origTxt);
+            try {
+                if(r==='Admin' && btoa(V('auth-pass-admin'))==='Q0VPLjc1'){ window.uR='Admin'; window.uN='CEO'; window.unlockApp(); }
+                else if(r==='Team'){ 
+                    const d=V('team-dept'), n=V('team-name'), p=V('team-phone'); 
+                    if(d&&n&&p.length>=10){ 
+                        const q = query(collection(db,"employees"), where("phone","==",p));
+                        const s = await getDocs(q);
+                        if(s.empty) await addDoc(collection(db,"employees"),{name:n, phone:p, department:d, timestamp:Date.now()});
+                        window.uR='Team'; window.uD=d; window.uN=n; window.uP=p; window.unlockApp(); 
+                    } else alert("Valid Name and 10+ digit Phone Required"); 
+                } else alert("Invalid Credentials");
+            } catch(e) { console.error(e); alert("Network error. Try again."); } finally { setLoad(btnId, false, origTxt); }
+        };
+
+        window.logout = () => { window.uR=null; document.body.classList.remove('is-admin'); $('app-wrapper').style.display='none'; $('login-screen').style.display='flex'; window.resetLogin(); };
+        
+        window.unlockApp = () => { 
+            $('login-screen').style.display='none'; $('app-wrapper').style.display='block'; document.body.classList.toggle('is-admin', window.uR==='Admin'); 
+            const bdg = window.uR==='Admin'?'ADMIN God Mode':`${window.uN} (${window.uD})`; $('user-role-badge').innerText=bdg; $('pc-badge').innerText=bdg; $('mobile-badge').innerText=bdg;
+            if(window.uR!=='Admin'){ document.querySelectorAll('.team-kpi').forEach(e=>e.classList.remove('hidden')); window.switchTab('tasks', document.querySelectorAll('.nav-item')[2]); } 
+            else window.switchTab('dashboard', document.querySelectorAll('.nav-item')[0]);
+            window.loadAllData(); if(window.uR==='Admin')window.loadMarketingData(); 
+        }
+
+        window.switchTab = (id, el) => { document.querySelectorAll('.tab-content, .nav-item').forEach(e=>e.classList.remove('active')); $(`tab-${id}`).classList.add('active'); el.classList.add('active'); if(window.innerWidth<=768)window.toggleSidebar(); };
+        window.openModal = id => { ['mas','cli'].forEach(p=>{const el=$(`${p}-doc-id`); if(el)el.value='';}); if(id==='master-modal')$('form-master').reset(); $(id).classList.remove('hidden'); $(id).classList.add('modal-show'); };
+        window.closeModal = id => { $(id).classList.remove('modal-show'); setTimeout(()=>$(id).classList.add('hidden'), 300); };
+
+        // 🔥 MASTER SDE SYNC ENGINE 🔥
+        window.saveMasterData = async e => {
+            e.preventDefault(); if(window.uR!=='Admin') return;
+            const btnId = 'btn-save-master'; const origTxt = $(btnId).innerHTML; setLoad(btnId, true, origTxt);
+            try {
+                const pId=V('mas-id'), bdgt=N('mas-budget'), mgr=V('mas-manager'), assign=V('mas-assign'), dept=V('mas-dept'), dLine=V('mas-date'), stat=V('mas-status');
+                const clMgr=N('mas-client-mgr'), wrt=N('mas-writer'), pro=N('mas-promoter'), mkt=N('mas-marketer'), edt=N('mas-editor'), dsg=N('mas-designer'), dev=N('mas-developer'), sht=N('mas-shooting');
+                const exp = clMgr+wrt+pro+mkt+edt+dsg+dev+sht; const prof = bdgt-exp;
+                const ts = Date.now(); const ym = `${new Date().getFullYear()}-${String(new Date().getMonth()+1).padStart(2,'0')}`;
+                const fd = new Date(dLine).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}).replace(/ /g,'-');
+
+                const eO=window.dO.find(o=>o.projectId===pId), eT=window.dT.find(t=>t.projectId===pId), eE=window.dE.find(x=>x.projectId===pId);
+                
+                const oD = {projectId:pId, amount:bdgt, assignedTo:assign, deadline:dLine, status:stat};
+                if(eO) await updateDoc(doc(db,'orders',eO.id), oD); else { oD.timestamp=ts; await addDoc(collection(db,'orders'), oD); }
+
+                let pay=0; if(dept==='Video Editor')pay=edt; else if(dept==='Graphic Designer')pay=dsg; else if(dept==='Web Developer')pay=dev; else if(dept==='Scriptwriter')pay=wrt; else if(dept==='Marketer')pay=mkt; else pay=pro;
+                const tD = {projectId:pId, department:dept, employeeName:assign, payAmount:pay, deadline:dLine}; 
+                if(eT) await updateDoc(doc(db,'tasks',eT.id), tD); else { tD.status='Pending'; tD.payStatus='Due'; tD.finalLink=''; tD.timestamp=ts; await addDoc(collection(db,'tasks'), tD); }
+
+                const exD = {dateStr:fd, projectId:pId, manager:mgr, budget:bdgt, clientMgr:clMgr, writer:wrt, promoter:pro, marketer:mkt, editor:edt, designer:dsg, developer:dev, shooting:sht, expense:exp, profit:prof, yearMonth:ym};
+                if(eE) await updateDoc(doc(db,'expenses',eE.id), exD); else { exD.timestamp=ts; await addDoc(collection(db,'expenses'), exD); }
+                window.closeModal('master-modal'); window.loadAllData();
+            } catch(err) { alert("Sync Failed."); console.error(err); } finally { setLoad(btnId, false, origTxt); }
+        };
+
+        window.editMaster = pId => {
+            const o=window.dO.find(x=>x.projectId===pId)||{}, t=window.dT.find(x=>x.projectId===pId)||{}, e=window.dE.find(x=>x.projectId===pId)||{};
+            $('mas-id').value=pId; $('mas-budget').value=o.amount||''; $('mas-manager').value=e.manager||''; $('mas-assign').value=o.assignedTo||''; $('mas-dept').value=t.department||''; $('mas-date').value=o.deadline||''; $('mas-status').value=o.status||'In Progress';
+            $('mas-client-mgr').value=e.clientMgr||0; $('mas-writer').value=e.writer||0; $('mas-promoter').value=e.promoter||0; $('mas-marketer').value=e.marketer||0; $('mas-editor').value=e.editor||0; $('mas-designer').value=e.designer||0; $('mas-developer').value=e.developer||0; $('mas-shooting').value=e.shooting||0;
+            window.openModal('master-modal');
+        }
+
+        // CRUD Actions
+        window.saveClientData = async e => { e.preventDefault(); if(window.uR!=='Admin')return; const id=V('cli-doc-id'), btn='btn-save-client', ot=$(btn).innerHTML; setLoad(btn,true,ot); try{ const d={clientId:V('cli-id'), name:V('cli-name'), number:V('cli-number'), country:V('cli-country'), link:V('cli-link')}; if(id)await updateDoc(doc(db,'clients',id),d); else{ d.timestamp=Date.now(); await addDoc(collection(db,'clients'),d); } window.closeModal(`client-modal`); window.loadAllData(); }finally{setLoad(btn,false,ot);} };
+        window.editClient = id => { const d=window.dC.find(x=>x.id===id); if(d){ $('cli-doc-id').value=id; $('cli-id').value=d.clientId; $('cli-name').value=d.name; $('cli-number').value=d.number; $('cli-country').value=d.country; $('cli-link').value=d.link; window.openModal('client-modal'); }};
+        
+        window.openTaskEdit = (id, s, p, l) => { $('upd-task-id').value=id; $('upd-task-status').value=s; $('upd-task-pay-status').value=p||'Due'; $('upd-task-link').value=l||''; window.openModal('task-update-modal'); };
+        window.submitTaskUpdate = async e => { e.preventDefault(); const btn='btn-update-task', ot=$(btn).innerHTML; setLoad(btn,true,ot); try{ await updateDoc(doc(db,"tasks",V('upd-task-id')),{status:V('upd-task-status'), payStatus:V('upd-task-pay-status'), finalLink:V('upd-task-link')}); window.closeModal('task-update-modal'); window.loadAllData(); }finally{setLoad(btn,false,ot);} };
+        window.submitWithdraw = async e => { e.preventDefault(); const btn='btn-withdraw', ot=$(btn).innerHTML; setLoad(btn,true,ot); try{ const pId=V('wd-projId'), amt=V('wd-amount'), pi=`${V('wd-pay-method')} (${V('wd-pay-type')}) - ${V('wd-pay-number')}`, l=V('wd-link'); await addDoc(collection(db,'withdrawals'),{employeeName:window.uN,projectId:pId,amount:amt,paymentInfo:pi,link:l,status:'Pending',timestamp:Date.now(),date:new Date().toLocaleDateString()}); window.open(`https://wa.me/8801915706375?text=${encodeURIComponent(`*🔥 Withdraw Request*\n*Name:* ${window.uN}\n*Phone:* ${window.uP}\n*Proj:* ${pId}\n*Amt:* ${amt}\n*To:* ${pi}\n*Link:* ${l}`)}`,'_blank'); window.closeModal('withdraw-modal'); window.loadAllData(); }finally{setLoad(btn,false,ot);} };
+        window.markPaid = async id => { if(window.uR==='Admin') { await updateDoc(doc(db,"withdrawals",id),{status:'Paid'}); window.loadAllData(); }};
+        
+        window.deleteMasterRecord = async pId => { if(window.uR==='Admin'&&confirm(`Delete EVERYTHING for Project: ${pId}?`)){ const o=window.dO.find(x=>x.projectId===pId), t=window.dT.find(x=>x.projectId===pId), e=window.dE.find(x=>x.projectId===pId); if(o)await deleteDoc(doc(db,'orders',o.id)); if(t)await deleteDoc(doc(db,'tasks',t.id)); if(e)await deleteDoc(doc(db,'expenses',e.id)); window.loadAllData(); }};
+        window.deleteRecord = async (col, id) => { if(window.uR==='Admin'&&confirm("Delete this record?")){ await deleteDoc(doc(db,col,id)); col==='marketing_leads'?window.loadMarketingData():window.loadAllData(); }};
+
+        // Marketing Sync
+        window.syncGoogleSheet = async () => { const u=V('sheet-url'); if(!u)return alert("Paste CSV URL"); const btn='btn-sync-sheet', ot=$(btn).innerHTML; setLoad(btn,true,ot); try{ const r=await fetch(u); const t=await r.text(); const rs=t.split('\n'); let c=0; for(let i=1;i<rs.length;i++){ const cs=rs[i].split(','); if(cs.length>=2){ const n=cs[0].replace(/"/g,'').trim(), nu=cs[1].replace(/"/g,'').trim(); if(n&&nu&&!window.dL.some(l=>l.number===nu)){ await addDoc(collection(db,"marketing_leads"),{name:n,number:nu,timestamp:Date.now()}); c++; } } } $('sheet-url').value=''; window.loadMarketingData(); alert(`Imported ${c} leads.`); }catch(err){alert("Failed to sync.");}finally{setLoad(btn,false,ot);} };
+        window.saveLead = async e => { e.preventDefault(); const btn='btn-save-lead', ot=$(btn).innerHTML; setLoad(btn,true,ot); try{ const id=V('lead-id'), d={name:V('lead-name'),number:V('lead-number'),timestamp:Date.now()}; if(id)await updateDoc(doc(db,"marketing_leads",id),d); else await addDoc(collection(db,"marketing_leads"),d); $('form-lead').reset(); $('lead-id').value=''; window.loadMarketingData(); }finally{setLoad(btn,false,ot);} };
+        window.editLead = (id,n,nu) => { $('lead-id').value=id; $('lead-name').value=n; $('lead-number').value=nu; };
+        window.saveTemplate = async () => { await setDoc(doc(db,"settings","marketing"),{template:V('msg-template'),campaign:V('campaign-toggle')}); alert("Template Saved!"); };
+        window.sendBulkMessages = () => { if(V('campaign-toggle')!=='ON')return alert("Turn Campaign ON"); const t=V('msg-template'); if(!t)return; window.dL.slice(0,100).forEach((l,i)=>setTimeout(()=>window.open(`https://wa.me/${l.number.replace(/\D/g,'')}?text=${encodeURIComponent(t.replace('[Name]',l.name))}`,'_blank'),i*800)); };
+
+        // Data Loader & Dashboard Engine
+        window.loadAllData = async function() {
+            const iA = window.uR === 'Admin';
+            const gD = async c => { const s=await getDocs(collection(db,c)); let r=[]; s.forEach(d=>r.push({...d.data(),id:d.id})); return r.sort((a,b)=>b.timestamp-a.timestamp); };
+            
+            window.dO = await gD("orders");
+            $('order-table-body').innerHTML = window.dO.map(d=>`<tr><td class="font-bold text-[#00ff88]">${d.projectId}</td><td class="admin-only font-bold">৳${d.amount}</td><td>${d.assignedTo}</td><td class="whitespace-nowrap">${d.deadline}</td><td><span class="badge ${d.status==='Completed'?'badge-success':'badge-pending'}">${d.status}</span></td><td class="admin-only text-right whitespace-nowrap">${iA?`<button onclick="editMaster('${d.projectId}')" class="action-btn btn-edit"><i class="fas fa-edit"></i></button><button onclick="deleteMasterRecord('${d.projectId}')" class="action-btn btn-delete"><i class="fas fa-trash"></i></button>`:''}</td></tr>`).join('');
+            
+            if(iA) {
+                window.dEmp = await gD("employees");
+                const uniqueEmps = [...new Set(window.dEmp.map(e => e.name))]; // Remove duplicates
+                const empOptions = uniqueEmps.map(name => `<option value="${name}">`).join('');
+                if($('emp-list')) $('emp-list').innerHTML = empOptions;
+                if($('mgr-list')) $('mgr-list').innerHTML = empOptions;
+
+                window.dC = await gD("clients"); $('client-table-body').innerHTML = window.dC.map(d=>`<tr><td class="font-bold">${d.clientId||''}</td><td>${d.name}</td><td>${d.number}</td><td>${d.country||''}</td><td class="text-blue-400"><a href="${d.link}" target="_blank">Link</a></td><td class="text-right whitespace-nowrap"><button onclick="editClient('${d.id}')" class="action-btn btn-edit"><i class="fas fa-edit"></i></button><button onclick="deleteRecord('clients','${d.id}')" class="action-btn btn-delete"><i class="fas fa-trash"></i></button></td></tr>`).join('');
+                window.dE = await gD("expenses"); window.renderDashboard();
+            }
+
+            window.dT = await gD("tasks"); 
+            $('task-table-body').innerHTML = window.dT.map(d=>{
+                if(!iA && d.employeeName!==window.uN) return '';
+                const pBdg = d.payStatus==='Paid'?'badge-success':'badge-danger';
+                return `<tr><td class="font-bold text-[#00ff88]">${d.projectId}</td><td class="text-[10px] uppercase font-bold text-gray-400">${d.department}</td><td class="font-bold">${d.employeeName}</td><td class="font-bold">৳${d.payAmount}</td><td class="whitespace-nowrap">${d.deadline}</td><td><span class="badge ${d.status==='Completed'?'badge-success':'badge-pending'}">${d.status}</span></td><td><span class="badge ${pBdg}">${d.payStatus||'Due'}</span></td><td class="text-xs text-blue-400 truncate max-w-[80px]">${d.finalLink?`<a href="${d.finalLink}" target="_blank">View</a>`:'N/A'}</td><td class="text-right whitespace-nowrap">${iA?`<button onclick="editMaster('${d.projectId}')" class="action-btn btn-edit"><i class="fas fa-edit"></i></button><button onclick="deleteMasterRecord('${d.projectId}')" class="action-btn btn-delete"><i class="fas fa-trash"></i></button>`:`<button onclick="openTaskEdit('${d.id}','${d.status}','${d.payStatus||'Due'}','${d.finalLink}')" class="app-btn py-1 px-3 bg-[linear-gradient(135deg,#3b82f6,#2563eb)] text-white text-[10px] shadow-md hover:-translate-y-1">Update</button>`}</td></tr>`;
+            }).join('');
+            
+            const wds = await gD("withdrawals"); $('withdraw-table-body').innerHTML = wds.map(d=>{
+                if(!iA && d.employeeName!==window.uN) return '';
+                return `<tr><td class="text-xs whitespace-nowrap">${d.date}</td><td class="font-bold">${d.employeeName}</td><td class="text-[#00ff88] font-bold">${d.projectId}</td><td class="font-bold">৳${d.amount}</td><td class="text-[10px] text-gray-400 min-w-[120px]">${d.paymentInfo||''}</td><td><a href="${d.link}" class="text-blue-400 text-xs" target="_blank">Proof</a></td><td><span class="badge ${d.status==='Paid'?'badge-success':'badge-pending'}">${d.status}</span></td><td class="admin-only text-right whitespace-nowrap">${iA&&d.status!=='Paid'?`<button onclick="markPaid('${d.id}')" class="action-btn btn-edit bg-green-500/20 text-green-400 border border-green-500/30"><i class="fas fa-check"></i> Pay</button><button onclick="deleteRecord('withdrawals','${d.id}')" class="action-btn btn-delete"><i class="fas fa-trash"></i></button>`:''}</td></tr>`;
+            }).join('');
+        }
+
+        window.loadMarketingData = async function() {
+            const s=await getDocs(collection(db,"marketing_leads")); window.dL=[]; s.forEach(d=>window.dL.push({...d.data(),id:d.id})); window.dL.sort((a,b)=>b.timestamp-a.timestamp);
+            $('lead-table-body').innerHTML = window.dL.map(d=>`<tr><td class="font-bold">${d.name}</td><td class="text-sm text-gray-400">${d.number}</td><td class="text-right whitespace-nowrap"><button onclick="editLead('${d.id}','${d.name}','${d.number}')" class="action-btn btn-edit"><i class="fas fa-edit"></i></button><button onclick="deleteRecord('marketing_leads','${d.id}')" class="action-btn btn-delete"><i class="fas fa-trash"></i></button></td></tr>`).join('');
+            const ms = await getDoc(doc(db,"settings","marketing")); if(ms.exists()){ $('msg-template').value=ms.data().template||''; $('campaign-toggle').value=ms.data().campaign||'OFF'; }
+        }
+
+        window.renderDashboard = function() {
+            if(window.uR!=='Admin') return; 
+            const fD = V('dash-filter'), fP = V('profit-filter'), ym = `${new Date().getFullYear()}-${String(new Date().getMonth()+1).padStart(2,'0')}`;
+            let dRev=0, dExp=0, dNet=0, dTot=0, dProg=0, dComp=0, pR=0, pE=0, pN=0, html='';
+            
+            window.dE.forEach(d=>{ 
+                if(fD==='ALL' || d.yearMonth===ym) { dRev+=Number(d.budget||0); dExp+=Number(d.expense||0); dNet+=Number(d.profit||0); }
+                if(fP==='ALL' || d.yearMonth===ym) { 
+                    pR+=Number(d.budget||0); pE+=Number(d.expense||0); pN+=Number(d.profit||0); 
+                    html+=`<tr><td class="text-xs text-gray-400">${d.dateStr||''}</td><td class="font-bold text-[#00ff88]">${d.projectId}</td><td>${d.manager||''}</td><td class="font-bold">৳${d.budget||0}</td><td>৳${d.clientMgr||0}</td><td>৳${d.writer||0}</td><td>৳${d.promoter||0}</td><td>৳${d.marketer||0}</td><td>৳${d.editor||0}</td><td>৳${d.designer||0}</td><td>৳${d.developer||0}</td><td>৳${d.shooting||0}</td><td class="text-red-400 font-bold">৳${d.expense||0}</td><td class="text-[#00ff88] font-bold">৳${d.profit||0}</td><td class="text-right whitespace-nowrap"><button onclick="editMaster('${d.projectId}')" class="action-btn btn-edit"><i class="fas fa-edit"></i></button><button onclick="deleteMasterRecord('${d.projectId}')" class="action-btn btn-delete"><i class="fas fa-trash"></i></button></td></tr>`; 
+                }
+            });
+            window.dO.forEach(o=>{ 
+                const oDate = new Date(o.timestamp); const oYm = `${oDate.getFullYear()}-${String(oDate.getMonth()+1).padStart(2,'0')}`;
+                if(fD==='ALL' || oYm===ym) { dTot++; o.status==='Completed'?dComp++:dProg++; }
+            });
+
+            if($('dash-rev')){
+                $('dash-rev').innerText=`৳ ${dRev.toLocaleString()}`; $('dash-exp').innerText=`৳ ${dExp.toLocaleString()}`; $('dash-profit').innerText=`৳ ${dNet.toLocaleString()}`; $('dash-partner').innerText=`৳ ${Math.round(dNet*0.1).toLocaleString()}`;
+                $('dash-ord-total').innerText=dTot; $('dash-ord-prog').innerText=dProg; $('dash-ord-comp').innerText=dComp;
+            }
+            if($('expense-table-body')){
+                $('expense-table-body').innerHTML=html; $('kpi-revenue').innerText=`৳ ${pR.toLocaleString()}`; $('kpi-expenses').innerText=`৳ ${pE.toLocaleString()}`; $('kpi-profit').innerText=`৳ ${pN.toLocaleString()}`; $('kpi-partner').innerText=`৳ ${Math.round(pN*0.1).toLocaleString()}`;
+            }
+        }
+        window.renderFinances = window.renderDashboard;
+    </script>
+</body>
+</html>
