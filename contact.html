@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Multimedia Gen | Video Production & Brand Promotion Agency</title>
+<meta name="description" content="Contact Multimedia Gen for video production, brand promotion, and advertising services. Message us on WhatsApp or send your project details directly.">
+<meta name="keywords" content="contact video agency Bangladesh, hire video editor Bangladesh, brand promotion contact, multimedia gen contact">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* --- 🚀 ADVANCED PREMIUM AGENCY CSS --- */
+:root {
+  --g: #00ff88;
+  --g-dark: #00cc6a;
+  --cyn: #00f2ff;
+  --w: #ffffff;
+  --gray: #a0aec0;
+  --bdr: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --input-bg: rgba(0, 0, 0, 0.4);
+  --bg-grad: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', system-ui, sans-serif; }
+
+body { 
+  background: var(--bg-grad); 
+  color: var(--w); 
+  overflow-x: hidden;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Ambient Lighting */
+.ambient { position: fixed; top: -20%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%); z-index: -1; pointer-events: none; }
+.ambient.right { top: 40%; left: 60%; background: radial-gradient(circle, rgba(0,242,255,0.05) 0%, transparent 70%); }
+
+.container { max-width: 1300px; margin: auto; padding: 80px 20px; position: relative; z-index: 1; }
+
+/* Header Section */
+.hero-header { text-align: center; margin-bottom: 60px; animation: mgFadeInUp 0.8s ease-out; }
+.status-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.2); color: var(--g); border-radius: 30px; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase; }
+.status-badge i { font-size: 0.6rem; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+@keyframes mgFadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes mgSpin { to { transform: rotate(360deg); } }
+
+h1 { font-size: clamp(2.2rem, 4vw, 4rem); font-weight: 900; letter-spacing: -1px; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+h1 span { background: linear-gradient(115deg, #fff, var(--g), var(--cyn)); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.sub-text { font-size: clamp(1.1rem, 2vw, 1.25rem); color: var(--gray); font-weight: 500; max-width: 800px; margin: 0 auto; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+
+/* Layout Grid */
+.mg-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; align-items: start; animation: mgFadeInUp 1s ease-out 0.2s both; }
+
+/* Contact Info Side */
+.mg-info-block { margin-bottom: 35px; padding-bottom: 35px; border-bottom: 1px solid var(--bdr); }
+.mg-info-block:last-child { border-bottom: none; padding-bottom: 0; }
+.mg-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gray); margin-bottom: 10px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.mg-label i { color: var(--g); font-size: 1.2rem; }
+.mg-value { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-bottom: 8px;}
+.mg-sub-value { color: var(--gray); font-size: 1.05rem; margin-top: 5px; line-height: 1.6; }
+
+.why-us-list { list-style: none; margin-top: 15px; }
+.why-us-list li { display: flex; align-items: center; gap: 10px; color: var(--gray); font-size: 1.05rem; margin-bottom: 12px; }
+.why-us-list li i { color: var(--g); font-size: 0.9rem; }
+
+/* Advanced Form Wrapper */
+.mg-form-wrapper { background: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 50px; border-radius: 24px; border: 1px solid var(--bdr); box-shadow: 0 25px 50px rgba(0,0,0,0.5); position: relative; }
+.mg-form-wrapper::before { content: ''; position: absolute; inset: 0; border-radius: 24px; padding: 2px; background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,255,136,0.1)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.mg-form-title { font-size: 2rem; font-weight: 900; margin-bottom: 10px; color: #fff; }
+.mg-form-sub { color: var(--gray); margin-bottom: 35px; font-size: 0.95rem; }
+
+/* Floating Label Inputs */
+.mg-input-group { position: relative; margin-bottom: 25px; }
+.mg-input { width: 100%; background: var(--input-bg); border: 1px solid var(--bdr); color: #fff; padding: 24px 20px 10px; border-radius: 12px; font-size: 1.05rem; outline: 0; transition: all 0.3s ease; backdrop-filter: blur(5px); }
+.mg-input:focus { border-color: var(--g); background: rgba(0,0,0,0.6); box-shadow: 0 0 20px rgba(0,255,136,0.15); }
+.mg-floating-label { position: absolute; top: 50%; left: 20px; transform: translateY(-50%); color: var(--gray); font-size: 1rem; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; }
+.mg-input:focus ~ .mg-floating-label, .mg-input:not(:placeholder-shown) ~ .mg-floating-label { top: 16px; font-size: 0.75rem; color: var(--g); font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+
+textarea.mg-input { height: 160px; resize: vertical; padding-top: 30px; }
+textarea.mg-input ~ .mg-floating-label { top: 25px; transform: none; }
+textarea.mg-input:focus ~ .mg-floating-label, textarea.mg-input:not(:placeholder-shown) ~ .mg-floating-label { top: 12px; }
+
+/* Custom Select */
+select.mg-input { padding-top: 20px; appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ff88' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 20px center; background-size: 1.2em; cursor: pointer; }
+select.mg-input option { background: #0f172a; color: #fff; }
+
+/* Submit Button */
+.mg-submit-btn { width: 100%; background: #25D366; color: #fff; border: none; padding: 20px; border-radius: 12px; font-size: 1.15rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); margin-top: 10px; box-shadow: 0 10px 30px rgba(37,211,102,0.2); }
+.mg-submit-btn:hover { background: #1ebd5a; transform: translateY(-5px); box-shadow: 0 15px 40px rgba(37,211,102,0.4); }
+.mg-submit-btn:disabled { background: #1e6b3b; cursor: not-allowed; transform: none; box-shadow: none; color: rgba(255,255,255,0.7); }
+.mg-spinner { width: 22px; height: 22px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: mgSpin 1s infinite linear; }
+
+/* SEO Content Section */
+.seo-content { background: var(--card-bg); border-top: 1px solid var(--bdr); padding: 60px 20px; margin-top: 80px; position: relative; z-index: 1; backdrop-filter: blur(10px); text-align: center; }
+.seo-inner { max-width: 900px; margin: auto; }
+.seo-inner h3 { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
+.seo-inner p { color: #a0aec0; font-size: 1.05rem; line-height: 1.8; }
+
+.trust-note { text-align: center; font-size: 0.85rem; color: var(--gray); margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+@media (max-width: 992px) {
+  .mg-grid { grid-template-columns: 1fr; gap: 50px; }
+  .mg-form-wrapper { padding: 30px 20px; }
+  h1 { font-size: 2.2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="ambient"></div>
+<div class="ambient right"></div>
+
+<div class="container">
+  
+  <div class="hero-header">
+    <div class="status-badge"><i class="fas fa-bolt"></i> Fast Response Guaranteed</div>
+    <h1>Let’s Build Your <br><span>Next Winning Video Campaign</span></h1>
+    <p class="sub-text">We help businesses turn ideas into high-converting video content and marketing results.<br>Tell us about your project — we’ll guide you with the best strategy to grow your brand.</p>
+  </div>
+
+  <div class="mg-grid">
+    <div>
+      <div class="mg-info-block">
+        <div class="mg-label"><i class="fa-brands fa-whatsapp"></i> Talk Directly on WhatsApp</div>
+        <div class="mg-value"><a href="https://wa.me/8801915706375" style="color: #fff; text-decoration: none;">+880 1915 706375</a></div>
+        <div class="mg-sub-value">
+            ✔ Fast response<br>
+            ✔ Direct communication<br>
+            ✔ Quick project discussion
+        </div>
+      </div>
+
+      <div class="mg-info-block">
+        <div class="mg-label"><i class="fa-solid fa-envelope-open-text"></i> Email & Support</div>
+        <div class="mg-value" style="font-size: 1.3rem;">multimediagen.com@gmail.com</div>
+        <div class="mg-sub-value">⏱ We usually reply within 1–2 hours during working time.</div>
+      </div>
+
+      <div class="mg-info-block">
+        <div class="mg-label"><i class="fa-solid fa-globe"></i> Availability & Working Area</div>
+        <div class="mg-sub-value" style="color: #fff; font-weight: 600;">🌍 We work with clients worldwide remotely.</div>
+        <div class="mg-sub-value">🕒 Saturday – Thursday | 10:00 AM – 10:00 PM</div>
+      </div>
+
+      <div class="mg-info-block" style="border:none;">
+        <div class="mg-label"><i class="fa-solid fa-lightbulb"></i> Why Contact Us</div>
+        <ul class="why-us-list">
+          <li><i class="fa-solid fa-check"></i> Get expert consultation before starting</li>
+          <li><i class="fa-solid fa-check"></i> Clear idea about your content strategy</li>
+          <li><i class="fa-solid fa-check"></i> Professional guidance for your business</li>
+          <li><i class="fa-solid fa-check"></i> Transparent communication</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mg-form-wrapper">
+      <h2 class="mg-form-title">Send Your Project Details</h2>
+      <p class="mg-form-sub">Fill out the form below and we will get back to you as soon as possible.</p>
+
+      <form id="mgLeadForm">
+        <div class="mg-input-group">
+          <input type="text" id="mg_name" class="mg-input" placeholder=" " required>
+          <label class="mg-floating-label">Full Name</label>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div class="mg-input-group">
+            <input type="email" id="mg_email" class="mg-input" placeholder=" " required>
+            <label class="mg-floating-label">Email Address</label>
+          </div>
+          <div class="mg-input-group">
+            <input type="tel" id="mg_phone" class="mg-input" placeholder=" " required>
+            <label class="mg-floating-label">Phone / WhatsApp Number</label>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+            <div class="mg-input-group">
+            <select id="mg_service" class="mg-input" required>
+                <option value="" disabled selected></option>
+                <option value="Video Production">Video Production</option>
+                <option value="Video Editing">Video Editing</option>
+                <option value="Video Advertising">Video Advertising</option>
+                <option value="Brand Promotion">Brand Promotion</option>
+                <option value="Brand Promoter Hiring">Brand Promoter Hiring</option>
+                <option value="AI Video Creation">AI Video Creation</option>
+                <option value="Podcast Production">Podcast Production</option>
+                <option value="Product Photoshoot">Product Photoshoot</option>
+                <option value="Paid Ads Campaign">Paid Ads Campaign</option>
+                <option value="Graphic Design">Graphic Design</option>
+                <option value="Web Development">Web Development</option>
+            </select>
+            <label class="mg-floating-label" style="top: 14px; font-size: 0.75rem; color: var(--g);">Service Type</label>
+            </div>
+            
+            <div class="mg-input-group">
+                <input type="text" id="mg_budget" class="mg-input" placeholder=" ">
+                <label class="mg-floating-label">Budget Range (Optional)</label>
+            </div>
+        </div>
+
+        <div class="mg-input-group">
+          <textarea id="mg_message" class="mg-input" placeholder=" " required></textarea>
+          <label class="mg-floating-label">Project Details</label>
+        </div>
+
+        <button type="submit" id="mg_submit_btn" class="mg-submit-btn">
+          <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i> Send Project Details
+        </button>
+
+        <div class="trust-note">
+            <i class="fa-solid fa-lock"></i> Your information is secure and will never be shared with third parties.
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="seo-content">
+  <div class="seo-inner">
+    <h3>Multimedia Gen helps businesses grow through high-converting video ads, brand promotion, and performance-driven marketing strategies.</h3>
+    <p>Looking for a reliable video production and brand promotion agency in Bangladesh? Contact Multimedia Gen today and start growing your business with strategic content.</p>
+  </div>
+</footer>
+
+<script>
+  // High-Performance Form Handling Module
+  (function() {
+    const form = document.getElementById('mgLeadForm');
+    
+    if (form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const btn = document.getElementById('mg_submit_btn');
+        const originalContent = btn.innerHTML;
+        
+        // Simulate API Loading State
+        btn.disabled = true;
+        btn.innerHTML = '<div class="mg-spinner"></div> Formatting Brief...';
+
+        // Data Extraction
+        const name = document.getElementById('mg_name').value.trim();
+        const email = document.getElementById('mg_email').value.trim();
+        const phone = document.getElementById('mg_phone').value.trim();
+        const service = document.getElementById('mg_service').value;
+        const budget = document.getElementById('mg_budget').value.trim() || 'Not Specified';
+        const message = document.getElementById('mg_message').value.trim();
+
+        // Construct Payload & Route to WhatsApp
+        setTimeout(() => {
+          const waNumber = "8801915706375";
+          const waText = `*🔥 New Project Details | Multimedia Gen*\n\n*Client Info:*\n👤 Name: ${name}\n📧 Email: ${email}\n📱 Phone/WA: ${phone}\n\n*Project Requirements:*\n🎯 Service: ${service}\n💰 Budget: ${budget}\n\n*Project Details:*\n📝 ${message}`;
+          
+          const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
+          window.open(waUrl, '_blank', 'noopener,noreferrer');
+          
+          // Reset UI
+          btn.disabled = false;
+          btn.innerHTML = originalContent;
+          form.reset(); 
+          
+        }, 1200); 
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
+
