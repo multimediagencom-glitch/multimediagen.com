@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Hunting Mastery | Multimedia Gen Institute</title>
+    <link rel="icon" href="https://drive.google.com/uc?export=view&id=1yAC1LYhKUGg1Sxo1s4Ys8BeRpcUSauJu">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 900: '#312e81' },
+                        darkbg: '#0f172a', darkcard: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.4); }
+        .dark .glass { background: rgba(30, 41, 59, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .pulse-green { animation: pulseGreen 2s infinite; }
+        @keyframes pulseGreen { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+        .accordion-content { transition: max-height 0.4s ease-in-out, padding 0.4s ease; max-height: 0; overflow: hidden; }
+        .accordion-content.open { max-height: 800px; padding-top: 1rem; padding-bottom: 1rem; }
+        .fb-video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
+        .fb-video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkbg dark:text-gray-100 transition-colors duration-300 antialiased relative">
+
+    <div class="fixed top-0 w-full z-50">
+        <div class="bg-indigo-950 text-white text-xs md:text-sm py-2 px-4 flex flex-col md:flex-row justify-between items-center shadow-md">
+            <div class="flex items-center space-x-2 font-semibold mb-2 md:mb-0">
+                <span id="live-indicator" class="w-3 h-3 rounded-full bg-gray-400 inline-block"></span>
+                <span id="live-status-text">Checking Live Status...</span>
+                <span class="hidden md:inline ml-2 text-indigo-300">| Batch 01 Live Class</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="hidden sm:inline"><i class="far fa-clock mr-1"></i> Sat, Mon, Wed (9 PM - 10 PM BD)</span>
+                <a href="https://meet.google.com/mjs-cwqp-wtw" target="_blank" class="bg-brand-600 hover:bg-brand-500 text-white px-3 py-1 rounded font-bold transition-colors">
+                    Join Live Class
+                </a>
+            </div>
+        </div>
+
+        <header class="glass shadow-sm transition-colors duration-300 relative z-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex-shrink-0 flex items-center gap-2">
+                        <img src="https://drive.google.com/uc?export=view&id=1yAC1LYhKUGg1Sxo1s4Ys8BeRpcUSauJu" alt="Logo" class="w-8 h-8 rounded-full object-cover border border-brand-500">
+                        <span class="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-brand-600 to-indigo-500 dark:from-brand-400 dark:to-indigo-300">Multimedia Gen</span>
+                    </div>
+                    
+                    <nav class="hidden lg:flex space-x-6">
+                        <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-brand-600 font-medium transition">Home</a>
+                        <a href="#courses" class="text-gray-700 dark:text-gray-300 hover:text-brand-600 font-medium transition">Courses</a>
+                        <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-brand-600 font-medium transition">About</a>
+                        <a href="#reviews" class="text-gray-700 dark:text-gray-300 hover:text-brand-600 font-medium transition">Review</a>
+                        <a href="#enroll" class="text-gray-700 dark:text-gray-300 hover:text-brand-600 font-medium transition">Enroll</a>
+                        <a href="#lms" class="text-gray-700 dark:text-gray-300 hover:text-brand-600 font-medium transition"><i class="fas fa-lock text-xs"></i> Portal</a>
+                    </nav>
+
+                    <div class="flex items-center space-x-3">
+                        <button id="lang-toggle" class="text-xs font-bold border border-gray-300 dark:border-gray-600 px-2 py-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">EN / BN</button>
+                        <button id="theme-toggle" class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition p-2">
+                            <i class="fas fa-moon text-lg" id="theme-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <main class="pt-28">
+        <section class="bg-red-600 text-white text-center py-2 px-4 font-bold tracking-wide animate-pulse shadow-md z-30 relative">
+            🚨 Batch 1 is currently running (Admissions Closed). Limited Seats Available for Live Batch 02 — Pre-admission open! Secure your seat now.
+        </section>
+
+        <section id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 lg:pr-8">
+                    <span class="inline-block py-1.5 px-4 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-900/40 dark:text-brand-300 text-xs font-bold tracking-widest uppercase border border-brand-200 dark:border-brand-700/50">
+                        Premium Hybrid LMS
+                    </span>
+                    
+                    <div class="lang-en block space-y-4">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white">
+                            Welcome to <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-500">Multimedia Gen Institute</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
+                            Learn Client Hunting & Build a Real Income System. Master the art of closing high-ticket global clients directly.
+                        </p>
+                    </div>
+
+                    <div class="lang-bn hidden space-y-4">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-500">মাল্টিমিডিয়া জেন ইনস্টিটিউটে</span><br>স্বাগতম
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
+                            ক্লায়েন্ট হান্টিং শিখে ইনকাম সিস্টেম তৈরি করুন। গ্লোবাল ক্লায়েন্ট ম্যানেজমেন্ট এবং এজেন্সি মডেল আয়ত্ত করুন।
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#enroll" class="px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-xl hover:shadow-brand-500/30 transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+                            <i class="fas fa-bolt"></i>
+                            <span class="lang-en block">Enroll Now</span>
+                            <span class="lang-bn hidden">এখনই ভর্তি হন</span>
+                        </a>
+                        <a href="#demo" class="px-8 py-4 glass text-gray-900 dark:text-white font-bold rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all text-center flex items-center justify-center gap-2 shadow-sm border border-gray-200 dark:border-gray-700">
+                            <i class="fas fa-play-circle text-brand-600 dark:text-brand-400 text-xl"></i>
+                            <span class="lang-en block">Watch Demo</span>
+                            <span class="lang-bn hidden">ডেমো ক্লাস দেখুন</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative w-full max-w-md mx-auto lg:max-w-full group perspective">
+                    <div class="absolute -inset-1 bg-gradient-to-tr from-brand-600 to-purple-600 rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                    <img src="https://drive.google.com/uc?export=view&id=1yAC1LYhKUGg1Sxo1s4Ys8BeRpcUSauJu" alt="Mentor" class="relative rounded-[2rem] shadow-2xl w-full object-cover glass border-2 border-white/20 dark:border-white/5 transform transition duration-500 group-hover:scale-[1.02] aspect-[4/5]" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="bg-white dark:bg-darkcard py-16 border-y border-gray-100 dark:border-gray-800 transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-brand-600 dark:text-brand-400 font-bold tracking-wider uppercase text-sm">Course Overview</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mt-2">Client Hunting Mastery</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div class="glass p-6 rounded-2xl border border-gray-100 dark:border-gray-700 text-center shadow-sm hover:shadow-md transition">
+                        <div class="w-14 h-14 mx-auto bg-brand-100 dark:bg-brand-900/50 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-calendar-alt text-2xl text-brand-600 dark:text-brand-400"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-1">Duration</h3>
+                        <p class="text-gray-600 dark:text-gray-400 font-medium">1 Month (12 Classes)</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl border border-gray-100 dark:border-gray-700 text-center shadow-sm hover:shadow-md transition">
+                        <div class="w-14 h-14 mx-auto bg-brand-100 dark:bg-brand-900/50 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-clock text-2xl text-brand-600 dark:text-brand-400"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-1">Schedule</h3>
+                        <p class="text-gray-600 dark:text-gray-400 font-medium">Sat, Mon, Wed</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl border border-gray-100 dark:border-gray-700 text-center shadow-sm hover:shadow-md transition">
+                        <div class="w-14 h-14 mx-auto bg-brand-100 dark:bg-brand-900/50 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-hourglass-half text-2xl text-brand-600 dark:text-brand-400"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-1">Time</h3>
+                        <p class="text-gray-600 dark:text-gray-400 font-medium">9:00 PM – 10:00 PM</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl border border-gray-100 dark:border-gray-700 text-center shadow-sm hover:shadow-md transition">
+                        <div class="w-14 h-14 mx-auto bg-brand-100 dark:bg-brand-900/50 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-bullseye text-2xl text-brand-600 dark:text-brand-400"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-1">Highlights</h3>
+                        <p class="text-gray-600 dark:text-gray-400 font-medium text-sm">Real Client System<br>Agency Model & Practical</p>
+                    </div>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-bold mb-8 text-center flex items-center justify-center gap-3">
+                        <i class="fas fa-layer-group text-brand-600"></i> Full Course Modules
+                    </h3>
+                    <div class="space-y-4" id="accordion-container">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="py-16 md:py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-brand-900 dark:bg-black opacity-95"></div>
+            <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+            <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+                <span class="text-brand-400 font-bold tracking-widest uppercase text-sm mb-2 block">Sneak Peek</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-white">Watch Real Live Class Demo</h2>
+                <p class="text-gray-300 mb-10 text-lg max-w-2xl mx-auto">Experience our teaching methodology and premium content quality before you make your decision to enroll.</p>
+                <div class="w-full rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(79,70,229,0.3)] border border-brand-500/30 bg-black aspect-video">
+                    <iframe class="w-full h-full border-0" src="https://drive.google.com/file/d/1yjqCHN82B0r1EPu_cpCDqHHUDq9PxIcn/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 md:py-24 bg-gray-50 dark:bg-darkcard transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="w-full lg:w-5/12">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl glass p-2 border border-gray-200 dark:border-gray-700">
+                            <img src="https://drive.google.com/uc?export=view&id=11N3LOPi30qfislqQt2-hVnXyD9NDeHRB" alt="Md Usman Gani" class="w-full h-auto rounded-2xl object-cover">
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-7/12 space-y-6">
+                        <span class="text-brand-600 dark:text-brand-400 font-bold tracking-wider uppercase text-sm">Meet Your Mentor</span>
+                        <div>
+                            <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white">Md Usman Gani</h2>
+                            <p class="text-xl text-gray-600 dark:text-gray-300 font-medium mt-1">Founder & CEO, Multimedia Gen</p>
+                        </div>
+                        <div class="h-1 w-20 bg-brand-600 rounded"></div>
+                        <ul class="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                            <li class="flex items-start gap-4"><i class="fas fa-check-circle text-brand-500 text-xl mt-1"></i> Client Acquisition Specialist working globally.</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-check-circle text-brand-500 text-xl mt-1"></i> Actively works with real clients & B2B businesses.</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-check-circle text-brand-500 text-xl mt-1"></i> Helps freelancers build sustainable income systems.</li>
+                            <li class="flex items-start gap-4"><i class="fas fa-check-circle text-brand-500 text-xl mt-1"></i> Focused strictly on practical, result-based learning.</li>
+                        </ul>
+                        <blockquote class="border-l-4 border-brand-500 pl-6 py-4 italic text-xl font-medium text-gray-800 dark:text-gray-200 bg-brand-50 dark:bg-brand-900/20 rounded-r-xl shadow-sm">
+                            "Helping freelancers turn their skills into automated income systems."
+                        </blockquote>
+                        <div class="pt-4">
+                            <a href="https://mdusmangani.com" target="_blank" class="inline-flex items-center justify-center px-6 py-3 border-2 border-brand-600 text-brand-600 dark:text-brand-400 dark:border-brand-500 font-bold rounded-lg hover:bg-brand-600 hover:text-white dark:hover:bg-brand-500 dark:hover:text-white transition-all gap-2">
+                                View Full Profile <i class="fas fa-external-link-alt text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="py-16 md:py-24 bg-white dark:bg-darkbg border-y border-gray-100 dark:border-gray-800 transition-colors overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="text-brand-600 dark:text-brand-400 font-bold tracking-wider uppercase text-sm">Success Stories</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 mt-2">Student Transformations</h2>
+                <p class="mb-12 text-gray-600 dark:text-gray-400 text-lg">Real results and verified reviews from our running batch</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left mb-12">
+                    <div class="glass p-8 rounded-2xl shadow-lg relative border border-gray-200 dark:border-gray-700 hover:-translate-y-1 transition-transform">
+                        <i class="fas fa-quote-right absolute top-6 right-6 text-brand-100 dark:text-gray-800 text-5xl"></i>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-brand-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-inner">S</div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-900 dark:text-white">Sadia Islam</h4>
+                                <p class="text-xs font-semibold text-brand-600 dark:text-brand-400">Batch 01 • Dhaka</p>
+                            </div>
+                        </div>
+                        <div class="text-sm space-y-4 mb-6 text-gray-700 dark:text-gray-300">
+                            <div class="bg-red-50 dark:bg-red-900/10 p-3 rounded border-l-2 border-red-500">
+                                <span class="font-bold text-red-600 dark:text-red-400 text-xs uppercase block mb-1">Before</span>
+                                <p>Dependent entirely on Fiverr algorithms, zero direct clients.</p>
+                            </div>
+                            <div class="bg-green-50 dark:bg-green-900/10 p-3 rounded border-l-2 border-green-500">
+                                <span class="font-bold text-green-600 dark:text-green-400 text-xs uppercase block mb-1">After</span>
+                                <p>Closed a $1,200 web design client using LinkedIn outreach methods taught in Class 4.</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-400 text-sm gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+
+                    <div class="glass p-8 rounded-2xl shadow-lg relative border border-gray-200 dark:border-gray-700 hover:-translate-y-1 transition-transform">
+                        <i class="fas fa-quote-right absolute top-6 right-6 text-brand-100 dark:text-gray-800 text-5xl"></i>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-brand-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-inner">R</div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-900 dark:text-white">Rafiqul H.</h4>
+                                <p class="text-xs font-semibold text-brand-600 dark:text-brand-400">Batch 01 • Sylhet</p>
+                            </div>
+                        </div>
+                        <div class="text-sm space-y-4 mb-6 text-gray-700 dark:text-gray-300">
+                            <div class="bg-red-50 dark:bg-red-900/10 p-3 rounded border-l-2 border-red-500">
+                                <span class="font-bold text-red-600 dark:text-red-400 text-xs uppercase block mb-1">Before</span>
+                                <p>Didn't know how to price services, charging very low.</p>
+                            </div>
+                            <div class="bg-green-50 dark:bg-green-900/10 p-3 rounded border-l-2 border-green-500">
+                                <span class="font-bold text-green-600 dark:text-green-400 text-xs uppercase block mb-1">After</span>
+                                <p>Shifted to Drop Service model. Now managing 3 international B2B projects effortlessly.</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-400 text-sm gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+
+                    <div class="glass p-8 rounded-2xl shadow-lg relative border border-gray-200 dark:border-gray-700 hover:-translate-y-1 transition-transform">
+                        <i class="fas fa-quote-right absolute top-6 right-6 text-brand-100 dark:text-gray-800 text-5xl"></i>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-brand-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-inner">T</div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-900 dark:text-white">Tanvir A.</h4>
+                                <p class="text-xs font-semibold text-brand-600 dark:text-brand-400">Batch 01 • Chittagong</p>
+                            </div>
+                        </div>
+                        <div class="text-sm space-y-4 mb-6 text-gray-700 dark:text-gray-300">
+                            <div class="bg-red-50 dark:bg-red-900/10 p-3 rounded border-l-2 border-red-500">
+                                <span class="font-bold text-red-600 dark:text-red-400 text-xs uppercase block mb-1">Before</span>
+                                <p>Struggling with Upwork connects and cold emails going to spam.</p>
+                            </div>
+                            <div class="bg-green-50 dark:bg-green-900/10 p-3 rounded border-l-2 border-green-500">
+                                <span class="font-bold text-green-600 dark:text-green-400 text-xs uppercase block mb-1">After</span>
+                                <p>Built an automated cold email system. Getting 3-4 solid high-ticket leads every week.</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-400 text-sm gap-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex flex-col items-center justify-center gap-6">
+                    <h3 class="text-2xl font-bold">Verified Facebook Reviews</h3>
+                    <div class="flex flex-wrap justify-center gap-6 w-full">
+                        <div class="w-full max-w-[500px] overflow-hidden rounded-xl shadow-md bg-white border border-gray-200">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fturjo.kumar.176%2Fposts%2Fpfbid02vrq8CZfxepRuVDaRh5VUApSjB8niYsEsZE1zh8dBx8EmPYuzVdN5f2RDyo4WPBdvl&show_text=true&width=500" width="500" height="200" style="border:none;overflow:hidden; max-width:100%" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        </div>
+                        <div class="w-full max-w-[500px] overflow-hidden rounded-xl shadow-md bg-white border border-gray-200">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmuhunnfbj%2Fposts%2Fpfbid0WQX7Bjq3M3p1HXaApqytquM3RaFLu4rYeajKwHeXrDdMh4HwBoLxoepdzBsTdjNkl&show_text=true&width=500" width="500" height="200" style="border:none;overflow:hidden; max-width:100%" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        </div>
+                    </div>
+                    <a href="https://www.facebook.com/multimediageninstitute" target="_blank" class="mt-4 px-6 py-3 bg-[#1877F2] text-white font-bold rounded-lg hover:bg-[#166fe5] transition shadow-lg flex items-center gap-2">
+                        <i class="fab fa-facebook-square text-xl"></i> View All Facebook Reviews
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="lms" class="py-16 md:py-24 bg-gray-100 dark:bg-gray-900 border-y border-gray-200 dark:border-gray-800 relative">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-500 via-purple-500 to-indigo-500"></div>
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="text-brand-600 dark:text-brand-400 font-bold tracking-wider uppercase text-sm">Student Portal</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-2 mt-2">Restricted LMS Access</h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">Free classes are open for everyone. Enrolled students can unlock all recorded premium sessions using their unique access code.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <div class="md:col-span-5 glass rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 text-left h-[500px] overflow-y-auto flex flex-col gap-3">
+                        <h3 class="font-bold text-lg px-2 border-b border-gray-200 dark:border-gray-700 pb-2 mb-2 flex justify-between items-center">
+                            <span>Class Recordings</span>
+                            <span class="text-xs bg-brand-100 text-brand-800 dark:bg-brand-900 dark:text-brand-200 px-2 py-1 rounded">12 Classes</span>
+                        </h3>
+                        
+                        <div class="p-3 bg-white dark:bg-gray-800 rounded-xl border border-green-200 dark:border-green-900/50 shadow-sm flex items-center gap-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-750 transition group">
+                            <div class="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center text-green-600 dark:text-green-400 group-hover:scale-110 transition"><i class="fas fa-play"></i></div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-sm text-gray-900 dark:text-white leading-tight">Class 1: Intro & Mindset</h4>
+                                <span class="text-[10px] bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-400 px-1.5 py-0.5 rounded font-bold uppercase mt-1 inline-block">Free Access</span>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-white dark:bg-gray-800 rounded-xl border border-green-200 dark:border-green-900/50 shadow-sm flex items-center gap-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-750 transition group">
+                            <div class="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center text-green-600 dark:text-green-400 group-hover:scale-110 transition"><i class="fas fa-play"></i></div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-sm text-gray-900 dark:text-white leading-tight">Class 2: Niche & Clients</h4>
+                                <span class="text-[10px] bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-400 px-1.5 py-0.5 rounded font-bold uppercase mt-1 inline-block">Free Access</span>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-white dark:bg-gray-800 rounded-xl border border-green-200 dark:border-green-900/50 shadow-sm flex items-center gap-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-750 transition group">
+                            <div class="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center text-green-600 dark:text-green-400 group-hover:scale-110 transition"><i class="fas fa-play"></i></div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-sm text-gray-900 dark:text-white leading-tight">Class 3: Platforms & Outreach</h4>
+                                <span class="text-[10px] bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-400 px-1.5 py-0.5 rounded font-bold uppercase mt-1 inline-block">Free Access</span>
+                            </div>
+                        </div>
+
+                        <div id="locked-playlist-container" class="space-y-3">
+                            </div>
+                    </div>
+
+                    <div class="md:col-span-7 glass rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col items-center justify-center p-8 h-[500px] relative overflow-hidden bg-gray-50 dark:bg-gray-800/50">
+                        
+                        <div id="lms-locked" class="w-full max-w-sm text-center z-10 transition-opacity duration-300">
+                            <div class="w-20 h-20 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+                                <i class="fas fa-lock text-4xl text-gray-500 dark:text-gray-400"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2">Premium Content Locked</h3>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed">Enter your private access code to unlock Class 4 through 12 recordings.</p>
+                            
+                            <div class="flex flex-col gap-3">
+                                <input type="password" id="lms-passcode" placeholder="Enter Access Code" class="w-full px-5 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-500 text-center tracking-widest font-mono text-lg shadow-sm transition">
+                                <button onclick="unlockLMS()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl shadow-md hover:shadow-lg transition-all active:scale-95">
+                                    Unlock Recorded Class <i class="fas fa-unlock-alt ml-1"></i>
+                                </button>
+                                <p id="lms-error" class="text-red-500 font-bold text-sm mt-2 hidden bg-red-100 dark:bg-red-900/30 py-2 rounded-lg animate-pulse">Access Denied: Invalid Code</p>
+                            </div>
+                        </div>
+
+                        <div id="lms-unlocked" class="hidden w-full h-full flex flex-col z-10">
+                            <div class="flex justify-between items-center mb-4 bg-green-100 dark:bg-green-900/40 border border-green-200 dark:border-green-800 p-3 rounded-xl">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-check-circle text-green-600 dark:text-green-400 text-xl"></i>
+                                    <span class="font-bold text-green-800 dark:text-green-300">Access Granted</span>
+                                </div>
+                                <span class="text-xs font-bold bg-white dark:bg-gray-800 px-2 py-1 rounded text-gray-600 dark:text-gray-300 shadow-sm">Code: MGCHS</span>
+                            </div>
+                            <div class="flex-1 bg-black rounded-xl overflow-hidden shadow-2xl relative flex items-center justify-center border border-gray-700">
+                                <i class="fas fa-play-circle text-6xl text-white/50 cursor-pointer hover:text-white transition transform hover:scale-110"></i>
+                                <p class="absolute bottom-4 left-0 w-full text-center text-white/70 text-sm font-medium">Select a class from the playlist to view (Google Drive View-Only Mode)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="enroll" class="py-16 md:py-24 bg-white dark:bg-darkcard transition-colors">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <span class="text-brand-600 dark:text-brand-400 font-bold tracking-wider uppercase text-sm">Admission Open</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4 mt-2">Secure Your Seat</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">Batch 1 is running. Pre-admission open for Batch 2.</p>
+                </div>
+
+                <div class="glass rounded-3xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700 p-6 md:p-12 relative">
+                    
+                    <div class="bg-gradient-to-r from-brand-600 to-indigo-600 rounded-2xl p-6 text-white mb-8 shadow-inner relative overflow-hidden">
+                        <div class="absolute top-0 right-0 opacity-10">
+                            <i class="fas fa-wallet text-9xl -mt-4 -mr-4"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-1 relative z-10">Course Fee: 3,000 TK</h3>
+                        <p class="text-brand-100 text-sm mb-4 relative z-10">Please send money before submitting the form.</p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 relative z-10">
+                            <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 flex-1 border border-white/20">
+                                <p class="text-xs uppercase tracking-wider text-brand-200 font-bold mb-1">Bkash / Nagad (Personal)</p>
+                                <p class="text-2xl font-mono font-bold tracking-widest">+8801915706375</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form action="https://formsubmit.co/multimediagenacademy@gmail.com" method="POST" class="space-y-6">
+                        <input type="hidden" name="_subject" value="New Enrollment for Client Hunting Mastery!">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="#"> <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5">Full Name *</label>
+                                <input type="text" name="Name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition shadow-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5">WhatsApp Number *</label>
+                                <input type="tel" name="WhatsApp" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition shadow-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5">Profession *</label>
+                                <select name="Profession" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition shadow-sm appearance-none">
+                                    <option value="">Select your profession...</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Freelancer">Freelancer</option>
+                                    <option value="Job Holder">Job Holder</option>
+                                    <option value="Business Owner">Business Owner</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5">Portfolio/Social Link (Optional)</label>
+                                <input type="url" name="Portfolio_Link" placeholder="https://" class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition shadow-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5">Emergency Contact Number *</label>
+                            <input type="tel" name="Emergency_Contact" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition shadow-sm">
+                        </div>
+
+                        <div class="p-6 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-2xl space-y-5">
+                            <h4 class="font-bold text-lg border-b border-gray-200 dark:border-gray-700 pb-3 flex items-center gap-2">
+                                <i class="fas fa-shield-check text-green-500"></i> Payment Verification
+                            </h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5">Method Sent From *</label>
+                                    <select name="Payment_Method" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition shadow-sm appearance-none">
+                                        <option value="">Select method...</option>
+                                        <option value="Bkash">Bkash</option>
+                                        <option value="Nagad">Nagad</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5">Last 4 Digits of Sender No. *</label>
+                                    <input type="text" name="Transaction_Digits" maxlength="4" required placeholder="e.g. 1234" class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition shadow-sm text-center font-mono tracking-widest text-lg">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5">Any Note for us? (Optional)</label>
+                            <textarea name="Note" rows="2" class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition shadow-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-extrabold py-5 rounded-xl shadow-xl transition-all transform hover:-translate-y-1 text-lg flex justify-center items-center gap-2 border border-brand-400/50">
+                            Submit & Join Live Class <i class="fas fa-arrow-right"></i>
+                        </button>
+                        
+                        <div class="text-center bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800">
+                            <p class="text-sm text-blue-800 dark:text-blue-300 font-medium">
+                                <i class="fas fa-info-circle mr-1"></i> "After payment verification, you will receive the access code for recorded classes and Live Google meet class link via WhatsApp/Email."
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#0b1120] text-gray-400 py-16 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+            <img src="https://drive.google.com/uc?export=view&id=1yAC1LYhKUGg1Sxo1s4Ys8BeRpcUSauJu" alt="Logo" class="w-16 h-16 rounded-full object-cover border-2 border-brand-500 mb-6 grayscale hover:grayscale-0 transition duration-500">
+            <h3 class="text-white font-bold text-2xl mb-2">Multimedia Gen Institute</h3>
+            <p class="text-sm mb-8 max-w-md">Empowering freelancers to build sustainable, high-ticket income systems through modern client hunting strategies.</p>
+            
+            <div class="flex space-x-6 mb-10">
+                <a href="https://youtube.com/@multimediageninstitute" target="_blank" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white text-xl transition-all shadow-lg transform hover:-translate-y-1"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/multimediageninstitute" target="_blank" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white text-xl transition-all shadow-lg transform hover:-translate-y-1"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            
+            <div class="w-full border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2026 Multimedia Gen Institute. All Rights Reserved.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/8801786776958?text=Hi,%20I%20want%20to%20join%20Client%20Hunting%20Mastery" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-[#20bd5a] hover:scale-110 transition-all z-50 cursor-pointer pulse-green border-2 border-white/20">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // --- Theme Toggle Logic ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        function setTheme(isDark) {
+            if (isDark) {
+                htmlElement.classList.add('dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                htmlElement.classList.remove('dark');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+        
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark);
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = !htmlElement.classList.contains('dark');
+            setTheme(isDark);
+        });
+
+        // --- Language Toggle Logic ---
+        const langToggle = document.getElementById('lang-toggle');
+        let currentLang = 'en';
+        langToggle.addEventListener('click', () => {
+            const enEls = document.querySelectorAll('.lang-en');
+            const bnEls = document.querySelectorAll('.lang-bn');
+            if (currentLang === 'en') {
+                enEls.forEach(el => el.classList.add('hidden'));
+                bnEls.forEach(el => el.classList.remove('hidden'));
+                currentLang = 'bn';
+            } else {
+                bnEls.forEach(el => el.classList.add('hidden'));
+                enEls.forEach(el => el.classList.remove('hidden'));
+                currentLang = 'en';
+            }
+        });
+
+        // --- Course Modules Data & Accordion Generator ---
+        const courseData = [
+            { title: "Introduction to Client Hunting & Mindset", details: ["What is Client Hunting and why it matters today", "High-income skill mindset for freelancers", "Real success stories of top client hunters", "Course roadmap & outcomes"] },
+            { title: "Discover Your Niche & Ideal Clients", details: ["Identify profitable niches aligned with your skills", "Research high-demand services", "Create an Ideal Client Avatar (ICA)", "Tools to validate your niche"] },
+            { title: "Platforms & Modern Client Hunting Methods", details: ["Best platforms: Upwork, Fiverr, LinkedIn, Instagram, TikTok, Facebook Groups", "Direct outreach vs inbound client attraction", "Free and paid strategies for quality clients", "Pro hacks to get responses fast"] },
+            { title: "Outreach Strategies & Closing Deals", details: ["Writing messages that get replies", "Video pitches and personalized proposals", "Case studies of successful outreach campaigns", "Closing techniques without pressure"] },
+            { title: "Understanding Client Psychology", details: ["What clients truly value (speed, reliability, results)", "Selling results, not services", "Handling objections and doubts", "Scripts for trust-building & deal-closing"] },
+            { title: "Pricing & Negotiation Mastery", details: ["Value-based pricing for high-ticket clients", "Tiered pricing packages & bundles", "Negotiation strategies to increase revenue", "Handling budget-sensitive clients"] },
+            { title: "Organic Marketing to Attract Clients", details: ["Using LinkedIn, Instagram, and Facebook for lead generation", "Content strategies to showcase authority & expertise", "Personal branding & portfolio optimization", "Leveraging testimonials and social proof"] },
+            { title: "Paid Ads for Client Hunting", details: ["Facebook & Instagram Ads for client acquisition", "Creating lead generation funnels", "Automating client outreach through ads", "Retargeting strategies to convert prospects"] },
+            { title: "Introduction to Drop Service & Modern Freelancing", details: ["What is Drop Service & why it works", "Difference between freelancing and Drop Service", "Identifying high-demand Drop Service niches", "Modern Drop Service workflow & automation"] },
+            { title: "Setting Up Your Drop Service Business", details: ["Building a professional Drop Service website", "Creating attractive service packages", "Branding, pricing & offer positioning", "Tools to automate and streamline operations"] },
+            { title: "Project Management & Delivery Excellence", details: ["Hiring and managing top freelancers remotely", "Automating order fulfillment & client updates", "Quality control & feedback collection", "Building a virtual team for scalability"] },
+            { title: "Scaling, Automation & Future Growth", details: ["Advanced automation & AI tools for efficiency", "Building a Drop Service agency", "Long-term client relationship management", "Live Q&A: Strategy planning & personal guidance"] }
+        ];
+
+        const accContainer = document.getElementById('accordion-container');
+        courseData.forEach((mod, index) => {
+            const num = index + 1;
+            const liString = mod.details.map(d => `<li class="flex items-start gap-2"><i class="fas fa-check text-brand-500 mt-1 text-xs"></i> ${d}</li>`).join('');
+            
+            const html = `
+                <div class="border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 overflow-hidden shadow-sm hover:shadow-md transition">
+                    <button class="w-full px-6 py-4 text-left font-bold flex justify-between items-center focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-750 transition group" onclick="toggleAccordion(${index})">
+                        <span class="flex items-center gap-3 text-lg">
+                            <span class="w-8 h-8 rounded bg-brand-100 text-brand-600 dark:bg-brand-900 dark:text-brand-400 flex items-center justify-center text-sm">${num < 10 ? '0'+num : num}</span> 
+                            <span class="group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">${mod.title}</span>
+                        </span>
+                        <i id="icon-${index}" class="fas fa-chevron-down text-gray-400 group-hover:text-brand-500 transition-transform duration-300"></i>
+                    </button>
+                    <div id="content-${index}" class="accordion-content bg-gray-50 dark:bg-gray-900/50 px-6 text-gray-700 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700">
+                        <ul class="space-y-2 pl-11 py-2">
+                            ${liString}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            accContainer.insertAdjacentHTML('beforeend', html);
+        });
+
+        function toggleAccordion(index) {
+            const content = document.getElementById(`content-${index}`);
+            const icon = document.getElementById(`icon-${index}`);
+            const allContents = document.querySelectorAll('.accordion-content');
+            const allIcons = document.querySelectorAll('[id^="icon-"]');
+            
+            allContents.forEach((c, i) => {
+                if (i !== index && c.classList.contains('open')) {
+                    c.classList.remove('open');
+                    allIcons[i].classList.remove('rotate-180');
+                }
+            });
+            content.classList.toggle('open');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // --- LMS System Logic ---
+        const lockedPlaylistContainer = document.getElementById('locked-playlist-container');
+        for(let i = 4; i <= 12; i++) {
+            const shortTitle = courseData[i-1].title.split('&')[0].split(':')[0].trim(); // Get a shorter title for playlist
+            const html = `
+                <div class="p-3 bg-gray-100 dark:bg-gray-800/60 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm flex items-center gap-3 opacity-60 cursor-not-allowed">
+                    <div class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-500"><i class="fas fa-lock"></i></div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm text-gray-500 dark:text-gray-400 leading-tight">Class ${i}: ${shortTitle}</h4>
+                        <span class="text-[10px] bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-400 px-1.5 py-0.5 rounded font-bold uppercase mt-1 inline-block"><i class="fas fa-key text-[8px]"></i> Locked</span>
+                    </div>
+                </div>
+            `;
+            lockedPlaylistContainer.insertAdjacentHTML('beforeend', html);
+        }
+
+        function unlockLMS() {
+            const code = document.getElementById('lms-passcode').value.trim().toUpperCase();
+            const error = document.getElementById('lms-error');
+            if (code === 'MGCHS') {
+                document.getElementById('lms-locked').classList.add('opacity-0');
+                setTimeout(() => {
+                    document.getElementById('lms-locked').classList.add('hidden');
+                    document.getElementById('lms-unlocked').classList.remove('hidden');
+                    
+                    // Update playlist to unlocked state visually
+                    lockedPlaylistContainer.innerHTML = '';
+                    for(let i = 4; i <= 12; i++) {
+                        const shortTitle = courseData[i-1].title.split('&')[0].split(':')[0].trim();
+                        const html = `
+                            <div class="p-3 bg-white dark:bg-gray-800 rounded-xl border border-brand-200 dark:border-brand-900/50 shadow-sm flex items-center gap-3 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-750 transition group">
+                                <div class="w-10 h-10 bg-brand-100 dark:bg-brand-900 rounded-full flex items-center justify-center text-brand-600 dark:text-brand-400 group-hover:scale-110 transition"><i class="fas fa-play"></i></div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-sm text-gray-900 dark:text-white leading-tight">Class ${i}: ${shortTitle}</h4>
+                                    <span class="text-[10px] bg-brand-100 text-brand-700 dark:bg-brand-900/50 dark:text-brand-400 px-1.5 py-0.5 rounded font-bold uppercase mt-1 inline-block">Unlocked</span>
+                                </div>
+                            </div>
+                        `;
+                        lockedPlaylistContainer.insertAdjacentHTML('beforeend', html);
+                    }
+                }, 300);
+                error.classList.add('hidden');
+            } else {
+                error.classList.remove('hidden');
+            }
+        }
+
+        // --- Live Status Logic (Sat, Mon, Wed 9 PM - 10 PM BD Time) ---
+        function updateLiveStatus() {
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const bdTime = new Date(utc + (3600000 * 6)); // UTC + 6
+            
+            const day = bdTime.getDay(); // 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
+            const hour = bdTime.getHours();
+            
+            const statusEl = document.getElementById('live-status-text');
+            const indicator = document.getElementById('live-indicator');
+            
+            indicator.className = 'w-3 h-3 rounded-full inline-block'; 
+            
+            // Sat=6, Mon=1, Wed=3
+            if (day === 6 || day === 1 || day === 3) {
+                if (hour === 21) {
+                    statusEl.innerText = "🔴 LIVE NOW";
+                    indicator.classList.add('bg-green-500', 'pulse-green');
+                } else if (hour < 21) {
+                    statusEl.innerText = "Upcoming Class Today at 9 PM";
+                    indicator.classList.add('bg-yellow-400');
+                } else {
+                    statusEl.innerText = "Recording Available";
+                    indicator.classList.add('bg-gray-400');
+                }
+            } else {
+                statusEl.innerText = "Next Class on Sat/Mon/Wed";
+                indicator.classList.add('bg-gray-400');
+            }
+        }
+        
+        updateLiveStatus();
+        setInterval(updateLiveStatus, 60000);
+    </script>
+</body>
+</html>
