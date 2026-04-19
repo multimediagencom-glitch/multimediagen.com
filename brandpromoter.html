@@ -1,809 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hire Brand Promoters in Bangladesh | Multimedia Gen</title>
-<meta name="description" content="Hire professional brand promoters in Bangladesh for video ads, product promotions, and social media campaigns. Boost your brand visibility and sales with Multimedia Gen.">
-<meta name="keywords" content="brand promoters Bangladesh, hire brand promoter, video ad model Bangladesh, product promotion model, influencer marketing Bangladesh, Best Brand Promoter Agency, Model Agency in Dhaka, Video Production Company Bangladesh">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Gen | Premium Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles for Glassmorphism and Animations */
+        .glass-header {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-footer {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(2, 6, 23, 1) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        /* Subtle ambient glow for footer */
+        .glass-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.5), transparent);
+        }
 
-<style>
-/* --- 🚀 PREMIUM GLOBAL-STANDARD CSS --- */
-:root {
-  --g: #00ff88;
-  --g-dark: #00cc6a;
-  --gold: #ffcf00;
-  --cyn: #00f2ff;
-  --purp: #bc13fe;
-  --w: #ffffff;
-  --gray: #a0aec0;
-  --bdr: rgba(255, 255, 255, 0.15);
-  --card-bg: rgba(15, 23, 42, 0.7);
-  --bg-grad: linear-gradient(135deg, #020617 0%, #0f172a 100%);
-}
+        .glass-footer::after {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
 
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', system-ui, sans-serif; }
-html { scroll-behavior: smooth; }
-body { background: var(--bg-grad); color: var(--w); overflow-x: hidden; min-height: 100vh; line-height: 1.6; }
+        .nav-link {
+            position: relative;
+            color: #cbd5e1;
+            transition: color 0.3s ease;
+        }
 
-/* Background Ambient Glow */
-.ambient { position: fixed; top: -20%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(0,255,136,0.06) 0%, transparent 70%); z-index: -10; pointer-events: none; }
-.ambient.right { top: 40%; left: 60%; background: radial-gradient(circle, rgba(0,242,255,0.06) 0%, transparent 70%); }
+        .nav-link:hover {
+            color: #10b981; /* Emerald 500 */
+        }
 
-.container { max-width: 1400px; margin: auto; padding: 40px 15px 80px; position: relative; z-index: 1; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #10b981;
+            transition: width 0.3s ease;
+        }
 
-/* FIX: Scroll Animation Classes - With Mobile Fallback */
-.reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.reveal.active { opacity: 1; transform: translateY(0); }
-@media (max-width: 768px) {
-  /* On mobile, if animations are causing issues, force them to show */
-  .reveal { opacity: 1 !important; transform: translateY(0) !important; transition: none !important; }
-}
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
-/* --- 🏆 CINEMATIC HERO SECTION --- */
-.hero-container { max-width: 1000px; margin: auto; padding: 80px 20px 20px; text-align: center; position: relative; z-index: 1; }
-.status-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3); color: var(--g); border-radius: 30px; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 25px; text-transform: uppercase; box-shadow: 0 0 20px rgba(0,255,136,0.15); }
-.status-badge i { font-size: 0.6rem; animation: pulse 2s infinite; }
-@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
 
-h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); font-weight: 900; letter-spacing: -1.5px; line-height: 1.15; margin-bottom: 20px; text-transform: uppercase; color: #ffffff; text-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-h1 span { color: var(--g); background: linear-gradient(115deg, #fff, var(--g), var(--cyn)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-.sub-text { font-size: clamp(1.05rem, 2vw, 1.2rem); color: #cbd5e1; font-weight: 500; margin-bottom: 35px; max-width: 750px; margin-inline: auto; line-height: 1.7; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        #mobile-menu.open {
+            max-height: 500px; /* Adjust based on content */
+            opacity: 1;
+        }
 
-.cta-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
-.btn { padding: 16px 35px; border-radius: 12px; font-size: 1.05rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; cursor: pointer; }
-.btn-primary { background: var(--g); color: #000; border: 1px solid var(--g); box-shadow: 0 10px 30px rgba(0,255,136,0.25); }
-.btn-primary:hover { background: #fff; border-color: #fff; color: #000; transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,255,255,0.3); }
-.btn-secondary { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--bdr); backdrop-filter: blur(10px); }
-.btn-secondary:hover { background: rgba(255,255,255,0.15); border-color: #fff; transform: translateY(-3px); }
+        /* Footer specific animations */
+        .footer-link {
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .footer-link:hover {
+            color: #10b981;
+            transform: translateX(5px);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            color: #10b981;
+            transform: translateY(-3px);
+        }
 
-/* Section Headers */
-.section-title { text-align: center; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 10px; color: #ffffff; text-transform: uppercase; letter-spacing: -1px; text-shadow: 0 5px 15px rgba(0,0,0,0.6); }
-.section-sub { text-align: center; color: #a0aec0; margin-bottom: 40px; font-size: 1.1rem; max-width: 700px; margin-inline: auto; }
-
-/* --- 👥 TALENT ROSTER UI --- */
-.main-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
-.mt-btn { padding: 15px 35px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid var(--bdr); color: var(--gray); border-radius: 40px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 10px; }
-.mt-btn span { background: rgba(255,255,255,0.1); padding: 3px 12px; border-radius: 20px; font-size: 0.85rem; color: #fff; }
-.mt-btn.active, .mt-btn:hover { background: var(--g); color: #000; border-color: var(--g); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,255,136,0.3); }
-.mt-btn.active span, .mt-btn:hover span { background: rgba(0,0,0,0.2); color: #000; }
-
-.tab-content { display: none; animation: fadeIn 0.4s ease; }
-.tab-content.active { display: block; }
-@keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-
-.s { position: relative; max-width: 550px; margin: 0 auto 30px; }
-.s input { width: 100%; padding: 16px 20px 16px 55px; background: rgba(0,0,0,0.5); border: 1px solid var(--bdr); border-radius: 40px; color: #fff; font-size: 1rem; outline: 0; transition: 0.3s; backdrop-filter: blur(8px); }
-.s input:focus { border-color: var(--g); box-shadow: 0 0 25px rgba(0,255,136,0.2); }
-.s i { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 1.2rem; }
-.s input:focus + i { color: var(--g); }
-
-.f { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
-.f button { padding: 10px 20px; background: rgba(255,255,255,0.03); border: 1px solid var(--bdr); color: var(--gray); border-radius: 30px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: 0.3s; }
-.f button.active, .f button:hover { background: #fff; color: #000; border-color: #fff; transform: scale(1.05); }
-
-/* Glassmorphism Cards */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
-.card { background: var(--card-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 24px; position: relative; border: 1px solid var(--bdr); transition: all 0.4s ease; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.card:hover { transform: translateY(-8px); border-color: rgba(0,255,136,0.6); box-shadow: 0 20px 40px rgba(0,255,136,0.2); }
-
-.badge { display: inline-flex; align-self: flex-start; padding: 6px 14px; border-radius: 20px; font-size: 0.7rem; font-weight: 900; letter-spacing: 1.5px; margin-bottom: 15px; text-transform: uppercase; }
-.top-rated { background: linear-gradient(90deg, #ffcf00, #ffaa00); color: #000; }
-.level-2 { background: var(--cyn); color: #000; }
-.level-1 { background: var(--purp); color: #fff; }
-.new-seller { background: var(--g); color: #000; }
-.card.is-top-rated { border-color: rgba(255, 207, 0, 0.4); background: linear-gradient(180deg, rgba(255,207,0,0.08) 0%, var(--card-bg) 100%); }
-
-.i { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-.i h2 { font-size: 1.45rem; font-weight: 800; line-height: 1.3; margin-bottom: 5px; color: #fff; }
-.id { font-size: 0.85rem; font-weight: 700; color: var(--g); letter-spacing: 2px; margin-bottom: 12px; }
-.rating { display: flex; align-items: center; gap: 6px; margin-bottom: 20px; color: var(--gold); }
-.rating span { color: #fff; font-size: 0.95rem; font-weight: 700; }
-
-/* Media Containers */
-.v { position: relative; border-radius: 16px; overflow: hidden; background: #000; height: 0; padding-bottom: 56.25%; cursor: pointer; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
-.v img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.v:hover img { transform: scale(1.05); opacity: 0.8; }
-.p { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 55px; height: 55px; background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #fff; z-index: 2; transition: 0.4s; }
-.v:hover .p { background: var(--g); color: #000; border-color: var(--g); transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 25px rgba(0,255,136,0.5); }
-.v.playing .p, .v.playing img { opacity: 0; pointer-events: none; }
-.v iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
-
-.img-box { position: relative; border-radius: 16px; overflow: hidden; background: #000; height: 0; padding-bottom: 125%; cursor: pointer; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
-.img-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.img-box:hover img { transform: scale(1.05); opacity: 0.9; }
-
-/* Card Buttons */
-.b { display: flex; flex-direction: column; gap: 12px; margin-top: auto; }
-.top-buttons { display: flex; gap: 12px; }
-.top-buttons a { flex: 1; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--bdr); color: #fff; font-size: 0.8rem; font-weight: 800; text-align: center; text-decoration: none; transition: 0.3s; }
-.top-buttons a:hover { background: #fff; color: #000; }
-.wa { background: #25D366; color: #fff; font-size: 0.95rem; font-weight: 800; text-align: center; text-decoration: none; padding: 14px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; }
-.wa:hover { background: #1ebd5a; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(37,211,102,0.4); }
-
-/* --- 🛡️ TRUST BAR --- */
-.trust-bar { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 1000px; margin: 40px auto 80px; padding: 35px; background: var(--card-bg); border-radius: 20px; border: 1px solid var(--bdr); backdrop-filter: blur(15px); }
-.trust-item { text-align: center; flex: 1; min-width: 150px; }
-.trust-item h3 { font-size: 2.2rem; font-weight: 900; color: #fff; margin-bottom: 5px; }
-.trust-item p { font-size: 0.85rem; color: var(--g); text-transform: uppercase; font-weight: 800; letter-spacing: 1px; }
-
-/* --- 💡 BENTO GRID --- */
-.bento-section { max-width: 1400px; margin: 80px auto; padding: 0 15px; }
-.bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-.bento-card { background: var(--card-bg); border: 1px solid var(--bdr); padding: 40px; border-radius: 24px; backdrop-filter: blur(10px); transition: 0.3s; }
-.bento-card:hover { border-color: var(--g); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
-.bento-card i.main-icon { font-size: 2.5rem; color: var(--g); margin-bottom: 20px; display: block; }
-.bento-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 15px; color: #fff; }
-.bento-card p { color: var(--gray); font-size: 1.05rem; margin-bottom: 15px; }
-.bento-list { list-style: none; }
-.bento-list li { margin-bottom: 12px; color: #e2e8f0; display: flex; align-items: flex-start; gap: 10px; font-weight: 500; font-size: 1.05rem; }
-.bento-list li i { color: var(--g); margin-top: 5px; font-size: 1rem; }
-
-/* Highlight Block for Strategy */
-.strategy-box { background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,0,0,0.8)); border: 1px solid var(--g); border-radius: 24px; padding: 50px; text-align: center; margin-top: 40px; box-shadow: 0 20px 40px rgba(0,255,136,0.1); }
-.strategy-box h2 { font-size: 2.2rem; font-weight: 900; color: #fff; margin-bottom: 15px; }
-.strategy-box p { font-size: 1.15rem; color: var(--gray); margin-bottom: 30px; }
-.formula { display: inline-block; background: rgba(0,0,0,0.6); padding: 15px 30px; border-radius: 12px; font-family: monospace; font-size: 1.4rem; font-weight: 800; color: var(--g); border: 1px solid rgba(0,255,136,0.4); letter-spacing: 1px; word-spacing: 5px; }
-
-/* --- ⚙️ ORDER PROCESS ANIMATED TIMELINE --- */
-.timeline-section { background: rgba(0,0,0,0.5); border-top: 1px solid var(--bdr); border-bottom: 1px solid var(--bdr); padding: 100px 15px; margin: 80px 0; }
-.timeline-container { max-width: 1200px; margin: auto; position: relative; }
-.timeline-container::before { content: ''; position: absolute; top: 35px; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.1); z-index: 0; }
-.timeline-container::after { content: ''; position: absolute; top: 35px; left: 0; width: 0%; height: 3px; background: var(--g); z-index: 0; transition: width 1.5s ease; }
-.timeline-container.active::after { width: 100%; }
-
-.timeline-grid { display: flex; justify-content: space-between; gap: 10px; position: relative; z-index: 1; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; }
-.timeline-step { flex: 1; min-width: 140px; text-align: center; }
-.t-icon { width: 70px; height: 70px; background: #0f172a; border: 2px solid var(--bdr); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.4rem; color: var(--gray); transition: 0.5s; position: relative; z-index: 2; }
-.timeline-container.active .timeline-step:nth-child(1) .t-icon { border-color: var(--g); color: var(--g); box-shadow: 0 0 25px rgba(0,255,136,0.4); transition-delay: 0.1s; }
-.timeline-container.active .timeline-step:nth-child(2) .t-icon { border-color: var(--g); color: var(--g); box-shadow: 0 0 25px rgba(0,255,136,0.4); transition-delay: 0.3s; }
-.timeline-container.active .timeline-step:nth-child(3) .t-icon { border-color: var(--g); color: var(--g); box-shadow: 0 0 25px rgba(0,255,136,0.4); transition-delay: 0.5s; }
-.timeline-container.active .timeline-step:nth-child(4) .t-icon { border-color: var(--g); color: var(--g); box-shadow: 0 0 25px rgba(0,255,136,0.4); transition-delay: 0.7s; }
-.timeline-container.active .timeline-step:nth-child(5) .t-icon { border-color: var(--g); color: var(--g); box-shadow: 0 0 25px rgba(0,255,136,0.4); transition-delay: 0.9s; }
-.timeline-container.active .timeline-step:nth-child(6) .t-icon { border-color: var(--g); color: var(--g); box-shadow: 0 0 25px rgba(0,255,136,0.4); transition-delay: 1.1s; }
-.timeline-step h4 { font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 5px; }
-
-.payment-banner { background: rgba(0,255,136,0.05); border: 1px dashed var(--g); color: #fff; padding: 25px; border-radius: 16px; max-width: 800px; margin: 50px auto 0; text-align: center; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: 700; font-size: 1.1rem; }
-.payment-banner i { color: var(--g); font-size: 1.8rem; }
-
-/* --- 💬 TESTIMONIALS CAROUSEL --- */
-.testimonial-section { max-width: 1200px; margin: 80px auto; text-align: center; overflow: hidden; padding: 0 15px; }
-.carousel { display: flex; gap: 25px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 20px 0; scrollbar-width: none; }
-.carousel::-webkit-scrollbar { display: none; }
-.review-card { scroll-snap-align: center; flex: 0 0 380px; background: var(--card-bg); padding: 40px 30px; border-radius: 20px; border: 1px solid var(--bdr); text-align: left; position: relative; }
-.review-card::before { content: '\f10d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; top: 20px; right: 30px; font-size: 3rem; color: rgba(255,255,255,0.05); }
-.stars { color: var(--gold); margin-bottom: 15px; font-size: 1.2rem; }
-.review-text { font-size: 1.05rem; color: #fff; font-style: italic; margin-bottom: 25px; line-height: 1.8; }
-.client-name { font-weight: 800; color: var(--g); font-size: 1.1rem; }
-.client-role { font-size: 0.9rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
-
-/* --- 📞 FINAL CONTACT CTA --- */
-.contact-section { max-width: 900px; margin: 100px auto; background: var(--card-bg); border: 1px solid var(--bdr); padding: 70px 40px; border-radius: 30px; text-align: center; backdrop-filter: blur(20px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-.contact-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 15px; color: #fff; }
-.contact-section h2 span { color: var(--g); }
-.contact-section p { color: #cbd5e1; font-size: 1.15rem; margin-bottom: 40px; max-width: 650px; margin-inline: auto; }
-
-/* --- 🧠 HEAVY SEO FOOTER (BUGS FIXED) --- */
-.seo-footer { background: #020617; border-top: 1px solid var(--bdr); padding: 80px 20px; margin-top: 50px; position: relative; z-index: 1; }
-.seo-inner { max-width: 1200px; margin: auto; }
-.seo-inner h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; margin-bottom: 25px; color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.8); line-height: 1.3; }
-.seo-inner h3 { font-size: 1.5rem; font-weight: 800; color: var(--g); margin-top: 40px; margin-bottom: 15px; }
-.seo-inner p { color: #94a3b8; margin-bottom: 20px; font-size: 1.05rem; line-height: 1.9; text-align: justify; }
-.seo-inner strong { color: #f8fafc; font-weight: 700; }
-
-.seo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; }
-.footer-note { margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; color: var(--gray); font-size: 0.95rem; }
-
-/* Floating Support */
-.live-support { position: fixed; bottom: 30px; right: 30px; background: #fff; border-radius: 50px; display: flex; align-items: center; gap: 15px; padding: 10px 25px 10px 10px; text-decoration: none; box-shadow: 0 15px 35px rgba(0,0,0,0.5); z-index: 9999; transition: all 0.4s; border: 2px solid rgba(0,255,136,0.3); animation: floatBtn 3s ease-in-out infinite; }
-@keyframes floatBtn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-.live-support:hover { transform: translateY(-10px) scale(1.05); border-color: var(--g); }
-.live-icon { width: 45px; height: 45px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.8rem; position: relative; }
-.live-icon::after { content: ''; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid #25D366; animation: pulse 2s infinite; }
-.live-text { display: flex; flex-direction: column; }
-.live-text span { color: #666; font-size: 0.75rem; font-weight: 600; margin-bottom: -2px; }
-.live-text strong { color: #000; font-size: 0.95rem; font-weight: 900; }
-
-/* FIX: Ensure grid items display properly on mobile */
-@media(max-width:768px) {
-  body { padding-top: 20px; }
-  .grid { display: block; } /* Fallback to block layout on mobile if grid fails */
-  .card { margin-bottom: 25px; } /* Add spacing between cards in block layout */
-  .timeline-container::before, .timeline-container::after { display: none; }
-  .timeline-grid { flex-direction: column; gap: 30px; }
-  .timeline-step { display: flex; align-items: center; text-align: left; gap: 20px; }
-  .t-icon { margin: 0; width: 60px; height: 60px; }
-  .contact-section { padding: 40px 20px; margin: 60px 15px; }
-  .live-support { bottom: 20px; right: 20px; padding: 8px 20px 8px 8px; }
-  .live-icon { width: 40px; height: 40px; font-size: 1.5rem; }
-  .live-text strong { font-size: 0.85rem; }
-}
-
-/* Force show tab content if active class logic fails on mobile */
-@media (max-width: 768px) {
-    .tab-content { display: block !important; }
-    /* We only show the active one via JS, but if JS fails, show the first one */
-    .tab-content:not(.active) { display: none !important; } 
-}
-</style>
+        /* Base body styles for the dark theme */
+        body {
+            background-color: #020617; /* Slate 950 */
+            color: #f8fafc; /* Slate 50 */
+            font-family: 'Inter', sans-serif; /* Tailwind default sans */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        main {
+            flex-grow: 1;
+            padding: 80px 20px; /* Space for fixed header */
+            text-align: center;
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased selection:bg-emerald-500 selection:text-white">
 
-<div class="ambient"></div>
-<div class="ambient right"></div>
+    <div id="header-placeholder"></div>
 
-<header class="hero-container reveal">
-  <div class="status-badge"><i class="fas fa-circle"></i> Available for Campaigns</div>
-  <h1>Hire Promoters That <br><span>Actually Drive Sales</span></h1>
-  <p class="sub-text">Hire professional brand promoters and models in Bangladesh for video ads, product promotions, and social media campaigns. Browse our curated roster below and boost your brand visibility today.</p>
-  
-  <div class="cta-group">
-    <a href="#roster-section" class="btn btn-secondary"><i class="fas fa-users"></i> Select Your Promoter</a>
-    <a href="https://wa.me/8801915706375?text=Hello%20Multimedia%20Gen!%20I%20want%20to%20book%20a%20brand%20promoter." class="btn btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Book Now</a>
-  </div>
-</header>
+    <main>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">
+            Welcome to Multimedia Gen
+        </h1>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+            This is a placeholder for your main page content. The header and footer are loaded dynamically using JavaScript.
+        </p>
+    </main>
 
-<div class="container reveal" id="roster-section" style="padding-top: 10px;">
-  <div style="text-align: center; margin-bottom: 40px;">
-      <h2 class="section-title">Select Your Brand Promoter</h2>
-      <p class="section-sub">Browse professional promoters ready for your campaign.</p>
-  </div>
+    <div id="footer-placeholder" class="mt-auto"></div>
 
-  <div class="main-tabs">
-    <button class="mt-btn active" onclick="switchTab('promoters')"><i class="fas fa-users"></i> Brand Promoters <span>40</span></button>
-    <button class="mt-btn" onclick="switchTab('voice')"><i class="fas fa-microphone-alt"></i> Voice Artists <span>18</span></button>
-    <button class="mt-btn" onclick="switchTab('models')"><i class="fas fa-image"></i> Model Images <span>27</span></button>
-  </div>
+    <script>
+        // --- 1. Component Definitions ---
 
-  <div id="tab-promoters" class="tab-content active">
-    <div class="s"><input type="text" id="s-promoter" placeholder="Search elite promoters by name or ID..."><i class="fas fa-search"></i></div>
-    <div class="f" id="f-promoter">
-      <button class="active" data-f="all">All Profiles</button>
-      <button data-f="top-rated">Premium Promoters</button>
-      <button data-f="female">Female</button>
-      <button data-f="male">Male</button>
-    </div>
-    <div class="grid" id="grid-promoter"></div>
-  </div>
+        const HeaderComponent = `
+            <header class="glass-header fixed w-full top-0 z-50 transition-all duration-300">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center h-20">
+                        <div class="flex-shrink-0 flex items-center">
+                            <a href="/" class="text-2xl font-black tracking-tighter text-white flex items-center gap-2">
+                                <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-sm">MG</span>
+                                MULTIMEDIA<span class="text-emerald-400">GEN</span>
+                            </a>
+                        </div>
 
-  <div id="tab-voice" class="tab-content">
-    <div class="s"><input type="text" id="s-voice" placeholder="Search professional voices..."><i class="fas fa-search"></i></div>
-    <div class="f" id="f-voice">
-      <button class="active" data-f="all">All Voices</button>
-      <button data-f="top-rated">Top Rated</button>
-      <button data-f="female">Female</button>
-      <button data-f="male">Male</button>
-    </div>
-    <div class="grid" id="grid-voice"></div>
-  </div>
+                        <nav class="hidden md:flex space-x-8">
+                            <a href="/" class="nav-link text-sm font-medium">Home</a>
+                            <a href="/services" class="nav-link text-sm font-medium">Services</a>
+                            <a href="/portfolio" class="nav-link text-sm font-medium">Portfolio</a>
+                            <a href="/brand-promoters" class="nav-link text-sm font-medium">Brand Promoters</a>
+                            <a href="/about" class="nav-link text-sm font-medium">About Us</a>
+                            <a href="/courses" class="nav-link text-sm font-medium">Courses</a>
+                            <a href="/career" class="nav-link text-sm font-medium">Career</a>
+                            <a href="/contact" class="nav-link text-sm font-medium">Contact Us</a>
+                        </nav>
 
-  <div id="tab-models" class="tab-content">
-    <div class="s"><input type="text" id="s-model" placeholder="Search model photos..."><i class="fas fa-search"></i></div>
-    <div class="f" id="f-model">
-      <button class="active" data-f="all">All Models</button>
-      <button data-f="female">Female</button>
-      <button data-f="male">Male</button>
-    </div>
-    <div class="grid" id="grid-model"></div>
-  </div>
-</div>
+                        <div class="hidden md:flex items-center">
+                            <a href="/contact" class="bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                                Get Started
+                            </a>
+                        </div>
 
-<section class="trust-bar reveal">
-  <div class="trust-item">
-    <h3>6000+</h3>
-    <p>Projects Completed</p>
-  </div>
-  <div class="trust-item">
-    <h3>100+</h3>
-    <p>Team Members</p>
-  </div>
-  <div class="trust-item">
-    <h3>40+</h3>
-    <p>Active Promoters</p>
-  </div>
-  <div class="trust-item">
-    <h3>Global</h3>
-    <p>Local & Int. Clients</p>
-  </div>
-</section>
+                        <div class="md:hidden flex items-center">
+                            <button id="mobile-menu-button" class="text-slate-300 hover:text-white focus:outline-none p-2" aria-label="Toggle menu">
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-<section class="bento-section reveal">
-  <div class="bento-grid">
-    <div class="bento-card">
-      <i class="fas fa-exclamation-triangle main-icon" style="color: #ff4757;"></i>
-      <h3>Why Brand Promoters Matter</h3>
-      <p>Most businesses struggle because:</p>
-      <ul class="bento-list">
-        <li><i class="fas fa-times"></i> Their ads don’t connect emotionally</li>
-        <li><i class="fas fa-times"></i> Their content looks generic</li>
-        <li><i class="fas fa-times"></i> Their brand lacks trust</li>
-      </ul>
-    </div>
-    
-    <div class="bento-card">
-      <i class="fas fa-lightbulb main-icon"></i>
-      <h3>Our Solution</h3>
-      <p>We use real human faces + strategic content to:</p>
-      <ul class="bento-list">
-        <li><i class="fas fa-check-circle"></i> Capture attention instantly</li>
-        <li><i class="fas fa-check-circle"></i> Build emotional connection</li>
-        <li><i class="fas fa-check-circle"></i> Increase audience trust</li>
-        <li><i class="fas fa-check-circle"></i> Improve ad performance</li>
-      </ul>
-    </div>
+                <div id="mobile-menu" class="md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-slate-800">
+                    <div class="px-4 pt-2 pb-6 space-y-1">
+                        <a href="/" class="block px-3 py-3 text-base font-medium text-slate-300 hover:text-emerald-400 hover:bg-slate-800/50 rounded-lg transition-colors">Home</a>
+                        <a href="/services" class="block px-3 py-3 text-base font-medium text-slate-300 hover:text-emerald-400 hover:bg-slate-800/50 rounded-lg transition-colors">Services</a>
+                        <a href="/portfolio" class="block px-3 py-3 text-base font-medium text-slate-300 hover:text-emerald-400 hover:bg-slate-800/50 rounded-lg transition-colors">Portfolio</a>
+                        <a href="/brand-promoters" class="block px-3 py-3 text-base font-medium text-slate-300 hover:text-emerald-400 hover:bg-slate-800/50 rounded-lg transition-colors">Brand Promoters</a>
+                        <a href="/about" class="block px-3 py-3 text-base font-medium text-slate-300 hover:text-emerald-400 hover:bg-slate-800/50 rounded-lg transition-colors">About Us</a>
+                        <a href="/courses" class="block px-3 py-3 text-base font-medium text-slate-300 hover:text-emerald-400 hover:bg-slate-800/50 rounded-lg transition-colors">Courses</a>
+                        <a href="/career" class="block px-3 py-3 text-base font-medium text-slate-300 hover:text-emerald-400 hover:bg-slate-800/50 rounded-lg transition-colors">Career</a>
+                        <a href="/contact" class="block px-3 py-3 text-base font-medium text-emerald-400 font-bold hover:bg-slate-800/50 rounded-lg transition-colors">Contact Us</a>
+                    </div>
+                </div>
+            </header>
+        `;
 
-    <div class="bento-card">
-      <i class="fas fa-bullseye main-icon" style="color: var(--cyn);"></i>
-      <h3>What You Can Use Them For</h3>
-      <ul class="bento-list">
-        <li><i class="fas fa-check"></i> Product Promotion Videos</li>
-        <li><i class="fas fa-check"></i> Facebook & Instagram Ads</li>
-        <li><i class="fas fa-check"></i> TikTok / Reels Content</li>
-        <li><i class="fas fa-check"></i> Brand Awareness Campaigns</li>
-        <li><i class="fas fa-check"></i> E-commerce Product Videos</li>
-        <li><i class="fas fa-check"></i> Service Promotion Ads</li>
-      </ul>
-    </div>
+        const FooterComponent = `
+            <footer class="glass-footer pt-20 pb-6 relative z-10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                        
+                        <div class="col-span-1 lg:col-span-1">
+                            <a href="/" class="text-2xl font-black tracking-tighter text-white flex items-center gap-2 mb-6">
+                                <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-sm">MG</span>
+                                MULTIMEDIA<span class="text-emerald-400">GEN</span>
+                            </a>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Elevating brands through premium video production, strategic brand promotion, and high-end digital aesthetics. Your vision, our masterpiece.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon w-10 h-10 rounded-full bg-slate-800/50 border border-slate-700 flex items-center justify-center text-slate-300 hover:bg-emerald-500/20 hover:border-emerald-500/50">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon w-10 h-10 rounded-full bg-slate-800/50 border border-slate-700 flex items-center justify-center text-slate-300 hover:bg-emerald-500/20 hover:border-emerald-500/50">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon w-10 h-10 rounded-full bg-slate-800/50 border border-slate-700 flex items-center justify-center text-slate-300 hover:bg-emerald-500/20 hover:border-emerald-500/50">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
 
-    <div class="bento-card">
-      <i class="fas fa-star main-icon" style="color: var(--gold);"></i>
-      <h3>What Makes Our Talent Different</h3>
-      <ul class="bento-list">
-        <li><i class="fas fa-check"></i> Camera confidence & natural delivery</li>
-        <li><i class="fas fa-check"></i> Trained for marketing content</li>
-        <li><i class="fas fa-check"></i> Understand product positioning</li>
-        <li><i class="fas fa-check"></i> Work with script + direction</li>
-        <li><i class="fas fa-check"></i> Ready for ads, not just reels</li>
-      </ul>
-    </div>
+                        <div>
+                            <h3 class="text-white font-semibold tracking-wider uppercase text-sm mb-6 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Quick Links
+                            </h3>
+                            <ul class="space-y-3">
+                                <li><a href="/" class="footer-link text-slate-400 text-sm">Home</a></li>
+                                <li><a href="/services" class="footer-link text-slate-400 text-sm">Services</a></li>
+                                <li><a href="/brand-promoters" class="footer-link text-slate-400 text-sm">Brand Promoters</a></li>
+                                <li><a href="/portfolio" class="footer-link text-slate-400 text-sm">Portfolio</a></li>
+                                <li><a href="/about" class="footer-link text-slate-400 text-sm">About Us</a></li>
+                                <li><a href="/career" class="footer-link text-slate-400 text-sm">Career</a></li>
+                                <li><a href="/contact" class="footer-link text-slate-400 text-sm">Contact Us</a></li>
+                            </ul>
+                        </div>
 
-    <div class="bento-card">
-      <i class="fas fa-chart-line main-icon" style="color: var(--purp);"></i>
-      <h3>Results You Can Expect</h3>
-      <p>With the right promoter + strategy:</p>
-      <ul class="bento-list">
-        <li><i class="fas fa-arrow-up"></i> Higher video watch time</li>
-        <li><i class="fas fa-arrow-up"></i> Better audience engagement</li>
-        <li><i class="fas fa-arrow-up"></i> More clicks on ads</li>
-        <li><i class="fas fa-arrow-up"></i> Increased sales conversion</li>
-      </ul>
-    </div>
-  </div>
+                        <div>
+                            <h3 class="text-white font-semibold tracking-wider uppercase text-sm mb-6 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-cyan-500"></span> Our Services
+                            </h3>
+                            <ul class="space-y-3">
+                                <li><a href="/services#video-editing" class="footer-link text-slate-400 text-sm">Video Editing</a></li>
+                                <li><a href="/services#video-ads" class="footer-link text-slate-400 text-sm">Video Ads</a></li>
+                                <li><a href="/services#brand-promotion" class="footer-link text-slate-400 text-sm">Brand Promotion</a></li>
+                                <li><a href="/services#product-photoshoot" class="footer-link text-slate-400 text-sm">Product Photoshoot</a></li>
+                                <li><a href="/services#podcast" class="footer-link text-slate-400 text-sm">Podcast Production</a></li>
+                                <li><a href="/services#web-dev" class="footer-link text-slate-400 text-sm">Website Development</a></li>
+                            </ul>
+                        </div>
 
-  <div class="strategy-box reveal">
-    <h2 class="section-title" style="margin-bottom: 15px;">The Strategic Advantage</h2>
-    <p>Most agencies only provide content. We provide content + strategy + execution.<br>OUR APPROACH:</p>
-    <div class="formula">Strategy + Creator + Editing + Ads = Results</div>
-  </div>
-</section>
+                        <div>
+                            <h3 class="text-white font-semibold tracking-wider uppercase text-sm mb-6 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-purple-500"></span> Get in Touch
+                            </h3>
+                            <ul class="space-y-4">
+                                <li>
+                                    <a href="https://wa.me/8801915706375" target="_blank" rel="noopener noreferrer" class="group flex items-start gap-3">
+                                        <div class="mt-1 w-8 h-8 rounded-lg bg-slate-800/80 border border-slate-700 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-900 transition-colors">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">WhatsApp</p>
+                                            <p class="text-sm text-slate-300 group-hover:text-white transition-colors">+880 1915-706375</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:multimediagen.com@gmail.com" class="group flex items-start gap-3">
+                                        <div class="mt-1 w-8 h-8 rounded-lg bg-slate-800/80 border border-slate-700 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-900 transition-colors">
+                                            <i class="far fa-envelope"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-slate-500 uppercase tracking-wider mb-1">Email</p>
+                                            <p class="text-sm text-slate-300 group-hover:text-white transition-colors">multimediagen.com@gmail.com</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-<section class="timeline-section reveal" id="process-section">
-  <h2 class="section-title">How It Works</h2>
-  <p class="section-sub">A simple, streamlined, professional workflow to ensure absolute perfection.</p>
-  
-  <div class="timeline-container" id="timeline">
-    <div class="timeline-grid">
-      <div class="timeline-step">
-        <div class="t-icon"><i class="fas fa-user-check"></i></div>
-        <h4>1. Choose Promoter</h4>
-        <p style="color:var(--gray); font-size:0.85rem;">Select your ideal match.</p>
-      </div>
-      <div class="timeline-step">
-        <div class="t-icon"><i class="fas fa-box-open"></i></div>
-        <h4>2. Share Product</h4>
-        <p style="color:var(--gray); font-size:0.85rem;">Tell us about your brand/service.</p>
-      </div>
-      <div class="timeline-step">
-        <div class="t-icon"><i class="fas fa-link"></i></div>
-        <h4>3. Provide Reference</h4>
-        <p style="color:var(--gray); font-size:0.85rem;">Optional examples/ideas.</p>
-      </div>
-      <div class="timeline-step">
-        <div class="t-icon"><i class="fas fa-brain"></i></div>
-        <h4>4. Plan Strategy</h4>
-        <p style="color:var(--gray); font-size:0.85rem;">We outline the content strategy.</p>
-      </div>
-      <div class="timeline-step">
-        <div class="t-icon"><i class="fas fa-video"></i></div>
-        <h4>5. Shoot & Edit</h4>
-        <p style="color:var(--gray); font-size:0.85rem;">Production & cinematic editing.</p>
-      </div>
-      <div class="timeline-step">
-        <div class="t-icon"><i class="fas fa-rocket"></i></div>
-        <h4>6. Delivery</h4>
-        <p style="color:var(--gray); font-size:0.85rem;">Ready-to-run ad content.</p>
-      </div>
-    </div>
-  </div>
+                    <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-700 to-transparent mb-6"></div>
 
-  <div class="payment-banner">
-    <i class="fas fa-shield-alt"></i>
-    <span>Secure Payment Policy: 50% Advance to start the project. Remaining 50% upon project completion before final delivery.</span>
-  </div>
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div class="text-slate-400 text-sm text-center md:text-left">
+                            <p>Multimedia Gen &copy; 2023-2026. "All Rights Reserved"</p>
+                        </div>
+                        <div class="flex space-x-6 text-sm">
+                            <a href="/privacy-policy" class="text-slate-500 hover:text-emerald-400 transition-colors">Privacy Policy</a>
+                            <span class="text-slate-700">|</span>
+                            <a href="/terms-conditions" class="text-slate-500 hover:text-emerald-400 transition-colors">Terms & Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        `;
 
-  <div style="text-align: center; margin-top: 40px;">
-    <a href="https://wa.me/8801915706375?text=Hello%20Multimedia%20Gen!%20I%20want%20to%20book%20a%20brand%20promoter." class="btn btn-primary" target="_blank" style="font-size: 1.1rem; padding: 18px 35px;"><i class="fab fa-whatsapp"></i> Book Your Promoter Now</a>
-  </div>
-</section>
+        // --- 2. Injection Logic ---
+        function loadComponents() {
+            // Inject Header
+            const headerPlaceholder = document.getElementById('header-placeholder');
+            if (headerPlaceholder) {
+                headerPlaceholder.innerHTML = HeaderComponent;
+                initializeHeaderScripts();
+            }
 
-<section class="testimonial-section reveal">
-  <h2 class="section-title">Client Success Stories</h2>
-  <p class="section-sub">See why top brands trust our promoters and production team.</p>
-  
-  <div class="carousel">
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"Multimedia Gen completely transformed our product ads. The brand promoter was perfectly trained and delivered the hook flawlessly. Our sales doubled in the first week of running the new creatives!"</p>
-      <div class="client-name">Sarah Ahmed</div>
-      <div class="client-role">E-commerce Founder</div>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"Hands down the best video production company in Bangladesh! Their models and editing team are top-tier. The 50/50 payment process was very transparent and professional."</p>
-      <div class="client-name">David L.</div>
-      <div class="client-role">Marketing Director</div>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"We needed a highly professional face for our real estate promo. The talent provided by Multimedia Gen was exceptional. Strategy + Execution = Amazing Results. Highly recommended!"</p>
-      <div class="client-name">Rezaul Karim</div>
-      <div class="client-role">Real Estate Agency</div>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"Stop wasting money on low-performing ads. Partnering with them for our TikTok and Reels campaigns gave us the highest ROAS we've seen this year."</p>
-      <div class="client-name">J. Thompson</div>
-      <div class="client-role">Tech Startup CEO</div>
-    </div>
-  </div>
-  
-  <a href="https://g.page/r/CYrm2ggHJjMLEBM/review" target="_blank" class="btn btn-secondary" style="margin-top: 30px;"><i class="fab fa-google"></i> View All Google Reviews</a>
-</section>
+            // Inject Footer
+            const footerPlaceholder = document.getElementById('footer-placeholder');
+            if (footerPlaceholder) {
+                footerPlaceholder.innerHTML = FooterComponent;
+            }
+            
+            // Mark active nav link based on current URL
+            setActiveNavLink();
+        }
 
-<section class="contact-section reveal">
-  <h2>Ready to Promote Your Brand <br><span style="color:var(--g)">The Right Way?</span></h2>
-  <p>Stop wasting money on low-performing ads. Start using professional brand promoters + strategic content to generate real sales.</p>
-  <a href="https://wa.me/8801915706375?text=Hello%20Multimedia%20Gen!%20I%20am%20ready%20to%20promote%20my%20brand%20the%20right%20way." class="btn btn-primary" target="_blank" style="font-size: 1.2rem; padding: 20px 40px;"><i class="fab fa-whatsapp"></i> Book Your Promoter Now</a>
-</section>
+        // --- 3. Interactive Scripts (Header) ---
+        function initializeHeaderScripts() {
+            const btn = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            const iconPath = document.getElementById('menu-icon-path');
 
-<footer class="seo-footer reveal">
-  <div class="seo-inner">
-    <h2>Elevate Your Vision with the Best Brand Promoter Agency in Bangladesh</h2>
-    <p>In today’s hyper-competitive digital landscape, standing out requires more than just standard content; it demands high-end, conversion-driven storytelling. As the <strong>Best Brand Promoter Company in Bangladesh</strong>, Multimedia Gen bridges the gap between creative vision and measurable market performance. We understand that modern consumers do not just buy products—they buy trust. By utilizing our highly trained professionals, you instantly inject credibility and human connection into your marketing campaigns.</p>
-    
-    <div class="seo-grid">
-      <div>
-        <h3>The Premier Model Agency in Dhaka</h3>
-        <p>Whether you are searching for a premium <strong>Model Agency in Dhaka</strong> to cast the perfect face for your next nationwide campaign or looking for niche talent for a social media burst, our curated roster is second to none. We provide models who aren't just visually striking, but who understand camera presence, script delivery, and the psychology behind a <strong>product promotion model</strong>. They are trained to hook the viewer in the first three seconds, ensuring your ad spend translates into tangible ROI.</p>
-      </div>
-      <div>
-        <h3>Top Marketing Company in Sylhet</h3>
-        <p>Strategically positioned to serve both local and global clients, we are recognized as the <strong>Top Marketing Company in Sylhet</strong>. We don't just hand you a video and walk away. Our holistic approach encompasses the entire digital spectrum—from hiring a <strong>video ad model Bangladesh</strong> to executing full-scale <strong>influencer marketing Bangladesh</strong> strategies. We build the funnel, craft the creative, and deploy the assets that make your brand inescapable in the digital world.</p>
-      </div>
-    </div>
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('open');
+                    // Toggle icon between hamburger and X
+                    if (menu.classList.contains('open')) {
+                        iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                    } else {
+                        iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                    }
+                });
+            }
 
-    <h3>The Leading Video Production Company in Bangladesh</h3>
-    <p>We pride ourselves on being recognized as the absolute <strong>Best Video Editing Agency in Bangladesh</strong> and the foremost <strong>Video Production Company Bangladesh</strong>. Our post-production team operates at a global standard. We utilize advanced retention-editing techniques, dynamic motion graphics, and psychological color grading to ensure every piece of content we produce is a high-performing asset. As a full-suite <strong>Promotional Ad Agency</strong>, we specialize in end-to-end <strong>Video Advertising Campaigns</strong>. From writing the initial hook to the final color correction, our team of over 100 dedicated experts ensures that your brand’s message is delivered with maximum impact.</p>
+            // Add scroll effect for header
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 10) {
+                    header.classList.add('shadow-lg', 'bg-slate-900/90');
+                    header.classList.remove('bg-slate-900/40');
+                } else {
+                    header.classList.remove('shadow-lg', 'bg-slate-900/90');
+                    header.classList.add('bg-slate-900/40');
+                }
+            });
+        }
+        
+        // --- 4. Active Link Logic ---
+        function setActiveNavLink() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link, #mobile-menu a');
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                // Basic exact match or root match
+                if (currentPath === href || (currentPath === '/' && href === '/')) {
+                    link.classList.add('text-emerald-400', 'font-semibold');
+                    link.classList.remove('text-slate-300', 'text-sm', 'font-medium'); // Adjust based on original classes
+                }
+            });
+        }
 
-    <div class="footer-note">
-      <p>Multimedia Gen helps businesses grow through high-converting video ads, brand promoters, and performance-driven marketing systems. 🚀 <em>If you're searching for the best brand promoters in Bangladesh, Multimedia Gen provides the talent, strategy, and execution to turn your marketing into measurable results.</em></p>
-    </div>
-  </div>
-</footer>
+        // Initialize on DOM Load
+        document.addEventListener('DOMContentLoaded', loadComponents);
 
-<a href="https://wa.me/8801915706375?text=Hello%20Multimedia%20Gen!%20I%20am%20visiting%20your%20website%20and%20need%20assistance." class="live-support" target="_blank" rel="noopener">
-  <div class="live-icon"><i class="fab fa-whatsapp"></i></div>
-  <div class="live-text">
-    <span>Need Help?</span>
-    <strong>Live Chat Support</strong>
-  </div>
-</a>
-
-<script>
-// --- FULL DATA ARRAYS (100% PRESERVED) ---
-const rawPromoters = [
-  {name:"Zinnath Zafar Hiya",gender:"female",rating:4.8,video:"O6FPsrTBuQM",demo:"1C59iZM4t8PnI1MbgLLUBcy7jubvDvAhO"},
-  {name:"Ashik Ahamed",gender:"male",rating:5.0,video:"wdaYyyWUN5M",demo:"https://youtube.com/shorts/wdaYyyWUN5M"},
-  {name:"RJ Opu",gender:"male",rating:5.0,video:"t9L_tpxULPY",demo:"19Xj9vZmPOHEwGCAR8N30JS8LDusj42g4"},
-  {name:"Sheikh Nusrat Priya",gender:"female",rating:5.0,video:"vOBS0chS0v8",demo:"1ZpNxsKCkFDhAlYfEaYflDMP8SDSk0sJB"},
-  {name:"Niyaz Afridi",gender:"male",rating:5.0,video:"vbkaUQ_YpaU",demo:"1ujc1cTfGvBhKACfpr2d_GhNJY_DVFFpp"},
-  {name:"Moumita Debnath",gender:"female",rating:5.0,video:"SbCn6etBs4A",demo:"14IjLK4KvWMzBZNsZaO28P-b89hO4hpph"},
-  {name:"Fahad Abdullah Al Azad",gender:"male",rating:5.0,video:"36Lzxn2pXr0",demo:"1ltzF79-vXvI8LXGo03vrSGNCiGKacLkr"},
-  {name:"Nahar Barna",gender:"female",rating:5.0,video:"Uvx91VQ0inM",demo:"1nC_5z_Wy7H3hO4PMf8Q4Rz1Je9IsLgT"},
-  {name:"Tahsin Hossain Rahi",gender:"male",rating:5.0,video:"lmreQaM5IjQ",demo:"1KddJtvRfdGOY539EqmeBlpzbFyxPJQsE"},
-  {name:"Dr Zakaria Mobin",gender:"male",rating:5.0,video:"oS3WhAalLBc",demo:"https://www.youtube.com/@thedailydeshjogot24"},
-  {name:"Eshrat Jahan Disha",gender:"female",rating:5.0,video:"17a9blJdzwg",demo:"1pz-i7DIzEoDHWqCiC9k0qUqpHw4sgbA1"},
-  {name:"Sarwar Quderi Sweet",gender:"male",rating:4.0,video:"GgT6bWrY3sE",demo:"12YG_8sBTFPOhGe4pvodjipUStOI6gUzd"},
-  {name:"Sadia Islam",gender:"female",rating:4.9,video:"aRW9QYf1q70",demo:"1ke3alq84E2bqlaPaIBPke2NCcotn2Udb"},
-  {name:"Raika Rowshan Oishy",gender:"female",rating:5.0,video:"pokGv4i1Xvg",demo:"14UnIK0yPTkNbTovedoKv6RsPUjPpHk8k"},
-  {name:"Sanjida Haque Tayeba",gender:"female",rating:3.0,video:"3CwEgrdv3w8",demo:"1QYh6NTVjeDg_-gzW3RPvJes-GwoLdDjF"},
-  {name:"Mahmudul Hasan Akib",gender:"male",rating:5.0,video:"N9tfFwqdhpU",demo:"111lI4jrlfYcGBooY6bVInKEUQ6zL1WBz"},
-  {name:"Nomanuzzman Mahen",gender:"male",rating:4.8,video:"EFv_tDip-mg",demo:"1VOAzmKpZu_S9OfHbAaVJPdkYnPXV0Ihy"},
-  {name:"Mymuna Keya",gender:"female",rating:4.5,video:"5A5Tj3bDNqw",demo:"1bS3sIoULUvyStcLfEYf2Q2xkftaUMC1g"},
-  {name:"Jannatul Nusrat Rahman",gender:"female",rating:4.5,video:"j_plp2-lr90",demo:"1wI5nX4W0GRa7ANElnj2CBx2YTQLgMnLg"},
-  {name:"Mostafijur Rahman",gender:"male",rating:4.8,video:"ZR2giswFQrY",demo:"19Qsra-Rpme9NL5aNx4SSzbrOzBVKYtCT"},
-  {name:"Esha Dastogir",gender:"male",rating:4.7,video:"Li8eFwJb1Hs",demo:"1orMJw-7pz_Kj_3Fkg-uXBBUyGIJWcxsl"},
-  {name:"Hamim Zabir",gender:"male",rating:4.7,video:"nI1OGfXFDxY",demo:"1Dw3cj_JHLDygVVPxvm19q7F0PxcEQMdB"},
-  {name:"Habiba",gender:"female",rating:5.0,video:"KA-908PzhUk",demo:"1Upmh3D286Ofjj1PfdVZlmHpkODfqUhI"},
-  {name:"Hemaet Tanvir",gender:"male",rating:4.7,video:"dlyPOU7Khfw",demo:"1eD286P_Uohe6x4zOn37W5QSYo68NNj8w"},
-  {name:"Sabbir",gender:"male",rating:4.5,video:"0H1czT1WWR0",demo:"1XEITNxCvoF7svRkUgZD1WUVXN1Bw_uRf"},
-  {name:"Zahid Iqbal",gender:"male",rating:4.8,video:"V8oEs44M6I4",demo:"16CLKYXic-t_ACjrRx95jEgdifjO2bB_z"},
-  {name:"Sadiya Alam Moury",gender:"female",rating:4.8,video:"kRMMQw5T1eA",demo:"1noeYrqsr6Dfzhy8yI9oQO0HDMHyAmaem"},
-  {name:"Rafiul Islam Rishad",gender:"male",rating:4.7,video:"LzbXCNqMKeE",demo:"https://www.instagram.com/rishad_the_sufi_vai"},
-  {name:"Abdul Ahad",gender:"male",rating:4.6,video:"rocEY56yC5g",demo:"1nLjKZZNEm-0nTjVAvWZc5NgEfEyjcbdh"},
-  {name:"Maha",gender:"female",rating:4.8,video:"A7bZFKO7Gr4",demo:"https://www.facebook.com/share/16ypBJH5R3/"},
-  {name:"Srabon Ahmed Sani",gender:"male",rating:4.9,video:"KQ7z5MBU52w",demo:"1fs2JJYuNrASWGmk0aQuqJxYO4V8UasRO"},
-  {name:"Mainur Afrose Dipa",gender:"female",rating:5.0,video:"vJ5m6QEbbLQ",demo:"https://youtube.com/shorts/vJ5m6QEbbLQ"},
-  {name:"Sabiha Rahman Ruponti",gender:"female",rating:3.0,video:"fu0hNUgszDs",demo:"1KLbIhdIUlye9da1-z-j561oN4xIEnON0"},
-  {name:"Urmi Islam",gender:"female",rating:5.0,video:"NE5MmC8I6WU",demo:"1dWGnPoH8-hD7j3m3IG0ylpVg-PWzshEr"},
-  {name:"Reya Rahman",gender:"female",rating:5.0,video:"Cu-zf5LBufE",demo:"1B-bH2UuGNrrJUre5CHHyDLaeZu4QWnCZ"},
-  {name:"Abu Sayeed Mohammad Nafi",gender:"male",rating:5.0,video:"3Cm09r56Agk",demo:"1aIja5oaEIufZR7MtDyY7vkP19caNwTVQ"},
-  {name:"Asraf Ahmed",gender:"male",rating:4.5,video:"9qgSl0r9S8g",demo:"https://youtube.com/shorts/9qgSl0r9S8g"},
-  {name:"Sabrina Tanjin Tanfe",gender:"female",rating:4.5,video:"uxgug5hB3Yc",demo:"https://www.facebook.com/share/1DumLiQoqD/"},
-  {name:"Md Usman Gani",gender:"male",rating:5.0,video:"Iz-hK6N95EM",demo:"https://www.youtube.com/@MD.USMAN_GANI"},
-  {name:"Sumaiya Akther Putul",gender:"female",rating:4.9,video:"Gd6YCmP2nCE",demo:"1YPog2b5cGxhPKJxmWT-Oqm68aRCED78x"}
-];
-
-const voiceArtists = [
-  {i:'MG-VA-01',n:'Tahsin Hosen Rahi',g:'male',rating:5.0,v:'-fDewHYo1H8',d:'1Kajb9VDe8CPupXObMUUyIwR8x_--bPnc',t:'d'},
-  {i:'MG-VA-02',n:'Labonno Lubna',g:'female',rating:5.0,v:'q1zvP_72hQc',d:'151-UdZ0kRiw-WZjYOxJ1q7fGsw5iyamI',t:'d'},
-  {i:'MG-VA-03',n:'Sumi Sikdar',g:'female',rating:4.9,v:'lZWtaT0FU1M',d:'lZWtaT0FU1M',t:'y'},
-  {i:'MG-VA-04',n:'Dipto Karmaker',g:'male',rating:4.8,v:'bwcJ29NovcU',d:'qNNURiv2_4g',t:'y'},
-  {i:'MG-VA-05',n:'SI Farhad',g:'male',rating:5.0,v:'xmUa697OUlc',d:'https://voicesifarhad.com',t:'l'},
-  {i:'MG-VA-06',n:'Mehedi H Nazim',g:'male',rating:4.9,v:'l5Vk43I0228',d:'1kyp6fWj0qNYoZLgO7x4zQuoi1UUWOKzU',t:'d'},
-  {i:'MG-VA-07',n:'Tarif Bin Zihad',g:'male',rating:4.8,v:'FULaiNMsBg0',d:'1VxG-A09wI7LDmj5vnjx_i_BYdEwa2ym8',t:'d'},
-  {i:'MG-VA-08',n:'Niloy Nil',g:'male',rating:4.7,v:'Tq2DJ3140Mo',d:'11ugAWABAKEnUAizur0vd6_hHjlmb5NB2',t:'d'},
-  {i:'MG-VA-09',n:'Hasib Khan',g:'male',rating:4.8,v:'pCY8zg_yG3s',d:'pCY8zg_yG3s',t:'y'},
-  {i:'MG-VA-10',n:'Bishal Saha',g:'male',rating:4.7,v:'x737irIY0OI',d:'19WCrai9U7UTsmfxhFXmWSlAz_Hf3eYMW',t:'d'},
-  {i:'MG-VA-11',n:'Shah Bayzid',g:'male',rating:4.6,v:'bBADCoR4rmE',d:'1-2D3_yYsReEg_3KljRXkcCQXvaWhqPNg',t:'d'},
-  {i:'MG-VA-12',n:'Tanha Sultana',g:'female',rating:4.9,v:'l6aBqNxyi-Y',d:'l6aBqNxyi-Y',t:'y'},
-  {i:'MG-VA-13',n:'Kazi Sayma Liza',g:'female',rating:4.8,v:'rU2PEa5BJxE',d:'14JGAERD_paQcRFTmwnTVYsKwzes6TNHJ',t:'d'},
-  {i:'MG-VA-14',n:'Srabon Ahmed Sani',g:'male',rating:4.9,v:'KQ7z5MBU52w',d:'1XazXrOb3XfSR8WBC8yp7thnGx2u6REmY',t:'d'},
-  {i:'MG-VA-15',n:'MD Mahedi Hasan',g:'male',rating:4.6,v:'_EVK1wvKO2Q',d:'j6KD9VHS0TI',t:'y'},
-  {i:'MG-VA-16',n:'Sakhawat Jisan',g:'male',rating:4.5,v:'XtrKD9JDAu8',d:'https://www.facebook.com/share/v/1GJBiNGjfX/',t:'l'},
-  {i:'MG-VA-17',n:'Salma Subha Aniqah',g:'female',rating:4.7,v:'MZoHB--3mDI',d:'MZoHB--3mDI',t:'y'},
-  {i:'MG-VA-18',n:'Ayesha Aktar Rani',g:'female',rating:4.6,v:'l0wXoJ1FwEo',d:'l0wXoJ1FwEo',t:'y'}
-];
-
-const modelImages = [
-  {name: "RJ Opu", id: "MG-IMG-01", gender: "male", img: "1Umxb1TpIM92XTbel4l0Gzz8T6pJHHjb0"},
-  {name: "Abu Sayeed Mohammad Nafi", id: "MG-IMG-02", gender: "male", img: "179BO6SlewmVYhsLRxP8y7crer9AA0H4D"},
-  {name: "Ashik Ahamed", id: "MG-IMG-03", gender: "male", img: "1p4z5eHlVfpHADcFB8vKLchUM5VqpJN6A"},
-  {name: "Sheikh Nusrat Priya", id: "MG-IMG-04", gender: "female", img: "1QglD0WtJ7YyISQ4uMWssyBw_XC1Oj3oV"},
-  {name: "Niyaz Afridi", id: "MG-IMG-05", gender: "male", img: "11_6VmpxSrGSaPwMHFR1QmxR44tDPL0YI"},
-  {name: "Sadia Islam", id: "MG-IMG-06", gender: "female", img: "1kLPkSP3-iCNJIdRDuuyHDepWYHC8dwQE"},
-  {name: "Maha", id: "MG-IMG-07", gender: "female", img: "1SJkRt7NMHMQUp1hdwXOo3z0a6LqLNFFG"},
-  {name: "Sabrina Tanjin Tanfe", id: "MG-IMG-08", gender: "female", img: "1VVCYqmJS_Fr71PuNTwwiOJLHHAKpzl48"},
-  {name: "Sanjida HuQe Tayeba", id: "MG-IMG-09", gender: "female", img: "1Alvd0-uPD1_xzFoIMvoaQlEaKg5alBOF"},
-  {name: "Nahar Barna", id: "MG-IMG-10", gender: "female", img: "1b5j5jLYR3Hs11xzVpUlwr-cbkFgFUBrc"},
-  {name: "Tahsin Hossain Rahi", id: "MG-IMG-11", gender: "male", img: "1zCaPDOqRjbfZ278VGg84Tno_o1DCZX7J"},
-  {name: "Sumaiya Akter Putul", id: "MG-IMG-12", gender: "female", img: "1ocEv37zGrFffF_SsDsfYyKm1zlCAevJj"},
-  {name: "Hemaet Tanvir", id: "MG-IMG-13", gender: "male", img: "1HZqHOwaJgsUWjulPuGVC2MczCy1lSTF4"},
-  {name: "Mahbuba", id: "MG-IMG-14", gender: "female", img: "1iGVNqTfUYTTPFAQIx5I7qFO0YDjzCn8l"},
-  {name: "Jahid Iqbal", id: "MG-IMG-15", gender: "male", img: "1gz1tg2mlPxo-RRIk5EtmO8To4xvJS2eF"},
-  {name: "Eshrat Jahan Disha", id: "MG-IMG-16", gender: "female", img: "1TvnbOZ2rrFMK7BjbDrXMBL0n_DQOfU4u"},
-  {name: "Fahad Abdullah", id: "MG-IMG-17", gender: "male", img: "1jf_Zls8rxDpErmljSMW_ztZIWw8yjHOS"},
-  {name: "Srabon Ahmed Sani", id: "MG-IMG-18", gender: "male", img: "1YXvAHhwCTLVTGqmGIC7mrw6ROX91eUst"},
-  {name: "Urmi Islam", id: "MG-IMG-19", gender: "female", img: "1ljh5CG_a_KU5gpj3eNBenHHJR2_MqBne"},
-  {name: "Raika Rowshan Oishy", id: "MG-IMG-20", gender: "female", img: "1VRDAEYl9zjeBdQ9YT9OEMa_e4wOEEsWe"},
-  {name: "Jannatul Nusrat Rahman", id: "MG-IMG-21", gender: "female", img: "1UmdNCRFJmq4jasp4CcKhVMGLXXbmHNGh"},
-  {name: "Hamim Jabir", id: "MG-IMG-22", gender: "male", img: "1gwm-6Ga0kzQl-K45VuEpEsAcxfO4Y1gc"},
-  {name: "Mymuna Keya", id: "MG-IMG-23", gender: "female", img: "1hcGiNRk34JfzA29Ul1woF8RoZjJwa9aQ"},
-  {name: "Nomanuzzman Mahen", id: "MG-IMG-24", gender: "male", img: "1-vqLRmUodGf4QtDUEWPcY4IwsnIDrUUJ"},
-  {name: "Moumita Debnath", id: "MG-IMG-25", gender: "female", img: "1BEQCAXxcKfHRTtuU6TcC5luxtJzTlnRu"},
-  {name: "Romana Tanha", id: "MG-IMG-26", gender: "female", img: "1essj2ajoWuSrF6AmWIMdlQXYJNhHjUl0"},
-  {name: "AL Ashraf", id: "MG-IMG-27", gender: "male", img: "1A_ERBh3QMa8uN1FYIS2FzLQ5rpLftrc2"}
-];
-
-// --- PROCESSING LOGIC ---
-const premiumNames = new Set(["RJ Opu", "Abu Sayeed Mohammad Nafi", "Ashik Ahamed", "Sheikh Nusrat Priya", "Niyaz Afridi", "Moumita Debnath", "Fahad Abdullah Al Azad", "Nahar Barna", "Tahsin Hossain Rahi", "Raika Rowshan Oishy", "Habiba", "Eshrat Jahan Disha", "Reya Rahman", "Md Usman Gani"]);
-rawPromoters.forEach(p => { p.isTopRanked = premiumNames.has(p.name); });
-rawPromoters.sort((a, b) => {
-  const pushToEnd = ["Asraf Ahmed", "Sabrina Tanjin Tanfe"];
-  const aToEnd = pushToEnd.indexOf(a.name); const bToEnd = pushToEnd.indexOf(b.name);
-  if (aToEnd !== -1 && bToEnd !== -1) return aToEnd - bToEnd;
-  if (aToEnd !== -1) return 1; if (bToEnd !== -1) return -1;
-  const forcedOrder = ["RJ Opu", "Abu Sayeed Mohammad Nafi", "Ashik Ahamed"];
-  const aIndex = forcedOrder.indexOf(a.name); const bIndex = forcedOrder.indexOf(b.name);
-  if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
-  if (aIndex !== -1) return -1; if (bIndex !== -1) return 1;
-  if (b.isTopRanked !== a.isTopRanked) return b.isTopRanked - a.isTopRanked;
-  return b.rating - a.rating;
-});
-
-rawPromoters.forEach((p, index) => {
-  let rank = index + 1;
-  p.id = "MG-BP-" + String(rank).padStart(2, '0');
-  if (rank <= 14) { p.badgeText = "TOP RATED"; p.badgeClass = "top-rated"; } 
-  else if (rank <= 24) { p.badgeText = "LEVEL 2 SELLER"; p.badgeClass = "level-2"; } 
-  else if (rank <= 34) { p.badgeText = "LEVEL 1 SELLER"; p.badgeClass = "level-1"; } 
-  else { p.badgeText = "NEW SELLER"; p.badgeClass = "new-seller"; }
-});
-
-voiceArtists.sort((a, b) => b.rating - a.rating);
-voiceArtists.forEach((a, index) => {
-  let rank = index + 1;
-  if (rank <= 6) { a.badgeText = "TOP RATED"; a.badgeClass = "top-rated"; } 
-  else if (rank <= 11) { a.badgeText = "LEVEL 2 SELLER"; a.badgeClass = "level-2"; } 
-  else if (rank <= 15) { a.badgeText = "LEVEL 1 SELLER"; a.badgeClass = "level-1"; } 
-  else { a.badgeText = "NEW SELLER"; a.badgeClass = "new-seller"; }
-});
-
-// --- RENDER UTILITIES ---
-let pFilter = 'all';
-let vFilter = 'all';
-let mFilter = 'all';
-
-function renderStars(r){
-  let s = '';
-  for(let i=1;i<=5;i++) s += i<=r ? '<i class="fas fa-star"></i>' : (i-0.5===r ? '<i class="fas fa-star-half-alt"></i>' : '<i class="far fa-star"></i>');
-  return s;
-}
-
-const getDemoLink = (d, t='d') => {
-  if(!t || typeof t === 'undefined') return d.startsWith('http') ? d : `https://drive.google.com/drive/folders/${d}`;
-  return t === 'd' ? `https://drive.google.com/drive/folders/${d}` : t === 'y' ? `https://youtu.be/${d}` : d;
-}
-
-// RELIABLE THUMBNAIL API
-const getDriveImg = (id) => `https://drive.google.com/thumbnail?id=${id}&sz=w1000`;
-
-// --- MAIN RENDER FUNCTION ---
-function renderGrid(arr, filterVal, containerId, searchInputId, type) {
-  const q = document.getElementById(searchInputId).value.toLowerCase();
-  
-  let filtered = arr.filter(item => 
-    (item.name ? item.name : item.n).toLowerCase().includes(q) || 
-    (item.id ? item.id : item.i).toLowerCase().includes(q)
-  );
-
-  filtered = filtered.filter(item => {
-    if (filterVal === 'all') return true;
-    const itemGender = item.gender ? item.gender : item.g;
-    if (filterVal === 'male' || filterVal === 'female') return itemGender === filterVal;
-    if (type !== 'model') return item.badgeClass === filterVal;
-    return true;
-  });
-
-  document.getElementById(containerId).innerHTML = filtered.map(item => {
-    const name = item.name ? item.name : item.n;
-    const id = item.id ? item.id : item.i;
-    const typeLabel = type === 'voice' ? 'Voice Artist' : (type === 'model' ? 'Model' : 'Brand Promoter');
-    
-    const msg = encodeURIComponent(`Hello Multimedia Gen!\nI am interested in booking this ${typeLabel}:\nName: ${name}\nID: ${id}\n\nPlease share the package details.`);
-    const wa = `https://wa.me/8801915706375?text=${msg}`;
-    
-    // MODEL IMAGES CARD
-    if(type === 'model') {
-      return `<div class="card">
-        <div class="i">
-          <div class="img-box">
-            <img src="${getDriveImg(item.img)}" loading="lazy" alt="${name} Portfolio Photo">
-          </div>
-          <h2>${name}</h2>
-          <div class="id">${id}</div>
-          <a href="${wa}" target="_blank" rel="noopener" class="wa"><i class="fab fa-whatsapp"></i> Order On WhatsApp</a>
-        </div>
-      </div>`;
-    }
-
-    // PROMOTER / VOICE ARTIST CARD
-    const video = item.video ? item.video : item.v;
-    const demoLink = getDemoLink(item.demo || item.d, item.t);
-    
-    return `<div class="card is-${item.badgeClass}">
-      <div class="i">
-        <div class="badge ${item.badgeClass}">${item.badgeText}</div>
-        <h2>${name}</h2>
-        <div class="id">${id}</div>
-        <div class="rating">${renderStars(item.rating)} <span>${item.rating.toFixed(1)}</span></div>
-        <div class="v" onclick="window.playVideo(this,'${video}')">
-          <img src="https://i.ytimg.com/vi_webp/${video}/hqdefault.webp" loading="lazy" width="320" height="180" alt="${name}">
-          <div class="p"><i class="fas fa-play"></i></div>
-        </div>
-        <div class="b">
-          <div class="top-buttons">
-            <a href="${demoLink}" target="_blank" rel="noopener">${type === 'voice' ? 'LISTEN AUDIO' : 'PORTFOLIO'}</a>
-          </div>
-          <a href="${wa}" target="_blank" rel="noopener" class="wa"><i class="fab fa-whatsapp"></i> Order On WhatsApp</a>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-// --- GLOBALS & EVENTS ---
-window.playVideo = function(el, id){
-  const isPlaying = el.classList.contains('playing');
-  document.querySelectorAll('.v.playing').forEach(v => {
-    v.classList.remove('playing');
-    const iframe = v.querySelector('iframe');
-    if(iframe) iframe.remove();
-  });
-    
-  if(!isPlaying){
-    const iframe = document.createElement('iframe');
-    iframe.setAttribute('allow', 'autoplay; fullscreen');
-    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
-    el.appendChild(iframe);
-    el.classList.add('playing');
-  }
-}
-
-window.switchTab = function(tabId) {
-  document.querySelectorAll('.mt-btn').forEach(b => b.classList.remove('active'));
-  event.target.closest('.mt-btn').classList.add('active');
-  
-  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-  document.getElementById('tab-' + tabId).classList.add('active');
-
-  document.querySelectorAll('.v.playing iframe').forEach(ifr => ifr.remove());
-  document.querySelectorAll('.v.playing').forEach(v => v.classList.remove('playing'));
-}
-
-// Filters Events
-document.querySelectorAll('#f-promoter button').forEach(b => b.addEventListener('click', (e) => {
-  document.querySelectorAll('#f-promoter button').forEach(x => x.classList.remove('active'));
-  e.target.classList.add('active');
-  pFilter = e.target.dataset.f;
-  renderGrid(rawPromoters, pFilter, 'grid-promoter', 's-promoter', 'promoter');
-}));
-
-document.querySelectorAll('#f-voice button').forEach(b => b.addEventListener('click', (e) => {
-  document.querySelectorAll('#f-voice button').forEach(x => x.classList.remove('active'));
-  e.target.classList.add('active');
-  vFilter = e.target.dataset.f;
-  renderGrid(voiceArtists, vFilter, 'grid-voice', 's-voice', 'voice');
-}));
-
-document.querySelectorAll('#f-model button').forEach(b => b.addEventListener('click', (e) => {
-  document.querySelectorAll('#f-model button').forEach(x => x.classList.remove('active'));
-  e.target.classList.add('active');
-  mFilter = e.target.dataset.f;
-  renderGrid(modelImages, mFilter, 'grid-model', 's-model', 'model');
-}));
-
-// Search Events
-document.getElementById('s-promoter').addEventListener('input', () => renderGrid(rawPromoters, pFilter, 'grid-promoter', 's-promoter', 'promoter'));
-document.getElementById('s-voice').addEventListener('input', () => renderGrid(voiceArtists, vFilter, 'grid-voice', 's-voice', 'voice'));
-document.getElementById('s-model').addEventListener('input', () => renderGrid(modelImages, mFilter, 'grid-model', 's-model', 'model'));
-
-// Initial Load
-renderGrid(rawPromoters, 'all', 'grid-promoter', 's-promoter', 'promoter');
-renderGrid(voiceArtists, 'all', 'grid-voice', 's-voice', 'voice');
-renderGrid(modelImages, 'all', 'grid-model', 's-model', 'model');
-
-// --- INTERSECTION OBSERVER FOR SMOOTH SCROLL ANIMATIONS ---
-document.addEventListener("DOMContentLoaded", function() {
-  const reveals = document.querySelectorAll('.reveal');
-  const timeline = document.getElementById('timeline');
-
-  // Fallback for browsers that don't support intersection observer
-  if (!('IntersectionObserver' in window)) {
-    reveals.forEach(reveal => reveal.classList.add('active'));
-    if(timeline) timeline.classList.add('active');
-    return;
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  reveals.forEach(reveal => {
-    observer.observe(reveal);
-  });
-  
-  if(timeline) observer.observe(timeline);
-});
-</script>
+    </script>
 </body>
 </html>
